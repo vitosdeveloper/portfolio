@@ -1,7 +1,23 @@
 'use client';
+import { useState } from 'react';
+import Header from './components/partials/Header/Header';
+import { ISection } from './types/Section';
+import Home from './components/pages/Home';
+import Section from './components/containers/Section';
 
-import Text from './components/Text';
+export default function App() {
+  const [section, setSection] = useState<ISection>('#home');
+  const [headerHeight, setHeaderHeight] = useState<number>(0);
 
-export default function Home() {
-  return <Text>oi</Text>;
+  return (
+    <>
+      <Header
+        setSection={setSection}
+        section={section}
+        setHeaderHeight={setHeaderHeight}
+      />
+      <Home headerHeight={headerHeight} />
+      <Section headerHeight={headerHeight}>adgas</Section>
+    </>
+  );
 }
