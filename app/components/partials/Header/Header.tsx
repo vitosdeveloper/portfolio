@@ -15,9 +15,15 @@ type Props = {
   section: ISection;
   setSection: Dispatch<SetStateAction<ISection>>;
   setHeaderHeight: Dispatch<SetStateAction<number>>;
+  headerHeight: number;
 };
 
-const Header = ({ section, setSection, setHeaderHeight }: Props) => {
+const Header = ({
+  section,
+  setSection,
+  setHeaderHeight,
+  headerHeight,
+}: Props) => {
   const [big, setBig] = useState<boolean>(false);
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const links: { href: ISection; content: string }[] = [
@@ -34,7 +40,9 @@ const Header = ({ section, setSection, setHeaderHeight }: Props) => {
       const windowSize = window.innerWidth;
       setBig(!(windowSize <= 999));
       setShowMenu(!(windowSize <= 999));
-      setHeaderHeight(document.querySelector('#header')?.clientHeight || 0);
+      setHeaderHeight(
+        document.querySelector('#header')?.getBoundingClientRect().height || 0
+      );
     };
     handleResize();
     window.addEventListener('resize', handleResize);
@@ -42,7 +50,7 @@ const Header = ({ section, setSection, setHeaderHeight }: Props) => {
   }, [setHeaderHeight]);
 
   return (
-    <StyledHeader id='header' big={big}>
+    <StyledHeader id='header' big={big} headerHeight={headerHeight}>
       <HeaderLogo big={big} />
       <div
         style={{

@@ -1,5 +1,12 @@
 import type { Metadata } from 'next';
-import { Inter, Share_Tech_Mono, Poppins } from 'next/font/google';
+import {
+  Inter,
+  Share_Tech_Mono,
+  Poppins,
+  Fira_Code,
+  Jost,
+  Rubik,
+} from 'next/font/google';
 import './globals.css';
 import StyledComponentsRegistry from './lib/registry';
 
@@ -13,6 +20,18 @@ const poppins = Poppins({
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   variable: '--font-poppins',
+});
+const firaCode = Fira_Code({
+  subsets: ['latin'],
+  variable: '--font-fira-code',
+});
+const jost = Jost({
+  subsets: ['latin'],
+  variable: '--font-jost',
+});
+const rubik = Rubik({
+  subsets: ['latin'],
+  variable: '--font-rubik',
 });
 
 export const metadata: Metadata = {
@@ -28,7 +47,8 @@ export default function RootLayout({
   return (
     <html lang='pt-BR'>
       <body
-        className={`${inter.variable} ${shareTechMono.variable} ${poppins.variable}`}
+        className={`${inter.variable} ${shareTechMono.variable} ${poppins.variable} 
+        ${firaCode.variable} ${jost.variable} ${rubik.variable}`}
       >
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>

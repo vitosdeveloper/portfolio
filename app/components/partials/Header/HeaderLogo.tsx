@@ -10,6 +10,7 @@ const LogoH1 = styled.h1`
     rgba(221, 76, 99, 1) 100%
   );
   background-clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   white-space: nowrap;
   @media (max-width: 320px) {
@@ -24,20 +25,20 @@ const StyledDiCode = styled(DiCode)`
   }
 `;
 
+const StyledContainer = styled.div<{ big: boolean }>`
+  display: flex;
+  align-items: center;
+  align-self: ${({ big }) => (big ? 'start' : 'inital')};
+  gap: 0.25rem;
+  white-space: nowrap;
+`;
+
 const HeaderLogo = ({ big }: { big: boolean }) => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        alignSelf: big ? 'start' : 'inital',
-        gap: '.25rem',
-        whiteSpace: 'nowrap',
-      }}
-    >
+    <StyledContainer big={big}>
       <StyledDiCode size='66px' />
       <LogoH1>Vitos Developer</LogoH1>;
-    </div>
+    </StyledContainer>
   );
 };
 

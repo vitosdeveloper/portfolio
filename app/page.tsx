@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Header from './components/partials/Header/Header';
 import { ISection } from './types/Section';
 import Home from './components/pages/Home';
-import Section from './components/containers/Section';
+import About from './components/pages/About';
 
 export default function App() {
   const [section, setSection] = useState<ISection>('#home');
@@ -15,9 +15,10 @@ export default function App() {
         setSection={setSection}
         section={section}
         setHeaderHeight={setHeaderHeight}
+        headerHeight={headerHeight}
       />
       <Home headerHeight={headerHeight} />
-      <Section headerHeight={headerHeight}>adgas</Section>
+      <About headerHeight={headerHeight} />
     </>
   );
 }

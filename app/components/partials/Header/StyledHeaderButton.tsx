@@ -8,6 +8,7 @@ const StyledHeaderButton = styled.button`
   border-radius: 5px;
   cursor: pointer;
   color: var(--color-white);
+  background: var(--color-button-hover);
   border: none;
   font-family: var(--font-poppins), sans-serif;
 `;

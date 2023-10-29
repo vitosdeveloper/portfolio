@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
-const HomeContainer = styled.div`
-  background-image: url('./background.png');
-  background-size: cover;
-  opacity: 0.2;
+const HomeContainer = styled.div<{ headerHeight: number }>`
+  padding-top: ${({ headerHeight }) => headerHeight + 'px'};
 `;
 
 export default HomeContainer;
