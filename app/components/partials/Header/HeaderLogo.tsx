@@ -25,19 +25,19 @@ const StyledDiCode = styled(DiCode)`
   }
 `;
 
-const StyledContainer = styled.div<{ big: boolean }>`
+const StyledContainer = styled.div<{ $big: boolean }>`
   display: flex;
   align-items: center;
-  align-self: ${({ big }) => (big ? 'start' : 'inital')};
+  align-self: ${({ $big }) => ($big ? 'start' : 'inital')};
   gap: 0.25rem;
   white-space: nowrap;
 `;
 
 const HeaderLogo = ({ big }: { big: boolean }) => {
   return (
-    <StyledContainer big={big}>
+    <StyledContainer $big={big}>
       <StyledDiCode size='66px' />
-      <LogoH1>Vitos Developer</LogoH1>;
+      <LogoH1>Vitos Developer</LogoH1>
     </StyledContainer>
   );
 };

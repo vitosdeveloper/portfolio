@@ -10,13 +10,13 @@ type Props = { headerHeight: number };
 const Home = ({ headerHeight }: Props) => {
   return (
     <BackgroundOverlay>
-      <HomeContainer headerHeight={headerHeight}>
-        <Section headerHeight={headerHeight}>
+      <HomeContainer $headerHeight={headerHeight}>
+        <Section $headerHeight={headerHeight}>
           <StyledHomeContainer>
             <ContentContainer>
               <StyledHomeRole>FULL-STACK DEVELOPER</StyledHomeRole>
               <StyledHomeTitle>Hey! I am</StyledHomeTitle>
-              <StyledHomeTitle gradient>Vitor Fernandes</StyledHomeTitle>
+              <StyledHomeTitle $gradientprop>Vitor Fernandes</StyledHomeTitle>
               <StyledP>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Eligendi voluptas eveniet aut iusto ab voluptatum delectus
@@ -79,6 +79,8 @@ const ContentContainer = styled.div`
 
 const ImageContainer = styled.div`
   max-height: 744px;
+  flex: 1;
+  min-width: 280px;
 `;
 
 const StyledImage = styled.img`
@@ -86,8 +88,7 @@ const StyledImage = styled.img`
   max-width: 744px;
   width: 100%;
   flex: 1;
-  @media (max-width: 1200px) {
-  }
+  float: inline-end;
 `;
 
 const StyledHomeRole = styled.h3`
@@ -103,12 +104,12 @@ const StyledHomeRole = styled.h3`
   text-transform: uppercase;
 `;
 
-const StyledHomeTitle = styled.h3<{ gradient?: boolean }>`
+const StyledHomeTitle = styled.h3<{ $gradientprop?: boolean }>`
   font-family: var(--font-jost);
   font-size: 3rem;
   -webkit-text-fill-color: transparent;
-  background: ${({ gradient }) =>
-    gradient ? 'var(--color-button)' : 'var(--color-info-light)'};
+  background: ${({ $gradientprop }) =>
+    $gradientprop ? 'var(--color-button)' : 'var(--color-info-light)'};
   -webkit-background-clip: text;
   background-clip: text;
   display: inline;

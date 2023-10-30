@@ -15,7 +15,6 @@ export default function App() {
         setSection={setSection}
         section={section}
         setHeaderHeight={setHeaderHeight}
-        headerHeight={headerHeight}
       />
       <Home headerHeight={headerHeight} />
       <About headerHeight={headerHeight} />

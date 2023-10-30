@@ -6,7 +6,7 @@ type Props = { headerHeight: number };
 
 const About = ({ headerHeight }: Props) => {
   return (
-    <Section headerHeight={headerHeight}>
+    <Section $headerHeight={headerHeight}>
       <Title>About</Title>
     </Section>
   );

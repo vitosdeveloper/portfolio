@@ -15,15 +15,9 @@ type Props = {
   section: ISection;
   setSection: Dispatch<SetStateAction<ISection>>;
   setHeaderHeight: Dispatch<SetStateAction<number>>;
-  headerHeight: number;
 };
 
-const Header = ({
-  section,
-  setSection,
-  setHeaderHeight,
-  headerHeight,
-}: Props) => {
+const Header = ({ section, setSection, setHeaderHeight }: Props) => {
   const [big, setBig] = useState<boolean>(false);
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const links: { href: ISection; content: string }[] = [
@@ -50,7 +44,7 @@ const Header = ({
   }, [setHeaderHeight]);
 
   return (
-    <StyledHeader id='header' big={big} headerHeight={headerHeight}>
+    <StyledHeader id='header' $big={big}>
       <HeaderLogo big={big} />
       <div
         style={{
@@ -69,8 +63,8 @@ const Header = ({
             size={20}
           />
         )}
-        <StyledNav big={big} showMenu={showMenu}>
-          <StyledUl big={big}>
+        <StyledNav $big={big} $showMenu={showMenu}>
+          <StyledUl $big={big}>
             {links.map(({ href, content }) => (
               <StyledHeaderLi
                 key={href}
