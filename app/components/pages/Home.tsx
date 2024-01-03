@@ -127,8 +127,8 @@ export const StyledImage = ({
       }}
       src={src}
       alt={alt}
-      width={744}
-      height={744}
+      width={600}
+      height={600}
     />
   );
 };

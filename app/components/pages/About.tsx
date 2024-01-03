@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import StyledHeaderButton from '../partials/Header/StyledHeaderButton';
 import { BsDownload } from 'react-icons/bs';
 import { ISection } from '@/app/types/Section';
-import F11Image from '@/public/f11.png';
+import F11Image from '@/public/f11.webp';
 
 type Props = {
   headerHeight: number;

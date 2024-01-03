@@ -5,7 +5,7 @@ const BackgroundOverlay = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('./background.png');
+  background-image: url('./background.webp');
   background-size: cover;
 `;
 
