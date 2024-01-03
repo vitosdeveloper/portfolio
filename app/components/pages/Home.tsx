@@ -7,6 +7,8 @@ import BackgroundOverlay from '../containers/BackgroundOverlay';
 import { StyledP } from './About';
 import { Dispatch, SetStateAction } from 'react';
 import { ISection } from '@/app/types/Section';
+import Image, { StaticImageData } from 'next/image';
+import EuImage from '@/public/eu.png';
 
 type Props = {
   headerHeight: number;
@@ -14,6 +16,7 @@ type Props = {
 };
 
 const Home = ({ headerHeight }: Props) => {
+  const left = false;
   return (
     <BackgroundOverlay id='#home'>
       <HomeContainer $headerHeight={headerHeight}>
@@ -48,7 +51,19 @@ const Home = ({ headerHeight }: Props) => {
               </StyledSocialContainer>
             </ContentContainer>
             <ImageContainer>
-              <StyledImage src='/eu.png' alt='home-picture' />
+              <StyledImage src={EuImage} alt='home-picture' />
+              {/* <Image
+                style={{
+                  borderRadius: '8px',
+                  maxWidth: '744px',
+                  width: '100%',
+                  height: 'auto',
+                  flex: 1,
+                  float: left ? 'inline-start' : 'inline-end',
+                }}
+                src={EuImage}
+                alt=''
+              /> */}
             </ImageContainer>
           </StyledHomeContainer>
         </Section>
@@ -90,16 +105,44 @@ export const ImageContainer = styled.div`
   min-width: 280px;
 `;
 
-export const StyledImage = styled.img<{ $left?: boolean }>`
-  border-radius: 8px;
-  max-width: 744px;
-  width: 100%;
-  flex: 1;
-  float: ${({ $left }) => ($left ? 'inline-start' : 'inline-end')};
-  /* @media screen {
-    width: 280px;
-  } */
-`;
+export const StyledImage = ({
+  $left = false,
+  src,
+  alt,
+}: {
+  $left?: boolean;
+  src: StaticImageData;
+  alt: string;
+}) => {
+  return (
+    <Image
+      style={{
+        borderRadius: '8px',
+        maxWidth: '744px',
+        width: '100%',
+        // maxWidth: '744px',
+        height: 'auto',
+        flex: 1,
+        float: $left ? 'inline-start' : 'inline-end',
+      }}
+      src={src}
+      alt={alt}
+      width={744}
+      height={744}
+    />
+  );
+};
+
+// export const StyledImage = styled.img<{ $left?: boolean }>`
+//   border-radius: 8px;
+//   max-width: 744px;
+//   width: 100%;
+//   flex: 1;
+//   float: ${({ $left }) => ($left ? 'inline-start' : 'inline-end')};
+//   /* @media screen {
+//     width: 280px;
+//   } */
+// `;
 
 const StyledHomeRole = styled.h3`
   opacity: 1;

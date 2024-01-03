@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import StyledHeaderButton from '../partials/Header/StyledHeaderButton';
 import { BsDownload } from 'react-icons/bs';
 import { ISection } from '@/app/types/Section';
+import F11Image from '@/public/f11.png';
 
 type Props = {
   headerHeight: number;
@@ -16,7 +17,7 @@ const About = ({ headerHeight, setSection }: Props) => {
     <Section id='#about' $headerHeight={headerHeight}>
       <AboutMeContainer>
         <ImageContainer>
-          <StyledImage $left src='/f11.png' alt='home-picture' />
+          <StyledImage $left src={F11Image} alt='home-picture' />
         </ImageContainer>
         <AboutTextContainer>
           <StyledAboutTitle>ABOUT ME</StyledAboutTitle>

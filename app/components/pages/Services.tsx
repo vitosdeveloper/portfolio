@@ -4,6 +4,7 @@ import { StyledAboutTitle } from './About';
 import styled from 'styled-components';
 import { ImageContainer, StyledHomeTitle, StyledImage } from './Home';
 import { ISection } from '@/app/types/Section';
+import CodingIcon from '@/public/coding_icon.png';
 
 type Props = {
   headerHeight: number;
@@ -44,7 +45,7 @@ const Services = ({ headerHeight }: Props) => {
             className='service_image'
             style={{ margin: '0 auto' }}
           >
-            <StyledImage $left src='/coding_icon.png' alt='home-picture' />
+            <StyledImage $left src={CodingIcon} alt='home-picture' />
           </ImageContainer>
           <ServicesTextContainer className='service_text_two'>
             <div>
