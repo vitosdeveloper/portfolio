@@ -4,12 +4,18 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import { BsFillPlayFill, BsGithub, BsLinkedin } from 'react-icons/bs';
 import BackgroundOverlay from '../containers/BackgroundOverlay';
+import { StyledP } from './About';
+import { Dispatch, SetStateAction } from 'react';
+import { ISection } from '@/app/types/Section';
 
-type Props = { headerHeight: number };
+type Props = {
+  headerHeight: number;
+  setSection: Dispatch<SetStateAction<ISection>>;
+};
 
 const Home = ({ headerHeight }: Props) => {
   return (
-    <BackgroundOverlay>
+    <BackgroundOverlay id='#home'>
       <HomeContainer $headerHeight={headerHeight}>
         <Section $headerHeight={headerHeight}>
           <StyledHomeContainer>
@@ -24,7 +30,8 @@ const Home = ({ headerHeight }: Props) => {
               </StyledP>
               <StyledButtonLink href='mailto:vitosdeveloper@gmail.com'>
                 <StyledHireMeButton>
-                  <span>HIRE ME</span> <BsFillPlayFill />
+                  HIRE ME
+                  <BsFillPlayFill />
                 </StyledHireMeButton>
               </StyledButtonLink>
               <StyledP>Follow Me:</StyledP>
@@ -77,18 +84,21 @@ const ContentContainer = styled.div`
   }
 `;
 
-const ImageContainer = styled.div`
+export const ImageContainer = styled.div`
   max-height: 744px;
   flex: 1;
   min-width: 280px;
 `;
 
-const StyledImage = styled.img`
+export const StyledImage = styled.img<{ $left?: boolean }>`
   border-radius: 8px;
   max-width: 744px;
   width: 100%;
   flex: 1;
-  float: inline-end;
+  float: ${({ $left }) => ($left ? 'inline-start' : 'inline-end')};
+  /* @media screen {
+    width: 280px;
+  } */
 `;
 
 const StyledHomeRole = styled.h3`
@@ -104,7 +114,7 @@ const StyledHomeRole = styled.h3`
   text-transform: uppercase;
 `;
 
-const StyledHomeTitle = styled.h3<{ $gradientprop?: boolean }>`
+export const StyledHomeTitle = styled.h3<{ $gradientprop?: boolean }>`
   font-family: var(--font-jost);
   font-size: 3rem;
   -webkit-text-fill-color: transparent;
@@ -113,13 +123,6 @@ const StyledHomeTitle = styled.h3<{ $gradientprop?: boolean }>`
   -webkit-background-clip: text;
   background-clip: text;
   display: inline;
-`;
-
-const StyledP = styled.p`
-  font-weight: 400;
-  font-family: var(--font-rubik);
-  color: #ccc;
-  font-size: 16px;
 `;
 
 const StyledButtonLink = styled(Link)`

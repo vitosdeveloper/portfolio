@@ -18,7 +18,7 @@ const LogoH1 = styled.h1`
   }
 `;
 
-const StyledDiCode = styled(DiCode)`
+export const StyledDiCode = styled(DiCode)`
   color: rgba(89, 195, 120, 1);
   @media (max-width: 500px) {
     display: none;

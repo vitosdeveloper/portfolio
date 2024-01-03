@@ -1,5 +1,5 @@
 'use client';
-import Link from 'next/link';
+import NextLink from 'next/link';
 import StyledHeader from './StyledHeader';
 import StyledNav from './StyledNav';
 import StyledUl from '../../elements/StyledUl';
@@ -10,24 +10,32 @@ import StyledHeaderButton from './StyledHeaderButton';
 import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import Hamburger from 'hamburger-react';
 import { ISection } from '@/app/types/Section';
+import { Link } from 'react-scroll';
 
 type Props = {
-  section: ISection;
-  setSection: Dispatch<SetStateAction<ISection>>;
+  headerHeight: number;
   setHeaderHeight: Dispatch<SetStateAction<number>>;
+  setSection: Dispatch<SetStateAction<ISection>>;
+  section: ISection;
 };
 
-const Header = ({ section, setSection, setHeaderHeight }: Props) => {
+export const links: { href: ISection; content: string }[] = [
+  { href: '#home', content: 'HOME' },
+  { href: '#about', content: 'ABOUT' },
+  { href: '#services', content: 'SERVICES' },
+  { href: '#skills', content: 'SKILLS' },
+  { href: '#work', content: 'MY WORK' },
+  { href: '#contact', content: 'CONTACT' },
+];
+
+const Header = ({
+  setSection,
+  section,
+  headerHeight,
+  setHeaderHeight,
+}: Props) => {
   const [big, setBig] = useState<boolean>(false);
   const [showMenu, setShowMenu] = useState<boolean>(false);
-  const links: { href: ISection; content: string }[] = [
-    { href: '#home', content: 'HOME' },
-    { href: '#about', content: 'ABOUT' },
-    { href: '#services', content: 'SERVICES' },
-    { href: '#skills', content: 'SKILLS' },
-    { href: '#work', content: 'MY WORK' },
-    { href: '#contact', content: 'CONTACT' },
-  ];
 
   useEffect(() => {
     const handleResize = () => {
@@ -65,23 +73,29 @@ const Header = ({ section, setSection, setHeaderHeight }: Props) => {
         )}
         <StyledNav $big={big} $showMenu={showMenu}>
           <StyledUl $big={big}>
-            {links.map(({ href, content }) => (
-              <StyledHeaderLi
-                key={href}
-                selected={href === section}
-                onClick={() => setSection(href)}
-              >
-                <Link href={href}>{content}</Link>
-              </StyledHeaderLi>
-            ))}
+            {links.map(({ href, content }) => {
+              return (
+                <StyledHeaderLi key={href} selected={href === section}>
+                  <Link
+                    onClick={() => setSection(href)}
+                    smooth={true}
+                    duration={300}
+                    to={href}
+                    offset={-headerHeight}
+                  >
+                    {content}
+                  </Link>
+                </StyledHeaderLi>
+              );
+            })}
           </StyledUl>
 
-          <Link href='https://github.com/vitosnatios' target='_blank'>
+          <NextLink href='https://github.com/vitosnatios' target='_blank'>
             <DiGithubBadge
               style={{ color: 'var(--color-white)' }}
               size='25px'
             />
-          </Link>
+          </NextLink>
           <StyledHeaderButton>Contact Me</StyledHeaderButton>
         </StyledNav>
       </div>

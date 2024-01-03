@@ -12,6 +12,7 @@ const StyledHeaderLi = styled.li<{ selected?: boolean }>`
   }
   a:hover {
     color: var(--link-hover);
+    cursor: pointer;
   }
 `;
 
