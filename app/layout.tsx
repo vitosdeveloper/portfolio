@@ -8,6 +8,7 @@ import {
   Rubik,
 } from 'next/font/google';
 import './globals.css';
+import 'swiper/css';
 
 import StyledComponentsRegistry from './lib/registry';
 
