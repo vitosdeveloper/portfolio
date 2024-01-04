@@ -12,11 +12,9 @@ import EuImage from '@/public/eu.png';
 
 type Props = {
   headerHeight: number;
-  setSection: Dispatch<SetStateAction<ISection>>;
 };
 
 const Home = ({ headerHeight }: Props) => {
-  const left = false;
   return (
     <BackgroundOverlay id='#home'>
       <HomeContainer $headerHeight={headerHeight}>
@@ -102,7 +100,7 @@ const ContentContainer = styled.div`
 export const ImageContainer = styled.div`
   max-height: 744px;
   flex: 1;
-  min-width: 280px;
+  min-width: 240px;
 `;
 
 export const StyledImage = ({

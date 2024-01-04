@@ -6,6 +6,7 @@ import About from './components/pages/About';
 import Services from './components/pages/Services';
 import { ISection } from './types/Section';
 import useSetMenuActiveSection from './custom-hooks/useSetMenuActiveSection';
+import Skills from './components/pages/Skills';
 
 export default function App() {
   const [section, setSection] = useState<ISection>('#home');
@@ -20,9 +21,10 @@ export default function App() {
         headerHeight={headerHeight}
         setHeaderHeight={setHeaderHeight}
       />
-      <Home setSection={setSection} headerHeight={headerHeight} />
-      <About setSection={setSection} headerHeight={headerHeight} />
-      <Services setSection={setSection} headerHeight={headerHeight} />
+      <Home headerHeight={headerHeight} />
+      <About headerHeight={headerHeight} />
+      <Services headerHeight={headerHeight} />
+      <Skills headerHeight={headerHeight} />
     </>
   );
 }

@@ -8,6 +8,7 @@ import {
   Rubik,
 } from 'next/font/google';
 import './globals.css';
+
 import StyledComponentsRegistry from './lib/registry';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });

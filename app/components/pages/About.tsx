@@ -9,10 +9,9 @@ import F11Image from '@/public/f11.webp';
 
 type Props = {
   headerHeight: number;
-  setSection: Dispatch<SetStateAction<ISection>>;
 };
 
-const About = ({ headerHeight, setSection }: Props) => {
+const About = ({ headerHeight }: Props) => {
   return (
     <Section id='#about' $headerHeight={headerHeight}>
       <AboutMeContainer>
@@ -48,7 +47,7 @@ const AboutMeContainer = styled.div`
   gap: 1rem;
 `;
 
-const AboutTextContainer = styled.div`
+export const AboutTextContainer = styled.div`
   text-align: start;
   flex: 1;
   gap: 1rem;
@@ -65,7 +64,7 @@ export const StyledAboutTitle = styled.h4`
   font-family: var(--font-poppins), sans-serif;
 `;
 
-const StyledAboutSubText = styled.h4`
+export const StyledAboutSubText = styled.h4`
   color: var(--color-info-light);
   font-size: 2rem;
   font-weight: 500;

@@ -3,12 +3,10 @@ import Section from '../containers/Section';
 import { StyledAboutTitle } from './About';
 import styled from 'styled-components';
 import { ImageContainer, StyledHomeTitle, StyledImage } from './Home';
-import { ISection } from '@/app/types/Section';
 import CodingIcon from '@/public/coding_icon.png';
 
 type Props = {
   headerHeight: number;
-  setSection: Dispatch<SetStateAction<ISection>>;
 };
 
 const Services = ({ headerHeight }: Props) => {
@@ -85,12 +83,6 @@ const ServicesContainer = styled.div`
   .service_text_two {
     grid-area: text2;
   }
-  /* .service_text_three {
-    grid-area: text3;
-  }
-  .service_text_four {
-    grid-area: text4;
-  } */
   .service_image {
     grid-area: img;
   }
