@@ -13,7 +13,7 @@ const StyledHeader = styled.header<{ $big: boolean }>`
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 2;
   @media (min-width: 1200px) {
     padding: 10px 4rem 10px 3rem;
   }

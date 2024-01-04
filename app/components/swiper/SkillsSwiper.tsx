@@ -3,59 +3,17 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
-import Js from '@/public/skills/js.svg';
-import Ts from '@/public/skills/ts.svg';
-import Node from '@/public/skills/node.svg';
-import Php from '@/public/skills/php.svg';
-import Next from '@/public/skills/next.svg';
-import React from '@/public/skills/react.svg';
-import Express from '@/public/skills/express.svg';
-import Mongo from '@/public/skills/mongo.svg';
-import Mysql from '@/public/skills/mysql.svg';
-import Redux from '@/public/skills/redux.svg';
-import Electron from '@/public/skills/electron.svg';
-import bootstrap from '@/public/skills/bootstrap.svg';
-import css from '@/public/skills/css.svg';
-import docker from '@/public/skills/docker.svg';
-import git from '@/public/skills/git.svg';
-import ubuntu from '@/public/skills/ubuntu.svg';
-import postman from '@/public/skills/postman.svg';
-import sass from '@/public/skills/sass.svg';
-import tailwind from '@/public/skills/tailwind.svg';
-import styledI from '@/public/skills/styled.svg';
-import material from '@/public/skills/material.svg';
-import html from '@/public/skills/html.svg';
 
-const SkillsSwiper = () => {
-  const skills = [
-    { name: 'Javascript', img: Js },
-    { name: 'Typescript', img: Ts },
-    { name: 'ReactJS', img: React },
-    { name: 'NextJS', img: Next },
-    { name: 'PHP', img: Php },
-    { name: 'NodeJS', img: Node },
-    { name: 'ExpressJS', img: Express },
-    { name: 'Mongo DB', img: Mongo },
-    { name: 'MySQL', img: Mysql },
-    { name: 'HTML', img: html },
-    { name: 'CSS', img: css },
-    { name: 'Git', img: git },
-    { name: 'Redux', img: Redux },
-    { name: 'Docker', img: docker },
-    { name: 'Electron', img: Electron },
-    { name: 'Bootstrap', img: bootstrap },
-    { name: 'Ubuntu', img: ubuntu },
-    { name: 'Postman', img: postman },
-    { name: 'SASS', img: sass },
-    { name: 'TailwindCSS', img: tailwind },
-    { name: 'Styled Comp', img: styledI },
-    { name: 'Material UI', img: material },
-  ];
+type Props = { skills: { name: string; img: any }[]; reverse?: boolean };
+
+const SkillsSwiper = ({ skills, reverse = false }: Props) => {
   return (
     <Swiper
       autoplay={{
         delay: 800,
         disableOnInteraction: false,
+        reverseDirection: reverse,
+        pauseOnMouseEnter: true,
       }}
       modules={[Autoplay]}
       slidesPerView='auto'
@@ -65,16 +23,24 @@ const SkillsSwiper = () => {
       className='mySwiper'
     >
       <StyledSwiperContainer>
-        {skills.map(({ name, img }, i) => (
-          <SwiperSlide style={{ maxWidth: '200px' }} key={i}>
-            <StyledSwiperSlideContainer key={i}>
-              <IconContainer>
-                <Image width={40} height={40} src={img} alt={`${name} icon`} />
-              </IconContainer>
-              <h1>{name}</h1>
-            </StyledSwiperSlideContainer>
-          </SwiperSlide>
-        ))}
+        {skills
+          .concat(skills)
+          .concat(skills)
+          .map(({ name, img }, i) => (
+            <SwiperSlide style={{ maxWidth: '200px' }} key={i}>
+              <StyledSwiperSlideContainer key={i}>
+                <IconContainer>
+                  <Image
+                    width={40}
+                    height={40}
+                    src={img}
+                    alt={`${name} icon`}
+                  />
+                </IconContainer>
+                <h1>{name}</h1>
+              </StyledSwiperSlideContainer>
+            </SwiperSlide>
+          ))}
       </StyledSwiperContainer>
     </Swiper>
   );
