@@ -35,6 +35,7 @@ const SkillsSwiper = ({ skills, reverse = false }: Props) => {
                     height={40}
                     src={img}
                     alt={`${name} icon`}
+                    loading='eager'
                   />
                 </IconContainer>
                 <h1>{name}</h1>

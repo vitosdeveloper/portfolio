@@ -27,7 +27,7 @@ const WorkSwiper = ({ works, reverse }: Props) => {
     breakpoints: { ss: 0, sm: 400, md: 768, bg: 1024 },
     debounceDelay: 300,
   });
-  const size = { ss: 260, sm: 350, md: 300, bg: 600 };
+  const size = { ss: 260, sm: 350, md: 300, bg: 500 };
 
   return (
     <>
@@ -36,24 +36,31 @@ const WorkSwiper = ({ works, reverse }: Props) => {
           delay: 2500,
           disableOnInteraction: false,
           reverseDirection: reverse,
-          pauseOnMouseEnter: true,
+          // pauseOnMouseEnter: true,
         }}
         modules={[Autoplay]}
         slidesPerView='auto'
         spaceBetween={15}
-        loop
+        loop={true}
         className='mySwiper'
         centeredSlides
       >
         <StyledWorkSwiper>
           {works
             .concat(works)
-            .concat(works)
+            // .concat(works)
             .map(({ name, description, img, live, repo }, i) => (
               <SwiperSlide style={{ maxWidth: size[device!] }} key={i}>
                 <WorkSwiperSlide>
                   <WorkImageContainer>
-                    <WorkImage width={300} height={300} src={img} alt={name} />
+                    <WorkImage
+                      loading='eager'
+                      width={300}
+                      height={300}
+                      src={img}
+                      alt={name}
+                      priority
+                    />
                   </WorkImageContainer>
                   <WorkTitle>{name}</WorkTitle>
                   <WorkDescription>{description}</WorkDescription>

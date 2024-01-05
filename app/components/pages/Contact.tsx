@@ -1,0 +1,130 @@
+import React from 'react';
+import {
+  SkillsSection,
+  SkillsTextContainer,
+  SkillsTitle,
+  StyledCenterDiv,
+} from './Skills';
+import { StyledAboutTitle } from './About';
+import styled from 'styled-components';
+import Link from 'next/link';
+import { FaWhatsapp } from 'react-icons/fa';
+import { IoMdMail } from 'react-icons/io';
+import { CiLocationOn } from 'react-icons/ci';
+
+type Props = { headerHeight: number };
+
+const Contact = ({ headerHeight }: Props) => {
+  const socials = [
+    {
+      name: 'Call Me:',
+      value: '+55 61 98338-2294',
+      Icon: FaWhatsapp,
+      color: 'var(--color-button-hover)',
+      background: 'rgb(221, 214, 250)',
+      link: 'https://api.whatsapp.com/send?phone=+5561983382294&text=Ol%C3%A1,%20vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20contrat%C3%A1-lo.',
+    },
+    {
+      name: 'Email Me:',
+      value: 'vitosdeveloper@gmail.com',
+      Icon: IoMdMail,
+      color: '',
+      background: 'rgb(240, 106, 106)',
+      link: 'mailto:vitosdeveloper@gmail.com',
+    },
+    {
+      name: 'Location',
+      value: 'Águas Claras, Distrito Federal',
+      Icon: CiLocationOn,
+      color: 'rgb(139, 113, 233)',
+      background: 'rgb(221, 245, 230)',
+      link: '',
+    },
+  ];
+
+  return (
+    <SkillsSection id='#contact' $headerHeight={headerHeight}>
+      <StyledCenterDiv>
+        <SkillsTextContainer>
+          <StyledAboutTitle>I want to hear from you</StyledAboutTitle>
+          <SkillsTitle>Contact ME</SkillsTitle>
+        </SkillsTextContainer>
+        <IconsContainer>
+          {socials.map(({ name, value, Icon, color, link, background }) => (
+            <IconContainer
+              href={link ? link : ''}
+              onClick={(e) => {
+                !link && e.preventDefault();
+              }}
+              key={name}
+              target='_blank'
+            >
+              <IconBg style={{ background }}>
+                <Icon style={{ color }} size='55px' color='white' />
+              </IconBg>
+              <IconTextContainer>
+                <IconTitle>{name}</IconTitle>
+                <IconValue>{value}</IconValue>
+              </IconTextContainer>
+            </IconContainer>
+          ))}
+        </IconsContainer>
+      </StyledCenterDiv>
+    </SkillsSection>
+  );
+};
+
+const IconsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+  justify-content: center;
+  @media (max-width: 1277px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+const IconContainer = styled(Link)`
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  width: 360px;
+  @media (max-width: 400px) {
+    width: 280px;
+  }
+`;
+
+const IconBg = styled.div`
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+`;
+
+const IconTextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const IconTitle = styled(SkillsTitle)`
+  font-size: 22px;
+  margin: 0;
+`;
+
+const IconValue = styled.p`
+  font-size: 14px;
+  color: var(--color-info-light);
+  &:hover {
+    color: var(--color-button-hover);
+  }
+  @media (max-width: 400px) {
+    line-break: anywhere;
+    max-width: 160px;
+  }
+`;
+
+export default Contact;

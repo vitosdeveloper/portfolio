@@ -125,8 +125,9 @@ export const StyledImage = ({
       }}
       src={src}
       alt={alt}
-      width={600}
-      height={600}
+      // width={600}
+      // height={600}
+      loading='eager'
     />
   );
 };
