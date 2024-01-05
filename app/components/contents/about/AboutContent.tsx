@@ -34,7 +34,7 @@ const AboutContent = (props: Props) => {
       <AboutTextContainer>
         <StyledAboutTitle>ABOUT ME</StyledAboutTitle>
         <StyledAboutSubText>
-          Why should you hive me for your next or current project?
+          Why should you hire me for your next or current project?
         </StyledAboutSubText>
         <StyledP>
           I&apos;m a {adivinharIdade('1994-08-11')}-year-old developer, with a

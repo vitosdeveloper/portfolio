@@ -22,7 +22,7 @@ const ServicesContent = (props: Props) => {
             </ServicesText>
           </ServiceTextContainer>
           <ServiceTextContainer>
-            <ServicesTitle>Innovative</ServicesTitle>
+            <ServicesTitle>Creative Solutions</ServicesTitle>
             <ServicesText>
               Recognized potential in my dedication and need something out of
               the box? I&apos;m always open to new business possibilities
@@ -38,7 +38,7 @@ const ServicesContent = (props: Props) => {
         </ServicesImageContainer>
         <ServicesTextContainer className='service_text_two'>
           <ServiceTextContainer>
-            <ServicesTitle>Innovation</ServicesTitle>
+            <ServicesTitle>Revitalization</ServicesTitle>
             <ServicesText>
               If you have any legacy code and are interested in modernizing it
               for improved performance, a better user experience, and
