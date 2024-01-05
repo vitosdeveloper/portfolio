@@ -47,7 +47,7 @@ const Contact = ({ headerHeight }: Props) => {
       <StyledCenterDiv style={{ padding: '0 1rem' }}>
         <SkillsTextContainer>
           <StyledAboutTitle>I want to hear from you</StyledAboutTitle>
-          <SkillsTitle>Contact ME</SkillsTitle>
+          <SkillsTitle>Contact Me</SkillsTitle>
         </SkillsTextContainer>
         <IconsContainer>
           {socials.map(({ name, value, Icon, color, link, background }) => (

@@ -45,8 +45,8 @@ const Header = ({
       );
     };
     handleResize();
-    // window.addEventListener('resize', handleResize);
-    // return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, [setHeaderHeight]);
 
   return (

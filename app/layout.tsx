@@ -10,7 +10,7 @@ import {
 import './globals.css';
 import 'swiper/css';
 
-// import StyledComponentsRegistry from './lib/registry';
+import StyledComponentsRegistry from './lib/registry';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const shareTechMono = Share_Tech_Mono({
@@ -52,7 +52,7 @@ export default function RootLayout({
         className={`${inter.variable} ${shareTechMono.variable} ${poppins.variable} 
         ${firaCode.variable} ${jost.variable} ${rubik.variable}`}
       >
-        {children}
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
     </html>
   );
