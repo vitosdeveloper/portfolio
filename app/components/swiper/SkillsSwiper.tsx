@@ -1,8 +1,8 @@
-'use client';
 import Image from 'next/image';
 import styled from 'styled-components';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
+import { memo } from 'react';
 
 type Props = { skills: { name: string; img: any }[]; reverse?: boolean };
 
@@ -47,7 +47,7 @@ const SkillsSwiper = ({ skills, reverse = false }: Props) => {
   );
 };
 
-export default SkillsSwiper;
+export default memo(SkillsSwiper);
 
 export const StyledSwiperContainer = styled.div`
   color: var(--color-info-light);

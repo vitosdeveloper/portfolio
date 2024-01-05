@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 import Title from '../text/Title';
 
@@ -15,7 +15,7 @@ const Footer = (props: Props) => {
   );
 };
 
-export default Footer;
+export default memo(Footer);
 
 const FooterTitle = styled(Title)`
   text-align: center;

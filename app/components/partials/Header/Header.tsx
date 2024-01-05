@@ -1,16 +1,14 @@
 'use client';
-import NextLink from 'next/link';
 import StyledHeader from './StyledHeader';
 import StyledNav from './StyledNav';
 import StyledUl from '../../elements/StyledUl';
 import StyledHeaderLi from './StyledHeaderLi';
-import { DiGithubBadge } from 'react-icons/di';
 import HeaderLogo from './HeaderLogo';
-import StyledHeaderButton from './StyledHeaderButton';
 import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import Hamburger from 'hamburger-react';
 import { ISection } from '@/app/types/Section';
 import { Link } from 'react-scroll';
+import GhubIco from '../../contents/header/GhubIco';
 
 type Props = {
   headerHeight: number;
@@ -77,7 +75,7 @@ const Header = ({
               return (
                 <StyledHeaderLi key={href} selected={href === section}>
                   <Link
-                    onClick={() => setSection(href)}
+                    onClick={() => setTimeout(() => setSection(href), 700)}
                     smooth={true}
                     duration={300}
                     to={href}
@@ -90,13 +88,7 @@ const Header = ({
             })}
           </StyledUl>
 
-          <NextLink href='https://github.com/vitosnatios' target='_blank'>
-            <DiGithubBadge
-              style={{ color: 'var(--color-white)' }}
-              size='25px'
-            />
-          </NextLink>
-          <StyledHeaderButton>Contact Me</StyledHeaderButton>
+          <GhubIco />
         </StyledNav>
       </div>
     </StyledHeader>

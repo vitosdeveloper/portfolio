@@ -16,6 +16,7 @@ import devgames from '@/public/works/devgames.png';
 import bet from '@/public/works/bet.png';
 import wtp from '@/public/works/wtp.png';
 import artesanato from '@/public/works/artesanato.png';
+import { memo } from 'react';
 
 type Props = { headerHeight: number };
 
@@ -122,4 +123,4 @@ Logins at: "/api/showLogins", every pass is "asd"`,
   );
 };
 
-export default Work;
+export default memo(Work);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import {
   SkillsSection,
   SkillsTextContainer,
@@ -44,7 +44,7 @@ const Contact = ({ headerHeight }: Props) => {
 
   return (
     <SkillsSection id='#contact' $headerHeight={headerHeight}>
-      <StyledCenterDiv>
+      <StyledCenterDiv style={{ padding: '0 1rem' }}>
         <SkillsTextContainer>
           <StyledAboutTitle>I want to hear from you</StyledAboutTitle>
           <SkillsTitle>Contact ME</SkillsTitle>
@@ -74,6 +74,8 @@ const Contact = ({ headerHeight }: Props) => {
   );
 };
 
+export default memo(Contact);
+
 const IconsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -93,6 +95,12 @@ const IconContainer = styled(Link)`
   width: 360px;
   @media (max-width: 400px) {
     width: 280px;
+  }
+  @media (max-width: 350px) {
+    text-align: center;
+    margin: 0 auto;
+    width: 210px;
+    flex-direction: column;
   }
 `;
 
@@ -125,6 +133,7 @@ const IconValue = styled.p`
     line-break: anywhere;
     max-width: 160px;
   }
+  @media (max-width: 320px) {
+    max-width: 140px;
+  }
 `;
-
-export default Contact;

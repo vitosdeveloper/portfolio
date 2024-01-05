@@ -5,4 +5,4 @@ const NoSsrWrapper = ({ children }: PropsWithChildren) => {
   return <div>{children}</div>;
 };
 
-export default dynamic(() => Promise.resolve(NoSsrWrapper), { ssr: false });
+export default dynamic(() => Promise.resolve(NoSsrWrapper), { ssr: true });

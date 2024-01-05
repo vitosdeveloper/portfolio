@@ -1,4 +1,5 @@
 'use client';
+import { memo } from 'react';
 import { DiCode } from 'react-icons/di';
 import styled from 'styled-components';
 
@@ -42,4 +43,4 @@ const HeaderLogo = ({ big }: { big: boolean }) => {
   );
 };
 
-export default HeaderLogo;
+export default memo(HeaderLogo);

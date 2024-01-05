@@ -1,4 +1,3 @@
-'use client';
 import Section from '../containers/Section';
 import SkillsSwiper from '../swiper/SkillsSwiper';
 import {
@@ -30,6 +29,7 @@ import tailwind from '@/public/skills/tailwind.svg';
 import styledI from '@/public/skills/styled.svg';
 import material from '@/public/skills/material.svg';
 import html from '@/public/skills/html.svg';
+import { memo } from 'react';
 
 type Props = { headerHeight: number };
 
@@ -73,6 +73,8 @@ const Skills = ({ headerHeight }: Props) => {
   );
 };
 
+export default memo(Skills);
+
 export const SkillsSection = styled(Section)`
   flex-direction: column;
   place-content: center;
@@ -101,5 +103,3 @@ export const SkillsTitle = styled(StyledAboutSubText)`
   margin: 0 auto;
   text-transform: none;
 `;
-
-export default Skills;

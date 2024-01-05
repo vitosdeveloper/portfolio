@@ -1,4 +1,3 @@
-'use client';
 import styled from 'styled-components';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -10,6 +9,7 @@ import { useMediaQuery } from '@react-hooks-hub/use-media-query';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import NoSsrWrapper from '../NoSsrWrapper/NoSsrWrapper';
 
 type Props = {
   works: {
@@ -30,7 +30,7 @@ const WorkSwiper = ({ works, reverse }: Props) => {
   const size = { ss: 260, sm: 350, md: 300, bg: 500 };
 
   return (
-    <>
+    <NoSsrWrapper>
       <Swiper
         autoplay={{
           delay: 2500,
@@ -87,7 +87,7 @@ const WorkSwiper = ({ works, reverse }: Props) => {
             ))}
         </StyledWorkSwiper>
       </Swiper>
-    </>
+    </NoSsrWrapper>
   );
 };
 

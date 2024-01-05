@@ -1,11 +1,7 @@
-import React, { Dispatch, SetStateAction } from 'react';
 import Section from '../containers/Section';
-import { ImageContainer, StyledImage } from './Home';
 import styled from 'styled-components';
-import StyledHeaderButton from '../partials/Header/StyledHeaderButton';
-import { BsDownload } from 'react-icons/bs';
-import { ISection } from '@/app/types/Section';
-import F11Image from '@/public/f11.webp';
+
+import AboutContent from '../contents/about/AboutContent';
 
 type Props = {
   headerHeight: number;
@@ -14,38 +10,12 @@ type Props = {
 const About = ({ headerHeight }: Props) => {
   return (
     <Section id='#about' $headerHeight={headerHeight}>
-      <AboutMeContainer>
-        <ImageContainer>
-          <StyledImage $left src={F11Image} alt='home-picture' />
-        </ImageContainer>
-        <AboutTextContainer>
-          <StyledAboutTitle>ABOUT ME</StyledAboutTitle>
-          <StyledAboutSubText>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit?
-          </StyledAboutSubText>
-          <StyledP>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
-            minus perferendis quasi soluta, explicabo deserunt deleniti quis
-            nisi ipsam ut culpa vitae ipsum exercitationem necessitatibus
-            accusamus animi iure amet iste?
-          </StyledP>
-          <StyledAboutButton>
-            DOWNLOAD CV <BsDownload />
-          </StyledAboutButton>
-        </AboutTextContainer>
-      </AboutMeContainer>
+      <AboutContent />
     </Section>
   );
 };
 
 export default About;
-
-const AboutMeContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1rem;
-`;
 
 export const AboutTextContainer = styled.div`
   text-align: start;
@@ -81,10 +51,4 @@ export const StyledP = styled.p`
   color: var(--color-info-light);
   font-family: var(--font-poppins), sans-serif;
   line-height: 2;
-`;
-
-const StyledAboutButton = styled(StyledHeaderButton)`
-  color: var(--color-background);
-  font-weight: 600;
-  width: 190px;
 `;

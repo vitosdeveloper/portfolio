@@ -11,7 +11,7 @@ import Work from './components/pages/Work';
 import Contact from './components/pages/Contact';
 import Footer from './components/pages/Footer';
 
-export default function App() {
+function App() {
   const [section, setSection] = useState<ISection>('#home');
   const [headerHeight, setHeaderHeight] = useState<number>(0);
   useSetMenuActiveSection(setSection, headerHeight);
@@ -19,8 +19,8 @@ export default function App() {
   return (
     <>
       <Header
-        section={section}
         setSection={setSection}
+        section={section}
         headerHeight={headerHeight}
         setHeaderHeight={setHeaderHeight}
       />
@@ -34,3 +34,5 @@ export default function App() {
     </>
   );
 }
+
+export default App;
