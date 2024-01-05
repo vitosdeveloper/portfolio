@@ -8,7 +8,8 @@ import {
   StyledP,
 } from '../../pages/About';
 import AboutForm from '../../form/AboutForm';
-import F11Image from '@/public/f11.webp';
+import F11Image from '@/public/f1.webp';
+
 type Props = {};
 
 const AboutContent = (props: Props) => {

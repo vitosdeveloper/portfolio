@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import CodingIcon from '@/public/coding_icon.png';
+import CodingIcon from '@/public/coding_icon.webp';
 import styled from 'styled-components';
 import { ImageContainer, StyledHomeTitle, StyledImage } from '../../pages/Home';
 import { FlexYContainer, StyledServicesTitle } from '../../pages/Services';

@@ -3,30 +3,29 @@ import styled from 'styled-components';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import { memo } from 'react';
+import NoSsrWrapper from '../NoSsrWrapper/NoSsrWrapper';
 
 type Props = { skills: { name: string; img: any }[]; reverse?: boolean };
 
 const SkillsSwiper = ({ skills, reverse = false }: Props) => {
   return (
-    <Swiper
-      autoplay={{
-        delay: 800,
-        disableOnInteraction: false,
-        reverseDirection: reverse,
-        pauseOnMouseEnter: true,
-      }}
-      modules={[Autoplay]}
-      slidesPerView='auto'
-      spaceBetween={15}
-      loop
-      centeredSlides
-      className='mySwiper'
-    >
-      <StyledSwiperContainer>
-        {skills
-          .concat(skills)
-          .concat(skills)
-          .map(({ name, img }, i) => (
+    <NoSsrWrapper>
+      <Swiper
+        autoplay={{
+          delay: 800,
+          disableOnInteraction: false,
+          reverseDirection: reverse,
+          // pauseOnMouseEnter: true,
+        }}
+        modules={[Autoplay]}
+        slidesPerView='auto'
+        spaceBetween={15}
+        loop
+        centeredSlides
+        className='mySwiper'
+      >
+        <StyledSwiperContainer>
+          {skills.concat(skills).map(({ name, img }, i) => (
             <SwiperSlide style={{ maxWidth: '200px' }} key={i}>
               <StyledSwiperSlideContainer key={i}>
                 <IconContainer>
@@ -36,14 +35,16 @@ const SkillsSwiper = ({ skills, reverse = false }: Props) => {
                     src={img}
                     alt={`${name} icon`}
                     loading='eager'
+                    priority
                   />
                 </IconContainer>
                 <h1>{name}</h1>
               </StyledSwiperSlideContainer>
             </SwiperSlide>
           ))}
-      </StyledSwiperContainer>
-    </Swiper>
+        </StyledSwiperContainer>
+      </Swiper>
+    </NoSsrWrapper>
   );
 };
 

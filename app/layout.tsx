@@ -8,10 +8,9 @@ import {
   Rubik,
 } from 'next/font/google';
 import './globals.css';
-// import 'swiper/css';
-import 'swiper/swiper-bundle.css';
+import 'swiper/css';
 
-import StyledComponentsRegistry from './lib/registry';
+// import StyledComponentsRegistry from './lib/registry';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const shareTechMono = Share_Tech_Mono({
@@ -39,7 +38,7 @@ const rubik = Rubik({
 
 export const metadata: Metadata = {
   title: 'Vitos Developer',
-  description: "Vitor's portfolio",
+  description: 'Vitos Developer portfolio',
 };
 
 export default function RootLayout({
@@ -53,7 +52,7 @@ export default function RootLayout({
         className={`${inter.variable} ${shareTechMono.variable} ${poppins.variable} 
         ${firaCode.variable} ${jost.variable} ${rubik.variable}`}
       >
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        {children}
       </body>
     </html>
   );

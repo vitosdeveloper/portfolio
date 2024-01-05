@@ -51,6 +51,8 @@ export const StyledImage = ({
       }}
       src={src}
       alt={alt}
+      // width={400}
+      // height={400}
       loading='eager'
       priority
     />

@@ -6,7 +6,6 @@ import {
   StyledAboutTitle,
 } from './About';
 import styled from 'styled-components';
-
 import Js from '@/public/skills/js.svg';
 import Ts from '@/public/skills/ts.svg';
 import Node from '@/public/skills/node.svg';

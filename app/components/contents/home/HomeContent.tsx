@@ -1,5 +1,5 @@
 import { BsFillPlayFill, BsGithub, BsLinkedin } from 'react-icons/bs';
-import EuImage from '@/public/eu.png';
+import EuImage from '@/public/eu.webp';
 import { StyledP } from '../../pages/About';
 import styled from 'styled-components';
 import Link from 'next/link';
