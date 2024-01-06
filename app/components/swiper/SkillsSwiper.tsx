@@ -4,18 +4,33 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import { memo } from 'react';
 import NoSsrWrapper from '../NoSsrWrapper/NoSsrWrapper';
+import { Dispatch, SetStateAction } from 'react';
+import SwiperCore from 'swiper';
 
-type Props = { skills: { name: string; img: any }[]; reverse?: boolean };
+type Props = {
+  skills: { name: string; img: any }[];
+  reverse?: boolean;
+  name: 'first' | 'sec';
+  setSwipers: Dispatch<
+    SetStateAction<{
+      first: SwiperCore | null;
+      sec: SwiperCore | null;
+    }>
+  >;
+};
 
-const SkillsSwiper = ({ skills, reverse = false }: Props) => {
+const SkillsSwiper = ({ skills, reverse = false, setSwipers, name }: Props) => {
   return (
     <NoSsrWrapper>
       <Swiper
+        onSwiper={(swiperInstance) =>
+          setSwipers((prev) => ({ ...prev, [name]: swiperInstance }))
+        }
         autoplay={{
           delay: 800,
           disableOnInteraction: false,
           reverseDirection: reverse,
-          // pauseOnMouseEnter: true,
+          pauseOnMouseEnter: true,
         }}
         modules={[Autoplay]}
         slidesPerView='auto'
@@ -38,7 +53,7 @@ const SkillsSwiper = ({ skills, reverse = false }: Props) => {
                     priority
                   />
                 </IconContainer>
-                <h1>{name}</h1>
+                <SkillName>{name}</SkillName>
               </StyledSwiperSlideContainer>
             </SwiperSlide>
           ))}
@@ -50,9 +65,11 @@ const SkillsSwiper = ({ skills, reverse = false }: Props) => {
 
 export default memo(SkillsSwiper);
 
-export const StyledSwiperContainer = styled.div`
+const SkillName = styled.h1`
   color: var(--color-info-light);
 `;
+
+export const StyledSwiperContainer = styled.div``;
 
 export const StyledSwiperSlideContainer = styled.div`
   align-items: center;
@@ -64,11 +81,7 @@ export const StyledSwiperSlideContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
-  margin-top: 2rem;
   height: 183px;
-  :hover {
-    color: var(--color-button-hover);
-  }
 `;
 
 export const IconContainer = styled.div`

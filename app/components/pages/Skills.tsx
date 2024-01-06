@@ -28,11 +28,31 @@ import tailwind from '@/public/skills/tailwind.svg';
 import styledI from '@/public/skills/styled.svg';
 import material from '@/public/skills/material.svg';
 import html from '@/public/skills/html.svg';
-import { memo } from 'react';
+import { memo, useState } from 'react';
+import SwiperCore from 'swiper';
 
 type Props = { headerHeight: number };
 
 const Skills = ({ headerHeight }: Props) => {
+  const [swipers, setSwipers] = useState<{
+    first: SwiperCore | null;
+    sec: SwiperCore | null;
+  }>({
+    first: null,
+    sec: null,
+  });
+
+  const pauseSwipers = () => {
+    if (!swipers.first || !swipers.sec) return;
+    swipers.first.autoplay.stop();
+    swipers.sec.autoplay.stop();
+  };
+
+  const playSwipers = () => {
+    if (!swipers.first || !swipers.sec) return;
+    swipers.first.autoplay.start();
+    swipers.sec.autoplay.start();
+  };
   const skills = [
     { name: 'Javascript', img: Js },
     { name: 'Typescript', img: Ts },
@@ -65,8 +85,21 @@ const Skills = ({ headerHeight }: Props) => {
           <StyledAboutTitle>MY PROGRESS SO FAR</StyledAboutTitle>
           <SkillsTitle>My Skills</SkillsTitle>
         </SkillsTextContainer>
-        <SkillsSwiper skills={skills.slice(0, 11)} />
-        <SkillsSwiper reverse skills={skills.slice(11)} />
+        <div onMouseEnter={pauseSwipers} onMouseLeave={playSwipers}>
+          <SkillsSwiper
+            setSwipers={setSwipers}
+            name='first'
+            skills={skills.slice(0, 11)}
+          />
+        </div>
+        <div onMouseEnter={pauseSwipers} onMouseLeave={playSwipers}>
+          <SkillsSwiper
+            setSwipers={setSwipers}
+            name='sec'
+            reverse
+            skills={skills.slice(11)}
+          />
+        </div>
       </StyledCenterDiv>
     </SkillsSection>
   );
@@ -81,6 +114,9 @@ export const SkillsSection = styled(Section)`
 
 export const StyledCenterDiv = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 `;
 
 export const IconContainer = styled.div`

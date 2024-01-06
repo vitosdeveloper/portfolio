@@ -16,11 +16,35 @@ import devgames from '@/public/works/devgames.png';
 import bet from '@/public/works/bet.png';
 import wtp from '@/public/works/wtp.png';
 import artesanato from '@/public/works/artesanato.png';
-import { memo } from 'react';
+import { memo, useState } from 'react';
+import SwiperCore from 'swiper';
+import { Autoplay } from 'swiper/modules';
+
+SwiperCore.use([Autoplay]);
 
 type Props = { headerHeight: number };
 
 const Work = ({ headerHeight }: Props) => {
+  const [swipers, setSwipers] = useState<{
+    first: SwiperCore | null;
+    sec: SwiperCore | null;
+  }>({
+    first: null,
+    sec: null,
+  });
+
+  const pauseSwipers = () => {
+    if (!swipers.first || !swipers.sec) return;
+    swipers.first.autoplay.stop();
+    swipers.sec.autoplay.stop();
+  };
+
+  const playSwipers = () => {
+    if (!swipers.first || !swipers.sec) return;
+    swipers.first.autoplay.start();
+    swipers.sec.autoplay.start();
+  };
+
   const works = [
     {
       name: 'devganes-app',
@@ -104,20 +128,26 @@ Logins at: "/api/showLogins", every pass is "asd"`,
           <StyledAboutTitle>CHECK OUT MY EXPERIENCE</StyledAboutTitle>
           <SkillsTitle>Professional Environment</SkillsTitle>
         </SkillsTextContainer>
-        <WorkSwiper
-          works={works.filter((w) => w.description.includes('Freelance'))}
-        />
+        <div onMouseEnter={pauseSwipers} onMouseLeave={playSwipers}>
+          <WorkSwiper
+            name='first'
+            setSwipers={setSwipers}
+            works={works.filter((w) => w.description.includes('Freelance'))}
+          />
+        </div>
         <SkillsTextContainer>
-          <SkillsTitle style={{ marginTop: '2rem' }}>
-            Personal Projects
-          </SkillsTitle>
+          <SkillsTitle>Personal Projects</SkillsTitle>
         </SkillsTextContainer>
-        <WorkSwiper
-          works={works.filter((w) =>
-            w.description.includes('Personal Project')
-          )}
-          reverse
-        />
+        <div onMouseEnter={pauseSwipers} onMouseLeave={playSwipers}>
+          <WorkSwiper
+            name='sec'
+            setSwipers={setSwipers}
+            works={works.filter((w) =>
+              w.description.includes('Personal Project')
+            )}
+            reverse
+          />
+        </div>
       </StyledCenterDiv>
     </SkillsSection>
   );

@@ -1,15 +1,13 @@
 import styled from 'styled-components';
-import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import {
-  StyledSwiperContainer,
-  StyledSwiperSlideContainer,
-} from './SkillsSwiper';
+import { StyledSwiperContainer } from './SkillsSwiper';
 import { useMediaQuery } from '@react-hooks-hub/use-media-query';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import NoSsrWrapper from '../NoSsrWrapper/NoSsrWrapper';
+import { Dispatch, SetStateAction } from 'react';
+import SwiperCore from 'swiper';
 
 type Props = {
   works: {
@@ -20,9 +18,16 @@ type Props = {
     repo: string;
   }[];
   reverse?: boolean;
+  name: 'first' | 'sec';
+  setSwipers: Dispatch<
+    SetStateAction<{
+      first: SwiperCore | null;
+      sec: SwiperCore | null;
+    }>
+  >;
 };
 
-const WorkSwiper = ({ works, reverse }: Props) => {
+const WorkSwiper = ({ works, reverse, setSwipers, name }: Props) => {
   const { device, orientation } = useMediaQuery({
     breakpoints: { ss: 0, sm: 400, md: 768, bg: 1024 },
     debounceDelay: 300,
@@ -32,13 +37,16 @@ const WorkSwiper = ({ works, reverse }: Props) => {
   return (
     <NoSsrWrapper>
       <Swiper
+        onSwiper={(swiperInstance) =>
+          setSwipers((prev) => ({ ...prev, [name]: swiperInstance }))
+        }
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,
           reverseDirection: reverse,
           // pauseOnMouseEnter: true,
         }}
-        modules={[Autoplay]}
+        // modules={[Autoplay]}
         slidesPerView='auto'
         spaceBetween={15}
         loop={true}
@@ -48,9 +56,12 @@ const WorkSwiper = ({ works, reverse }: Props) => {
         <StyledWorkSwiper>
           {works
             .concat(works)
-            // .concat(works)
             .map(({ name, description, img, live, repo }, i) => (
-              <SwiperSlide style={{ maxWidth: size[device!] }} key={i}>
+              <SwiperSlide
+                onClick={() => window.open(live || repo, '_blank')}
+                style={{ maxWidth: size[device!] }}
+                key={i}
+              >
                 <WorkSwiperSlide>
                   <WorkImageContainer>
                     <WorkImage
@@ -95,7 +106,17 @@ export default WorkSwiper;
 
 const StyledWorkSwiper = styled(StyledSwiperContainer)``;
 
-const WorkSwiperSlide = styled(StyledSwiperSlideContainer)`
+const WorkSwiperSlide = styled.div`
+  align-items: center;
+  background: var(--color-card2);
+  border: 1px solid rgba(146, 146, 165, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  height: 183px;
   justify-content: start;
   align-items: start;
   height: 500px;
