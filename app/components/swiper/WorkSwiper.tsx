@@ -124,9 +124,13 @@ const WorkSwiperSlide = styled.div`
 `;
 
 const WorkImageContainer = styled.div`
-  height: 180px;
+  max-height: 180px;
   width: 100%;
   margin-bottom: 2rem;
+  @media (max-width: 1000px) {
+    height: 110px;
+    margin-bottom: 0.5rem;
+  }
 `;
 
 const WorkImage = styled(Image)`
