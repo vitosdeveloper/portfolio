@@ -38,8 +38,30 @@ const rubik = Rubik({
 
 export const metadata: Metadata = {
   title: 'Vitos Developer',
-  description: 'Vitos Developer portfolio',
+  description: 'Vitos Developer Portfolio',
   icons: [{ rel: 'icon', url: 'favicon.ico', type: 'image/x-icon' }],
+  keywords: [
+    'Vitos Developer',
+    'vitos developer',
+    'VitosDeveloper',
+    'vitosdeveloper',
+    'vitosnatios',
+    'vitos',
+    'portfolio',
+    'vitos portfolio',
+    'vitosnatios portfolio',
+    'vitos developer portfolio',
+    'Vitor Fernandes',
+    'Vitor Fernandes Gonçalves',
+    'Vitor Águas Claras',
+    'Vitor Fernandes Águas Claras',
+    'Vitor Fernandes Gonçalves Águas Claras',
+    'Vitor Fernandes Gonçalves DF',
+    'develooper',
+    'web development',
+    'Distrito Federal',
+    'programador DF',
+  ],
 };
 
 export default function RootLayout({
