@@ -72,14 +72,24 @@ const Header = ({
         <StyledNav $big={big} $showMenu={showMenu}>
           <StyledUl $big={big}>
             {links.map(({ href, content }) => {
+              const handleClick = big
+                ? () => setTimeout(() => setSection(href), 700)
+                : () => {
+                    setTimeout(() => setSection(href), 700);
+                    setShowMenu(false);
+                  };
               return (
                 <StyledHeaderLi key={href} selected={href === section}>
                   <Link
-                    onClick={() => setTimeout(() => setSection(href), 700)}
+                    onClick={handleClick}
                     smooth={true}
                     duration={300}
                     to={href}
                     offset={-headerHeight}
+                    style={{
+                      fontSize: big ? 'initial' : '22px',
+                      padding: '0 .5rem',
+                    }}
                   >
                     {content}
                   </Link>
