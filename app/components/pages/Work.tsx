@@ -6,19 +6,20 @@ import {
   StyledCenterDiv,
 } from './Skills';
 import { StyledAboutTitle } from './About';
-import WorkSwiper from '../swiper/WorkSwiper';
-import felino from '@/public/works/felino.png';
-import fictional from '@/public/works/fictional.png';
-import coffee from '@/public/works/coffee.webp';
-import dapao from '@/public/works/dapao.png';
-import educa from '@/public/works/educa.png';
-import devgames from '@/public/works/devgames.png';
-import bet from '@/public/works/bet.png';
-import wtp from '@/public/works/wtp.png';
-import artesanato from '@/public/works/artesanato.png';
 import { memo, useState } from 'react';
 import SwiperCore from 'swiper';
 import { Autoplay } from 'swiper/modules';
+import WorkSwiper from '../swiper/WorkSwiper';
+import felino from '@/public/works/felino.webp';
+import fictional from '@/public/works/fictional.webp';
+import coffee from '@/public/works/coffee.webp';
+import dapao from '@/public/works/dapao.webp';
+import educa from '@/public/works/educa.webp';
+import devgames from '@/public/works/devgames.webp';
+import bet from '@/public/works/bet.webp';
+import wtp from '@/public/works/wtp.webp';
+import artesanato from '@/public/works/artesanato.webp';
+import port from '@/public/works/port.webp';
 
 SwiperCore.use([Autoplay]);
 
@@ -116,6 +117,15 @@ Product and Order Manager for a Bakery.`,
 Grade Manager for Teachers and Principals.
 Logins at: "/api/showLogins", every pass is "asd"`,
       img: educa,
+      live: 'https://felinochan.vercel.app/hw/1',
+      repo: 'https://github.com/vitosnatios/felino-chan-Client',
+    },
+    {
+      name: 'Portfolio',
+      description: `Personal Project
+Grade Manager for Teachers and Principals.
+Logins at: "/api/showLogins", every pass is "asd"`,
+      img: port,
       live: 'https://felinochan.vercel.app/hw/1',
       repo: 'https://github.com/vitosnatios/felino-chan-Client',
     },

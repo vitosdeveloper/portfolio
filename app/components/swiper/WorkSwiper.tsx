@@ -57,24 +57,24 @@ const WorkSwiper = ({ works, reverse, setSwipers, name }: Props) => {
           {works
             .concat(works)
             .map(({ name, description, img, live, repo }, i) => (
-              <SwiperSlide
-                onClick={() => window.open(live || repo, '_blank')}
-                style={{ maxWidth: size[device!] }}
-                key={i}
-              >
-                <WorkSwiperSlide>
-                  <WorkImageContainer>
-                    <WorkImage
-                      loading='eager'
-                      width={300}
-                      height={300}
-                      src={img}
-                      alt={name}
-                      priority
-                    />
-                  </WorkImageContainer>
-                  <WorkTitle>{name}</WorkTitle>
-                  <WorkDescription>{description}</WorkDescription>
+              <SwiperSlide key={i} style={{ maxWidth: size[device!] }}>
+                <StyledSlideContainer>
+                  <WorkSwiperSlide
+                    onClick={() => window.open(live || repo, '_blank')}
+                  >
+                    <WorkImageContainer>
+                      <WorkImage
+                        loading='eager'
+                        width={300}
+                        height={300}
+                        src={img}
+                        alt={name}
+                        priority
+                      />
+                    </WorkImageContainer>
+                    <WorkTitle>{name}</WorkTitle>
+                    <WorkDescription>{description}</WorkDescription>
+                  </WorkSwiperSlide>
                   <LinksContainer>
                     <div>
                       {live && (
@@ -93,7 +93,7 @@ const WorkSwiper = ({ works, reverse, setSwipers, name }: Props) => {
                       )}
                     </div>
                   </LinksContainer>
-                </WorkSwiperSlide>
+                </StyledSlideContainer>
               </SwiperSlide>
             ))}
         </StyledWorkSwiper>
@@ -103,6 +103,8 @@ const WorkSwiper = ({ works, reverse, setSwipers, name }: Props) => {
 };
 
 export default WorkSwiper;
+
+const StyledSlideContainer = styled.div``;
 
 const StyledWorkSwiper = styled(StyledSwiperContainer)``;
 
@@ -120,7 +122,7 @@ const WorkSwiperSlide = styled.div`
   justify-content: start;
   align-items: start;
   height: 500px;
-  padding: 2rem;
+  padding: 2rem 2rem 4rem 2rem;
 `;
 
 const WorkImageContainer = styled.div`
@@ -164,11 +166,14 @@ const WorkDescription = styled.p`
 `;
 
 const LinksContainer = styled.div`
-  display: flex;
+  display: inline-flex;
   align-items: flex-end;
   justify-content: space-between;
-  flex: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
+  padding: 2rem 2rem;
 `;
 
 const WorkLinks = styled(Link)`
@@ -178,4 +183,7 @@ const WorkLinks = styled(Link)`
   display: flex;
   align-items: center;
   gap: 0.25rem;
+  &:hover {
+    color: forestgreen;
+  }
 `;

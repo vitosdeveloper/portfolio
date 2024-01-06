@@ -39,6 +39,7 @@ const rubik = Rubik({
 export const metadata: Metadata = {
   title: 'Vitos Developer',
   description: 'Vitos Developer portfolio',
+  icons: [{ rel: 'icon', url: 'favicon.ico', type: 'image/x-icon' }],
 };
 
 export default function RootLayout({
