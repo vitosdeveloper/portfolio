@@ -1,3 +1,4 @@
+'use client';
 import styled from 'styled-components';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { StyledSwiperContainer } from './SkillsSwiper';
@@ -51,7 +52,7 @@ const WorkSwiper = ({ works, reverse, setSwipers, name }: Props) => {
         spaceBetween={15}
         loop={true}
         className='mySwiper'
-        centeredSlides
+        // centeredSlides
       >
         <StyledWorkSwiper>
           {works
@@ -60,7 +61,9 @@ const WorkSwiper = ({ works, reverse, setSwipers, name }: Props) => {
               <SwiperSlide key={i} style={{ maxWidth: size[device!] }}>
                 <StyledSlideContainer>
                   <WorkSwiperSlide
-                    onClick={() => window.open(live || repo, '_blank')}
+                    onClick={() =>
+                      (live || repo) && window.open(live || repo, '_blank')
+                    }
                   >
                     <WorkImageContainer>
                       <WorkImage
@@ -118,7 +121,6 @@ const WorkSwiperSlide = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
-  height: 183px;
   justify-content: start;
   align-items: start;
   height: 500px;

@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import styled from 'styled-components';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -36,8 +37,7 @@ const SkillsSwiper = ({ skills, reverse = false, setSwipers, name }: Props) => {
         slidesPerView='auto'
         spaceBetween={15}
         loop
-        centeredSlides
-        className='mySwiper'
+        // centeredSlides
       >
         <StyledSwiperContainer>
           {skills.concat(skills).map(({ name, img }, i) => (

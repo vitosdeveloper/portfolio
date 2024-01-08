@@ -117,8 +117,8 @@ Product and Order Manager for a Bakery.`,
 Grade Manager for Teachers and Principals.
 Logins at: "/api/showLogins", every pass is "asd"`,
       img: educa,
-      live: 'https://felinochan.vercel.app/hw/1',
-      repo: 'https://github.com/vitosnatios/felino-chan-Client',
+      live: 'https://portal-educador.vercel.app',
+      repo: 'https://github.com/vitosnatios/portal-educador',
     },
     {
       name: 'Portfolio',
@@ -126,8 +126,8 @@ Logins at: "/api/showLogins", every pass is "asd"`,
 Grade Manager for Teachers and Principals.
 Logins at: "/api/showLogins", every pass is "asd"`,
       img: port,
-      live: 'https://felinochan.vercel.app/hw/1',
-      repo: 'https://github.com/vitosnatios/felino-chan-Client',
+      live: 'https://vitosdeveloper.vercel.app/',
+      repo: 'https://github.com/vitosnatios/portfolio',
     },
   ];
 
