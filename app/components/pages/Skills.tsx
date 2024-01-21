@@ -82,31 +82,31 @@ const Skills = ({ headerHeight }: Props) => {
   return (
     <SkillsSection id='#skills' $headerHeight={headerHeight}>
       <StyledCenterDiv>
-        <Reveal y={-75}>
-          <SkillsTextContainer>
+        <SkillsTextContainer>
+          <Reveal y={-75}>
             <StyledAboutTitle>MY PROGRESS SO FAR</StyledAboutTitle>
             <SkillsTitle>My Skills</SkillsTitle>
-          </SkillsTextContainer>
-        </Reveal>
-        <Reveal x={-75}>
-          <div onMouseEnter={pauseSwipers} onMouseLeave={playSwipers}>
+          </Reveal>
+        </SkillsTextContainer>
+        <div onMouseEnter={pauseSwipers} onMouseLeave={playSwipers}>
+          <Reveal x={-75}>
             <SkillsSwiper
               setSwipers={setSwipers}
               name='first'
               skills={skills.slice(0, 11)}
             />
-          </div>
-        </Reveal>
-        <Reveal x={75}>
-          <div onMouseEnter={pauseSwipers} onMouseLeave={playSwipers}>
+          </Reveal>
+        </div>
+        <div onMouseEnter={pauseSwipers} onMouseLeave={playSwipers}>
+          <Reveal x={75}>
             <SkillsSwiper
               setSwipers={setSwipers}
               name='sec'
               reverse
               skills={skills.slice(11)}
             />
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </StyledCenterDiv>
     </SkillsSection>
   );

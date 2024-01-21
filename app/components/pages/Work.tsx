@@ -135,28 +135,28 @@ Logins at: "/api/showLogins", every pass is "asd"`,
   return (
     <SkillsSection id='#work' $headerHeight={headerHeight}>
       <StyledCenterDiv>
-        <Reveal y={-75}>
-          <SkillsTextContainer>
+        <SkillsTextContainer>
+          <Reveal y={-75}>
             <StyledAboutTitle>CHECK OUT MY EXPERIENCE</StyledAboutTitle>
             <SkillsTitle>Professional Environment</SkillsTitle>
-          </SkillsTextContainer>
-        </Reveal>
-        <Reveal x={-75}>
-          <div onMouseEnter={pauseSwipers} onMouseLeave={playSwipers}>
+          </Reveal>
+        </SkillsTextContainer>
+        <div onMouseEnter={pauseSwipers} onMouseLeave={playSwipers}>
+          <Reveal x={-75}>
             <WorkSwiper
               name='first'
               setSwipers={setSwipers}
               works={works.filter((w) => w.description.includes('Freelance'))}
             />
-          </div>
-        </Reveal>
-        <Reveal y={-75}>
-          <SkillsTextContainer>
+          </Reveal>
+        </div>
+        <SkillsTextContainer>
+          <Reveal y={-75}>
             <SkillsTitle>Personal Projects</SkillsTitle>
-          </SkillsTextContainer>
-        </Reveal>
-        <Reveal x={75}>
-          <div onMouseEnter={pauseSwipers} onMouseLeave={playSwipers}>
+          </Reveal>
+        </SkillsTextContainer>
+        <div onMouseEnter={pauseSwipers} onMouseLeave={playSwipers}>
+          <Reveal x={75}>
             <WorkSwiper
               name='sec'
               setSwipers={setSwipers}
@@ -165,8 +165,8 @@ Logins at: "/api/showLogins", every pass is "asd"`,
               )}
               reverse
             />
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </StyledCenterDiv>
     </SkillsSection>
   );

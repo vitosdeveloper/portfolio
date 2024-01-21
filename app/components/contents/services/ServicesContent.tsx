@@ -16,8 +16,8 @@ const ServicesContent = (props: Props) => {
       </Reveal>
 
       <ServicesContainer style={{ marginTop: '3rem' }}>
-        <Reveal x={-75}>
-          <ServicesTextContainer className='service_text_one'>
+        <ServicesTextContainer className='service_text_one'>
+          <Reveal x={-75}>
             <ServiceTextContainer>
               <ServicesTitle>Web Development</ServicesTitle>
               <ServicesText>
@@ -35,18 +35,18 @@ const ServicesContent = (props: Props) => {
                 involving technology. Let&apos;s have a conversation!
               </ServicesText>
             </ServiceTextContainer>
-          </ServicesTextContainer>
-        </Reveal>
-        <Reveal y={175}>
-          <ServicesImageContainer
-            className='service_image'
-            style={{ margin: '0 auto' }}
-          >
+          </Reveal>
+        </ServicesTextContainer>
+        <ServicesImageContainer
+          className='service_image'
+          style={{ margin: '0 auto' }}
+        >
+          <Reveal y={175}>
             <StyledImage $left src={CodingIcon} alt='home-picture' />
-          </ServicesImageContainer>
-        </Reveal>
-        <Reveal x={75}>
-          <ServicesTextContainer className='service_text_two'>
+          </Reveal>
+        </ServicesImageContainer>
+        <ServicesTextContainer className='service_text_two'>
+          <Reveal x={75}>
             <ServiceTextContainer>
               <ServicesTitle>Revitalization</ServicesTitle>
               <ServicesText>
@@ -64,8 +64,8 @@ const ServicesContent = (props: Props) => {
                 expertise, and I&apos;ll gradually turn your ideas into reality.
               </ServicesText>
             </ServiceTextContainer>
-          </ServicesTextContainer>
-        </Reveal>
+          </Reveal>
+        </ServicesTextContainer>
       </ServicesContainer>
     </FlexYContainer>
   );
