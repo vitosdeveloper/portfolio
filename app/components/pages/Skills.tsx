@@ -30,6 +30,7 @@ import material from '@/public/skills/material.svg';
 import html from '@/public/skills/html.svg';
 import { memo, useState } from 'react';
 import SwiperCore from 'swiper';
+import Reveal from '../containers/Reveal';
 
 type Props = { headerHeight: number };
 
@@ -81,25 +82,31 @@ const Skills = ({ headerHeight }: Props) => {
   return (
     <SkillsSection id='#skills' $headerHeight={headerHeight}>
       <StyledCenterDiv>
-        <SkillsTextContainer>
-          <StyledAboutTitle>MY PROGRESS SO FAR</StyledAboutTitle>
-          <SkillsTitle>My Skills</SkillsTitle>
-        </SkillsTextContainer>
-        <div onMouseEnter={pauseSwipers} onMouseLeave={playSwipers}>
-          <SkillsSwiper
-            setSwipers={setSwipers}
-            name='first'
-            skills={skills.slice(0, 11)}
-          />
-        </div>
-        <div onMouseEnter={pauseSwipers} onMouseLeave={playSwipers}>
-          <SkillsSwiper
-            setSwipers={setSwipers}
-            name='sec'
-            reverse
-            skills={skills.slice(11)}
-          />
-        </div>
+        <Reveal y={-75}>
+          <SkillsTextContainer>
+            <StyledAboutTitle>MY PROGRESS SO FAR</StyledAboutTitle>
+            <SkillsTitle>My Skills</SkillsTitle>
+          </SkillsTextContainer>
+        </Reveal>
+        <Reveal x={-75}>
+          <div onMouseEnter={pauseSwipers} onMouseLeave={playSwipers}>
+            <SkillsSwiper
+              setSwipers={setSwipers}
+              name='first'
+              skills={skills.slice(0, 11)}
+            />
+          </div>
+        </Reveal>
+        <Reveal x={75}>
+          <div onMouseEnter={pauseSwipers} onMouseLeave={playSwipers}>
+            <SkillsSwiper
+              setSwipers={setSwipers}
+              name='sec'
+              reverse
+              skills={skills.slice(11)}
+            />
+          </div>
+        </Reveal>
       </StyledCenterDiv>
     </SkillsSection>
   );

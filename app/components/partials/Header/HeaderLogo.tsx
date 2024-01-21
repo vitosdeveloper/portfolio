@@ -2,6 +2,7 @@
 import { memo } from 'react';
 import { DiCode } from 'react-icons/di';
 import styled from 'styled-components';
+import Reveal from '../../containers/Reveal';
 
 const LogoH1 = styled.h1`
   background: linear-gradient(
@@ -36,10 +37,12 @@ const StyledContainer = styled.div<{ $big: boolean }>`
 
 const HeaderLogo = ({ big }: { big: boolean }) => {
   return (
-    <StyledContainer $big={big}>
-      <StyledDiCode size='66px' />
-      <LogoH1>Vitos Developer</LogoH1>
-    </StyledContainer>
+    <Reveal x={-75}>
+      <StyledContainer $big={big}>
+        <StyledDiCode size='66px' />
+        <LogoH1>Vitos Developer</LogoH1>
+      </StyledContainer>
+    </Reveal>
   );
 };
 

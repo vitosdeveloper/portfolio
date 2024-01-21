@@ -3,58 +3,69 @@ import CodingIcon from '@/public/coding_icon.webp';
 import styled from 'styled-components';
 import { ImageContainer, StyledHomeTitle, StyledImage } from '../../pages/Home';
 import { FlexYContainer, StyledServicesTitle } from '../../pages/Services';
+import Reveal from '../../containers/Reveal';
 
 type Props = {};
 
 const ServicesContent = (props: Props) => {
   return (
     <FlexYContainer style={{ textAlign: 'center' }}>
-      <StyledHomeTitle>Services</StyledHomeTitle>
-      <StyledServicesTitle>What services do i offer</StyledServicesTitle>
+      <Reveal y={-75}>
+        <StyledHomeTitle>Services</StyledHomeTitle>
+        <StyledServicesTitle>What services do i offer</StyledServicesTitle>
+      </Reveal>
+
       <ServicesContainer style={{ marginTop: '3rem' }}>
-        <ServicesTextContainer className='service_text_one'>
-          <ServiceTextContainer>
-            <ServicesTitle>Web Development</ServicesTitle>
-            <ServicesText>
-              I can build your new system, e-commerce, landing page, or whatever
-              you need. Whether it&apos;s solving bugs, creating new solutions,
-              or contributing to existing projects, I&apos;m here to help.
-            </ServicesText>
-          </ServiceTextContainer>
-          <ServiceTextContainer>
-            <ServicesTitle>Creative Solutions</ServicesTitle>
-            <ServicesText>
-              Recognized potential in my dedication and need something out of
-              the box? I&apos;m always open to new business possibilities
-              involving technology. Let&apos;s have a conversation!
-            </ServicesText>
-          </ServiceTextContainer>
-        </ServicesTextContainer>
-        <ServicesImageContainer
-          className='service_image'
-          style={{ margin: '0 auto' }}
-        >
-          <StyledImage $left src={CodingIcon} alt='home-picture' />
-        </ServicesImageContainer>
-        <ServicesTextContainer className='service_text_two'>
-          <ServiceTextContainer>
-            <ServicesTitle>Revitalization</ServicesTitle>
-            <ServicesText>
-              If you have any legacy code and are interested in modernizing it
-              for improved performance, a better user experience, and
-              potentially cost savings through optimizations, I&apos;m willing
-              to learn any language or framework to solve your problem.
-            </ServicesText>
-          </ServiceTextContainer>
-          <ServiceTextContainer>
-            <ServicesTitle>Legacy</ServicesTitle>
-            <ServicesText>
-              Satisfied with your legacy project as it is but need a
-              professional for general modifications? Invest in my time and
-              expertise, and I&apos;ll gradually turn your ideas into reality.
-            </ServicesText>
-          </ServiceTextContainer>
-        </ServicesTextContainer>
+        <Reveal x={-75}>
+          <ServicesTextContainer className='service_text_one'>
+            <ServiceTextContainer>
+              <ServicesTitle>Web Development</ServicesTitle>
+              <ServicesText>
+                I can build your new system, e-commerce, landing page, or
+                whatever you need. Whether it&apos;s solving bugs, creating new
+                solutions, or contributing to existing projects, I&apos;m here
+                to help.
+              </ServicesText>
+            </ServiceTextContainer>
+            <ServiceTextContainer>
+              <ServicesTitle>Creative Solutions</ServicesTitle>
+              <ServicesText>
+                Recognized potential in my dedication and need something out of
+                the box? I&apos;m always open to new business possibilities
+                involving technology. Let&apos;s have a conversation!
+              </ServicesText>
+            </ServiceTextContainer>
+          </ServicesTextContainer>
+        </Reveal>
+        <Reveal y={175}>
+          <ServicesImageContainer
+            className='service_image'
+            style={{ margin: '0 auto' }}
+          >
+            <StyledImage $left src={CodingIcon} alt='home-picture' />
+          </ServicesImageContainer>
+        </Reveal>
+        <Reveal x={75}>
+          <ServicesTextContainer className='service_text_two'>
+            <ServiceTextContainer>
+              <ServicesTitle>Revitalization</ServicesTitle>
+              <ServicesText>
+                If you have any legacy code and are interested in modernizing it
+                for improved performance, a better user experience, and
+                potentially cost savings through optimizations, I&apos;m willing
+                to learn any language or framework to solve your problem.
+              </ServicesText>
+            </ServiceTextContainer>
+            <ServiceTextContainer>
+              <ServicesTitle>Legacy</ServicesTitle>
+              <ServicesText>
+                Satisfied with your legacy project as it is but need a
+                professional for general modifications? Invest in my time and
+                expertise, and I&apos;ll gradually turn your ideas into reality.
+              </ServicesText>
+            </ServiceTextContainer>
+          </ServicesTextContainer>
+        </Reveal>
       </ServicesContainer>
     </FlexYContainer>
   );

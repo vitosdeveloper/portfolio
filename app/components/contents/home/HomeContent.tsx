@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import { ImageContainer, StyledHomeTitle, StyledImage } from '../../pages/Home';
 import { memo } from 'react';
+import Reveal from '../../containers/Reveal';
 
 type Props = {};
 
@@ -12,32 +13,39 @@ const HomeContent = (props: Props) => {
   return (
     <StyledHomeContainer>
       <ContentContainer>
-        <StyledHomeRole>FULL-STACK DEVELOPER</StyledHomeRole>
-        <StyledHomeTitle>Hey! I am</StyledHomeTitle>
-        <StyledHomeTitle $gradientprop>Vitor Fernandes</StyledHomeTitle>
-        <StyledP>
-          I am a Developer, currently focused on the Web, completely dedicated
-          to the studies and work I do.
-        </StyledP>
-        <StyledButtonLink href='mailto:vitosdeveloper@gmail.com'>
-          <StyledHireMeButton>
-            HIRE ME
-            <BsFillPlayFill />
-          </StyledHireMeButton>
-        </StyledButtonLink>
-        <StyledSocialContainer>
-          <StyledP>Follow Me:</StyledP>
-          <Link href='https://github.com/vitosnatios' target='_blank'>
-            <BsGithub />
-          </Link>
-          <Link href='https://www.linkedin.com/in/vitosnatios/' target='_blank'>
-            <BsLinkedin />
-          </Link>
-        </StyledSocialContainer>
+        <Reveal x={-75}>
+          <StyledHomeRole>FULL-STACK DEVELOPER</StyledHomeRole>
+          <StyledHomeTitle>Hey! I am</StyledHomeTitle>
+          <StyledHomeTitle $gradientprop>Vitor Fernandes</StyledHomeTitle>
+          <StyledP>
+            I am a Developer, currently focused on the Web, completely dedicated
+            to the studies and work I do.
+          </StyledP>
+          <StyledButtonLink href='mailto:vitosdeveloper@gmail.com'>
+            <StyledHireMeButton>
+              HIRE ME
+              <BsFillPlayFill />
+            </StyledHireMeButton>
+          </StyledButtonLink>
+          <StyledSocialContainer>
+            <StyledP>Follow Me:</StyledP>
+            <Link href='https://github.com/vitosnatios' target='_blank'>
+              <BsGithub />
+            </Link>
+            <Link
+              href='https://www.linkedin.com/in/vitosnatios/'
+              target='_blank'
+            >
+              <BsLinkedin />
+            </Link>
+          </StyledSocialContainer>
+        </Reveal>
       </ContentContainer>
-      <ImageContainer>
-        <StyledImage src={EuImage} alt='home-picture' />
-      </ImageContainer>
+      <Reveal x={75}>
+        <ImageContainer>
+          <StyledImage src={EuImage} alt='home-picture' />
+        </ImageContainer>
+      </Reveal>
     </StyledHomeContainer>
   );
 };

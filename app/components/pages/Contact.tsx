@@ -11,6 +11,7 @@ import Link from 'next/link';
 import { FaWhatsapp } from 'react-icons/fa';
 import { IoMdMail } from 'react-icons/io';
 import { CiLocationOn } from 'react-icons/ci';
+import Reveal from '../containers/Reveal';
 
 type Props = { headerHeight: number };
 
@@ -45,30 +46,34 @@ const Contact = ({ headerHeight }: Props) => {
   return (
     <SkillsSection id='#contact' $headerHeight={headerHeight}>
       <StyledCenterDiv style={{ padding: '0 1rem' }}>
-        <SkillsTextContainer>
-          <StyledAboutTitle>I want to hear from you</StyledAboutTitle>
-          <SkillsTitle>Contact Me</SkillsTitle>
-        </SkillsTextContainer>
-        <IconsContainer>
-          {socials.map(({ name, value, Icon, color, link, background }) => (
-            <IconContainer
-              href={link ? link : ''}
-              onClick={(e) => {
-                !link && e.preventDefault();
-              }}
-              key={name}
-              target='_blank'
-            >
-              <IconBg style={{ background }}>
-                <Icon style={{ color }} size='55px' color='white' />
-              </IconBg>
-              <IconTextContainer>
-                <IconTitle>{name}</IconTitle>
-                <IconValue>{value}</IconValue>
-              </IconTextContainer>
-            </IconContainer>
-          ))}
-        </IconsContainer>
+        <Reveal y={-75}>
+          <SkillsTextContainer>
+            <StyledAboutTitle>I want to hear from you</StyledAboutTitle>
+            <SkillsTitle>Contact Me</SkillsTitle>
+          </SkillsTextContainer>
+        </Reveal>
+        <Reveal x={-75}>
+          <IconsContainer>
+            {socials.map(({ name, value, Icon, color, link, background }) => (
+              <IconContainer
+                href={link ? link : ''}
+                onClick={(e) => {
+                  !link && e.preventDefault();
+                }}
+                key={name}
+                target='_blank'
+              >
+                <IconBg style={{ background }}>
+                  <Icon style={{ color }} size='55px' color='white' />
+                </IconBg>
+                <IconTextContainer>
+                  <IconTitle>{name}</IconTitle>
+                  <IconValue>{value}</IconValue>
+                </IconTextContainer>
+              </IconContainer>
+            ))}
+          </IconsContainer>
+        </Reveal>
       </StyledCenterDiv>
     </SkillsSection>
   );

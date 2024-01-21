@@ -10,6 +10,7 @@ import Skills from './components/pages/Skills';
 import Work from './components/pages/Work';
 import Contact from './components/pages/Contact';
 import Footer from './components/pages/Footer';
+import Reveal from './components/containers/Reveal';
 
 function App() {
   const [section, setSection] = useState<ISection>('#home');

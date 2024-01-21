@@ -20,6 +20,7 @@ import bet from '@/public/works/bet.webp';
 import wtp from '@/public/works/wtp.webp';
 import artesanato from '@/public/works/artesanato.webp';
 import port from '@/public/works/port.webp';
+import Reveal from '../containers/Reveal';
 
 SwiperCore.use([Autoplay]);
 
@@ -134,30 +135,38 @@ Logins at: "/api/showLogins", every pass is "asd"`,
   return (
     <SkillsSection id='#work' $headerHeight={headerHeight}>
       <StyledCenterDiv>
-        <SkillsTextContainer>
-          <StyledAboutTitle>CHECK OUT MY EXPERIENCE</StyledAboutTitle>
-          <SkillsTitle>Professional Environment</SkillsTitle>
-        </SkillsTextContainer>
-        <div onMouseEnter={pauseSwipers} onMouseLeave={playSwipers}>
-          <WorkSwiper
-            name='first'
-            setSwipers={setSwipers}
-            works={works.filter((w) => w.description.includes('Freelance'))}
-          />
-        </div>
-        <SkillsTextContainer>
-          <SkillsTitle>Personal Projects</SkillsTitle>
-        </SkillsTextContainer>
-        <div onMouseEnter={pauseSwipers} onMouseLeave={playSwipers}>
-          <WorkSwiper
-            name='sec'
-            setSwipers={setSwipers}
-            works={works.filter((w) =>
-              w.description.includes('Personal Project')
-            )}
-            reverse
-          />
-        </div>
+        <Reveal y={-75}>
+          <SkillsTextContainer>
+            <StyledAboutTitle>CHECK OUT MY EXPERIENCE</StyledAboutTitle>
+            <SkillsTitle>Professional Environment</SkillsTitle>
+          </SkillsTextContainer>
+        </Reveal>
+        <Reveal x={-75}>
+          <div onMouseEnter={pauseSwipers} onMouseLeave={playSwipers}>
+            <WorkSwiper
+              name='first'
+              setSwipers={setSwipers}
+              works={works.filter((w) => w.description.includes('Freelance'))}
+            />
+          </div>
+        </Reveal>
+        <Reveal y={-75}>
+          <SkillsTextContainer>
+            <SkillsTitle>Personal Projects</SkillsTitle>
+          </SkillsTextContainer>
+        </Reveal>
+        <Reveal x={75}>
+          <div onMouseEnter={pauseSwipers} onMouseLeave={playSwipers}>
+            <WorkSwiper
+              name='sec'
+              setSwipers={setSwipers}
+              works={works.filter((w) =>
+                w.description.includes('Personal Project')
+              )}
+              reverse
+            />
+          </div>
+        </Reveal>
       </StyledCenterDiv>
     </SkillsSection>
   );
