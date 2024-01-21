@@ -136,7 +136,7 @@ Logins at: "/api/showLogins", every pass is "asd"`,
     <SkillsSection id='#work' $headerHeight={headerHeight}>
       <StyledCenterDiv>
         <SkillsTextContainer>
-          <Reveal y={-75}>
+          <Reveal x={75}>
             <StyledAboutTitle>CHECK OUT MY EXPERIENCE</StyledAboutTitle>
             <SkillsTitle>Professional Environment</SkillsTitle>
           </Reveal>
@@ -151,7 +151,7 @@ Logins at: "/api/showLogins", every pass is "asd"`,
           </Reveal>
         </div>
         <SkillsTextContainer>
-          <Reveal y={-75}>
+          <Reveal x={-75}>
             <SkillsTitle>Personal Projects</SkillsTitle>
           </Reveal>
         </SkillsTextContainer>

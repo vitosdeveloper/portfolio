@@ -37,12 +37,12 @@ const StyledContainer = styled.div<{ $big: boolean }>`
 
 const HeaderLogo = ({ big }: { big: boolean }) => {
   return (
-    <Reveal x={-75}>
-      <StyledContainer $big={big}>
-        <StyledDiCode size='66px' />
+    <StyledContainer $big={big}>
+      <StyledDiCode size='66px' />
+      <Reveal x={-75}>
         <LogoH1>Vitos Developer</LogoH1>
-      </StyledContainer>
-    </Reveal>
+      </Reveal>
+    </StyledContainer>
   );
 };
 

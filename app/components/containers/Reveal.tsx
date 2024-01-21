@@ -17,22 +17,23 @@ const Reveal = ({
     } else {
       mainControls.start('hidden');
     }
-    // inView ?  : mainControls.stop();
   }, [inView, mainControls]);
 
   return (
-    <motion.div
-      ref={ref}
-      variants={{
-        hidden: { opacity: 0, y, x },
-        show: { opacity: 1, y: 0, x: 0 },
-      }}
-      transition={{ duration: 0.5, delay: 0 }}
-      initial='hidden'
-      animate={mainControls}
-    >
-      {children}
-    </motion.div>
+    <div style={{ position: 'relative', width: 'initial', overflow: 'hidden' }}>
+      <motion.div
+        ref={ref}
+        variants={{
+          hidden: { opacity: 0, y, x },
+          show: { opacity: 1, y: 0, x: 0 },
+        }}
+        transition={{ duration: 0.5, delay: 0 }}
+        initial='hidden'
+        animate={mainControls}
+      >
+        {children}
+      </motion.div>
+    </div>
   );
 };
 

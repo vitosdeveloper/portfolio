@@ -46,7 +46,7 @@ const Contact = ({ headerHeight }: Props) => {
   return (
     <SkillsSection id='#contact' $headerHeight={headerHeight}>
       <StyledCenterDiv style={{ padding: '0 1rem' }}>
-        <Reveal y={-75}>
+        <Reveal x={75}>
           <SkillsTextContainer>
             <StyledAboutTitle>I want to hear from you</StyledAboutTitle>
             <SkillsTitle>Contact Me</SkillsTitle>

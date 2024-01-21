@@ -29,26 +29,28 @@ const AboutContent = (props: Props) => {
   }
   return (
     <AboutMeContainer>
-      <Reveal x={-75}>
-        <ImageContainer>
+      <ImageContainer>
+        <Reveal x={-75}>
           <StyledImage $left src={F11Image} alt='home-picture' />
-        </ImageContainer>
-      </Reveal>
+        </Reveal>
+      </ImageContainer>
       <AboutTextContainer>
         <Reveal x={75}>
-          <StyledAboutTitle>ABOUT ME</StyledAboutTitle>
-          <StyledAboutSubText>
-            Why should you hire me for your next or current project?
-          </StyledAboutSubText>
-          <StyledP>
-            I&apos;m a {adivinharIdade('1994-08-11')}-year-old developer, with a
-            strong focus on web development. I am fully dedicated to continuous
-            learning, and I specialize in building, maintaining, and enhancing
-            interfaces and systems to meet the unique needs of your business. My
-            passion for technology drives me to stay open to new challenges and
-            constantly pursue knowledge and growth.
-          </StyledP>
-          <AboutForm />
+          <AboutTextContainer>
+            <StyledAboutTitle>ABOUT ME</StyledAboutTitle>
+            <StyledAboutSubText>
+              Why should you hire me for your next or current project?
+            </StyledAboutSubText>
+            <StyledP>
+              I&apos;m a {adivinharIdade('1994-08-11')}-year-old developer, with
+              a strong focus on web development. I am fully dedicated to
+              continuous learning, and I specialize in building, maintaining,
+              and enhancing interfaces and systems to meet the unique needs of
+              your business. My passion for technology drives me to stay open to
+              new challenges and constantly pursue knowledge and growth.
+            </StyledP>
+            <AboutForm />
+          </AboutTextContainer>
         </Reveal>
       </AboutTextContainer>
     </AboutMeContainer>
