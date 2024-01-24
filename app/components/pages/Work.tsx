@@ -20,6 +20,7 @@ import bet from '@/public/works/bet.webp';
 import wtp from '@/public/works/wtp.webp';
 import artesanato from '@/public/works/artesanato.webp';
 import port from '@/public/works/port.webp';
+import lepar from '@/public/works/lepar.webp';
 import Reveal from '../containers/Reveal';
 
 SwiperCore.use([Autoplay]);
@@ -55,6 +56,16 @@ I worked on the successful migration of two projects to cutting-edge technologie
       img: devgames,
       live: '',
       repo: 'https://github.com/vitosnatios/lawnmower-backup',
+      personal: false,
+    },
+    {
+      name: 'Le Parfum',
+      description: `Freelance
+I studied two versions of the Bling API (ERP) as the client aimed to develop a fully customized e-commerce platform, integrating and updating information through the Bling API. However, while already in development, after a certain evaluation of the APIs, the latest version proved to be incompatible with our requirements. On the other hand, the previous version, although meeting our requirements, was scheduled to cease operation in the middle of the year. Faced with this, we opted for the most viable solution, which involved using pre-built templates offered by NumveShop, a Bling partner. From this template, I made some specific adjustments through CSS.`,
+      img: lepar,
+      live: 'https://www.leparfumdf.com.br/',
+      repo: '',
+      personal: false,
     },
     {
       name: 'Denys Tips',
@@ -63,6 +74,7 @@ I developed a landing page with a focus on responsiveness, designing according t
       img: bet,
       live: '',
       repo: '',
+      personal: false,
     },
     {
       name: 'wtpsapp - Aplicativos Mobile',
@@ -71,6 +83,7 @@ Development and customization of features on demand in mobile apps built with Re
       img: wtp,
       live: '',
       repo: '',
+      personal: false,
     },
     {
       name: 'Arte e Brilho Artesanato',
@@ -79,56 +92,56 @@ Development and maintenance of an Ecommerce platform for religious articles, inc
       img: artesanato,
       live: '',
       repo: '',
+      personal: false,
     },
     {
       name: 'Felino Chan',
-      description: `Personal Project
-Imageboard that generates random cat pictures for your posts.`,
+      description: `Imageboard that generates random cat pictures for your posts.`,
       img: felino,
       live: 'https://felinochan.vercel.app/hw/1',
       repo: 'https://github.com/vitosnatios/felino-chan-Client',
+      personal: true,
     },
     {
       name: 'Fictional Ecommerce',
-      description: `Personal Project
-E-commerce prototype.`,
+      description: `E-commerce prototype.`,
       img: fictional,
       live: 'https://vitos-e-commerce.netlify.app/',
       repo: 'https://github.com/vitosnatios/E-commerce',
+      personal: true,
     },
     {
       name: 'CaffeineCraft',
-      description: `Personal Project
-Discover the world's finest coffeee beans and brew your perfect cup of coffeee. Ecommerce-like website.`,
+      description: `Discover the world's finest coffeee beans and brew your perfect cup of coffeee. Ecommerce-like website.`,
       img: coffee,
       live: 'https://caffeine-craft.vercel.app/',
       repo: 'https://github.com/vitosnatios/CaffeineCraft',
+      personal: true,
     },
     {
       name: 'DáPãoDelivery',
-      description: `Personal Project
-Product and Order Manager for a Bakery.`,
+      description: `Product and Order Manager for a Bakery.`,
       img: dapao,
       live: 'https://da-pao-delivery.vercel.app/',
       repo: 'https://github.com/vitosnatios/DaPaoDelivery-Frontend',
+      personal: true,
     },
     {
       name: 'Portal Educador',
-      description: `Personal Project
-Grade Manager for Teachers and Principals.
+      description: `Grade Manager for Teachers and Principals.
 Logins at: "/api/showLogins", every pass is "asd"`,
       img: educa,
       live: 'https://portal-educador.vercel.app',
       repo: 'https://github.com/vitosnatios/portal-educador',
+      personal: true,
     },
     {
       name: 'Portfolio',
-      description: `Personal Project
-Grade Manager for Teachers and Principals.
-Logins at: "/api/showLogins", every pass is "asd"`,
+      description: `This website, like, literally.`,
       img: port,
       live: 'https://vitosdeveloper.vercel.app/',
       repo: 'https://github.com/vitosnatios/portfolio',
+      personal: true,
     },
   ];
 
@@ -146,7 +159,7 @@ Logins at: "/api/showLogins", every pass is "asd"`,
             <WorkSwiper
               name='first'
               setSwipers={setSwipers}
-              works={works.filter((w) => w.description.includes('Freelance'))}
+              works={works.filter((w) => !w.personal)}
             />
           </Reveal>
         </div>
@@ -160,9 +173,7 @@ Logins at: "/api/showLogins", every pass is "asd"`,
             <WorkSwiper
               name='sec'
               setSwipers={setSwipers}
-              works={works.filter((w) =>
-                w.description.includes('Personal Project')
-              )}
+              works={works.filter((w) => w.personal)}
               reverse
             />
           </Reveal>
