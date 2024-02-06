@@ -5,6 +5,7 @@ import {
   SkillsTitle,
   StyledCenterDiv,
 } from './Skills';
+import Reveal from '../containers/Reveal';
 import { StyledAboutTitle } from './About';
 import { memo, useState } from 'react';
 import SwiperCore from 'swiper';
@@ -21,7 +22,8 @@ import wtp from '@/public/works/wtp.webp';
 import artesanato from '@/public/works/artesanato.webp';
 import port from '@/public/works/port.webp';
 import lepar from '@/public/works/lepar.webp';
-import Reveal from '../containers/Reveal';
+import storm from '@/public/works/storm.webp';
+import denys2 from '@/public/works/denys2.webp';
 
 SwiperCore.use([Autoplay]);
 
@@ -37,25 +39,34 @@ const Work = ({ headerHeight }: Props) => {
   });
 
   const pauseSwipers = () => {
-    if (!swipers.first || !swipers.sec) return;
-    swipers.first.autoplay.stop();
-    swipers.sec.autoplay.stop();
+    if (!swipers?.first || !swipers?.sec) return;
+    swipers?.first?.autoplay?.stop();
+    swipers?.sec?.autoplay?.stop();
   };
 
   const playSwipers = () => {
-    if (!swipers.first || !swipers.sec) return;
-    swipers.first.autoplay.start();
-    swipers.sec.autoplay.start();
+    if (!swipers?.first || !swipers?.sec) return;
+    swipers?.first?.autoplay?.start();
+    swipers?.sec?.autoplay?.start();
   };
 
   const works = [
     {
-      name: 'devganes-app',
+      name: 'Denys Tips - Blackjack',
       description: `Freelance
-I worked on the successful migration of two projects to cutting-edge technologies. The first project, originally built with Node.js, JavaScript, jQuery, and HTML, and the second one with Preact, were modernized with TypeScript and Next.js along with Serverless Functions, as per the client's request.`,
-      img: devgames,
+Landing page for tutorial videos and contact presentation.`,
+      img: denys2,
       live: '',
-      repo: 'https://github.com/vitosnatios/lawnmower-backup',
+      repo: '',
+      personal: false,
+    },
+    {
+      name: 'Storm Store',
+      description: `Freelance
+Ragnarok Zeny and Items E-commerce.`,
+      img: storm,
+      live: '',
+      repo: '',
       personal: false,
     },
     {
@@ -92,6 +103,15 @@ Development and maintenance of an Ecommerce platform for religious articles, inc
       img: artesanato,
       live: '',
       repo: '',
+      personal: false,
+    },
+    {
+      name: 'devgames-app',
+      description: `Freelance
+I worked on the successful migration of two projects to cutting-edge technologies. The first project, originally built with Node.js, JavaScript, jQuery, and HTML, and the second one with Preact, were modernized with TypeScript and Next.js along with Serverless Functions, as per the client's request.`,
+      img: devgames,
+      live: '',
+      repo: 'https://github.com/vitosnatios/lawnmower-backup',
       personal: false,
     },
     {

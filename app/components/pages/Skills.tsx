@@ -44,15 +44,15 @@ const Skills = ({ headerHeight }: Props) => {
   });
 
   const pauseSwipers = () => {
-    if (!swipers.first || !swipers.sec) return;
-    swipers.first.autoplay.stop();
-    swipers.sec.autoplay.stop();
+    if (!swipers?.first || !swipers?.sec) return;
+    swipers?.first?.autoplay?.stop();
+    swipers?.sec?.autoplay?.stop();
   };
 
   const playSwipers = () => {
-    if (!swipers.first || !swipers.sec) return;
-    swipers.first.autoplay.start();
-    swipers.sec.autoplay.start();
+    if (!swipers?.first || !swipers?.sec) return;
+    swipers?.first?.autoplay?.start();
+    swipers?.sec?.autoplay?.start();
   };
   const skills = [
     { name: 'Javascript', img: Js },

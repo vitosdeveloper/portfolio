@@ -30,7 +30,7 @@ const AboutContent = (props: Props) => {
   return (
     <AboutMeContainer>
       <ImageContainer>
-        <Reveal x={-75}>
+        <Reveal once x={-75}>
           <StyledImage $left src={F11Image} alt='home-picture' />
         </Reveal>
       </ImageContainer>

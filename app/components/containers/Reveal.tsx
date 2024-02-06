@@ -6,9 +6,10 @@ const Reveal = ({
   children,
   x = 0,
   y = 0,
-}: PropsWithChildren & { x?: number; y?: number }) => {
+  once = false,
+}: PropsWithChildren & { x?: number; y?: number; once?: boolean }) => {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false });
+  const inView = useInView(ref, { once });
   const mainControls = useAnimation();
 
   useEffect(() => {

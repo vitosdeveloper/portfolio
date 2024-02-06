@@ -44,7 +44,7 @@ const HomeContent = (props: Props) => {
         </Reveal>
       </ContentContainer>
       <ImageContainer>
-        <Reveal x={75}>
+        <Reveal once x={75}>
           <StyledImage src={EuImage} alt='home-picture' />
         </Reveal>
       </ImageContainer>
