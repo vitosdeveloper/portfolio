@@ -5,6 +5,9 @@ import {
   StyledAboutSubText,
   StyledAboutTitle,
 } from './About';
+import { memo, useState } from 'react';
+import SwiperCore from 'swiper';
+import Reveal from '../containers/Reveal';
 import styled from 'styled-components';
 import Js from '@/public/skills/js.svg';
 import Ts from '@/public/skills/ts.svg';
@@ -28,9 +31,7 @@ import tailwind from '@/public/skills/tailwind.svg';
 import styledI from '@/public/skills/styled.svg';
 import material from '@/public/skills/material.svg';
 import html from '@/public/skills/html.svg';
-import { memo, useState } from 'react';
-import SwiperCore from 'swiper';
-import Reveal from '../containers/Reveal';
+import cs from '@/public/skills/cs.svg';
 
 type Props = { headerHeight: number };
 
@@ -60,6 +61,7 @@ const Skills = ({ headerHeight }: Props) => {
     { name: 'ReactJS', img: React },
     { name: 'NextJS', img: Next },
     { name: 'PHP', img: Php },
+    { name: 'C#', img: cs },
     { name: 'NodeJS', img: Node },
     { name: 'ExpressJS', img: Express },
     { name: 'Mongo DB', img: Mongo },
@@ -79,6 +81,8 @@ const Skills = ({ headerHeight }: Props) => {
     { name: 'Material UI', img: material },
   ];
 
+  const half = Math.floor(skills.length / 2);
+
   return (
     <SkillsSection id='#skills' $headerHeight={headerHeight}>
       <StyledCenterDiv>
@@ -93,7 +97,7 @@ const Skills = ({ headerHeight }: Props) => {
             <SkillsSwiper
               setSwipers={setSwipers}
               name='first'
-              skills={skills.slice(0, 11)}
+              skills={skills.slice(0, half)}
             />
           </Reveal>
         </div>
@@ -103,7 +107,7 @@ const Skills = ({ headerHeight }: Props) => {
               setSwipers={setSwipers}
               name='sec'
               reverse
-              skills={skills.slice(11)}
+              skills={skills.slice(half)}
             />
           </Reveal>
         </div>

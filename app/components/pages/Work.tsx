@@ -24,6 +24,7 @@ import port from '@/public/works/port.webp';
 import lepar from '@/public/works/lepar.webp';
 import storm from '@/public/works/storm.webp';
 import denys2 from '@/public/works/denys2.webp';
+import optimizer from '@/public/works/optimizer.webp';
 
 SwiperCore.use([Autoplay]);
 
@@ -113,6 +114,15 @@ I worked on the successful migration of two projects to cutting-edge technologie
       live: '',
       repo: 'https://github.com/vitosnatios/lawnmower-backup',
       personal: false,
+    },
+    {
+      name: 'Image Optimizer By Vitos',
+      description: `Image Optimizer.
+It does optimize your images by formating it to .webp and limiting It's max resolution to 1080px. Just paste it inside some folder and execute it, it will optimize all images that aren't .webp from this folder and its subfolders.`,
+      img: optimizer,
+      live: '',
+      repo: 'https://github.com/vitosnatios/Image-Optimizer-By-Vitos/releases',
+      personal: true,
     },
     {
       name: 'Felino Chan',

@@ -2,11 +2,12 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
+import { Autoplay, EffectCoverflow } from 'swiper/modules';
 import { memo } from 'react';
 import NoSsrWrapper from '../NoSsrWrapper/NoSsrWrapper';
 import { Dispatch, SetStateAction } from 'react';
 import SwiperCore from 'swiper';
+import 'swiper/css/effect-coverflow';
 
 type Props = {
   skills: { name: string; img: any }[];
@@ -28,7 +29,7 @@ const SkillsSwiper = ({ skills, reverse = false, setSwipers, name }: Props) => {
           setSwipers((prev) => ({ ...prev, [name]: swiperInstance }))
         }
         autoplay={{
-          delay: 800,
+          delay: 1800,
           disableOnInteraction: false,
           reverseDirection: reverse,
           pauseOnMouseEnter: true,
@@ -37,7 +38,6 @@ const SkillsSwiper = ({ skills, reverse = false, setSwipers, name }: Props) => {
         slidesPerView='auto'
         spaceBetween={15}
         loop
-        // centeredSlides
       >
         <StyledSwiperContainer>
           {skills.concat(skills).map(({ name, img }, i) => (
