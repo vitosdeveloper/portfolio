@@ -1,4 +1,5 @@
-import React, { useCallback, useEffect, useState } from 'react';
+'use client';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { ImageContainer, StyledImage } from '../../pages/Home';
 import AboutForm from '../../form/AboutForm';
@@ -26,28 +27,19 @@ const AboutContent = () => {
   }
 
   const cookieTheme = getCookie('theme')?.replaceAll('"', '');
-
-  const isDark = useCallback(() => {
-    if (cookieTheme) {
-      setImage(cookieTheme === 'dark' ? ImageF1 : ImageF2);
-      return cookieTheme;
+  useEffect(() => {
+    if (cookieTheme && typeof window !== 'undefined') {
+      const isDark = () => setImage(cookieTheme === 'dark' ? ImageF1 : ImageF2);
+      isDark();
     }
   }, [cookieTheme]);
-
-  useEffect(() => {
-    console.log(isDark());
-  }, [cookieTheme, isDark]);
 
   return (
     <AboutMeContainer>
       <ImageContainer>
-        {image ? (
+        {image && (
           <Reveal once x={-75}>
             <StyledImage $left src={image} alt='home-picture' />
-          </Reveal>
-        ) : (
-          <Reveal once x={-75}>
-            {/* <StyledImage $left src={image} alt='home-picture' /> */}
           </Reveal>
         )}
       </ImageContainer>
