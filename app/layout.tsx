@@ -10,7 +10,8 @@ import {
 import './globals.css';
 import 'swiper/css';
 import StyledComponentsRegistry from './lib/registry';
-import { pegarCookie } from './utils/cookies';
+import { cookies } from 'next/headers';
+// import { pegarCookie } from './utils/cookies';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const shareTechMono = Share_Tech_Mono({
@@ -64,8 +65,20 @@ export const metadata: Metadata = {
   ],
 };
 
+export const pegarCookieServerside = (campo: string) => {
+  const cookie: unknown = cookies().get(campo);
+  if (
+    !cookie ||
+    typeof cookie !== 'object' ||
+    !('value' in cookie) ||
+    typeof cookie.value !== 'string'
+  )
+    return null;
+  return cookie.value.trim() ? JSON.parse(cookie.value) : cookie.value;
+};
+
 export const isDark = (): boolean => {
-  const themeCookie = pegarCookie('theme');
+  const themeCookie = pegarCookieServerside('theme');
   return !themeCookie || themeCookie == 'dark';
 };
 
