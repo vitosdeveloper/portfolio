@@ -9,7 +9,7 @@ import { getCookie } from 'cookies-next';
 import ImageF1 from '@/public/f1.webp';
 import ImageF2 from '@/public/f2.webp';
 
-const AboutContent = () => {
+const AboutContent = ({ renderAgain }: { renderAgain: boolean }) => {
   const [image, setImage] = useState<StaticImageData | null>(null);
 
   function adivinharIdade(dataNascimento: string) {
@@ -26,13 +26,12 @@ const AboutContent = () => {
     return idade;
   }
 
-  const cookieTheme = getCookie('theme')?.replaceAll('"', '');
   useEffect(() => {
-    if (cookieTheme && typeof window !== 'undefined') {
-      const isDark = () => setImage(cookieTheme === 'dark' ? ImageF1 : ImageF2);
-      isDark();
+    const cookieTheme = getCookie('theme')?.replaceAll('"', '');
+    if (cookieTheme) {
+      setImage(cookieTheme === 'dark' ? ImageF1 : ImageF2);
     }
-  }, [cookieTheme]);
+  }, [renderAgain]);
 
   return (
     <AboutMeContainer>

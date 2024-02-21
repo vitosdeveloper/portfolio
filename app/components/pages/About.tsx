@@ -4,7 +4,7 @@ import AboutContent from '../contents/about/AboutContent';
 const About = () => {
   return (
     <Section id='#about'>
-      <AboutContent />
+      <AboutContent renderAgain={typeof window !== 'undefined'} />
     </Section>
   );
 };
