@@ -3,8 +3,9 @@ import { ImageContainer, StyledImage } from '../../pages/Home';
 import AboutForm from '../../form/AboutForm';
 import Reveal from '../../containers/Reveal';
 import ImageF1 from '@/public/f1.webp';
-import ImageF2 from '@/public/f2.webp';
+// import ImageF2 from '@/public/f2.webp';
 import Image from 'next/image';
+import { memo } from 'react';
 
 const AboutContent = () => {
   function adivinharIdade(dataNascimento: string) {
@@ -20,8 +21,6 @@ const AboutContent = () => {
     }
     return idade;
   }
-
-  // console.log('var(--teste)');
 
   return (
     <AboutMeContainer>
@@ -66,7 +65,7 @@ const AboutContent = () => {
   );
 };
 
-export default AboutContent;
+export default memo(AboutContent);
 
 const AboutMeContainer = styled.div`
   display: flex;

@@ -8,6 +8,7 @@ import Work from './components/pages/Work';
 import Contact from './components/pages/Contact';
 import Footer from './components/pages/Footer';
 import ProgressBar from './components/progress-bar/ProgressBar';
+// import DarkMode from './components/darkMode/DarkMode';
 
 function App(props: any) {
   return (
@@ -21,6 +22,7 @@ function App(props: any) {
       <Contact />
       <Footer />
       <ProgressBar />
+      {/* <DarkMode /> */}
     </>
   );
 }

@@ -10,7 +10,7 @@ import {
 import './globals.css';
 import 'swiper/css';
 import StyledComponentsRegistry from './lib/registry';
-import DarkMode, { isDark } from './components/darkMode/DarkMode';
+import { pegarCookie } from './utils/cookies';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const shareTechMono = Share_Tech_Mono({
@@ -64,6 +64,11 @@ export const metadata: Metadata = {
   ],
 };
 
+export const isDark = (): boolean => {
+  const themeCookie = pegarCookie('theme');
+  return !themeCookie || themeCookie == 'dark';
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -87,7 +92,6 @@ export default function RootLayout({
                   --color-card2: #14143a;
                   --color-footer-background: rgb(20, 4, 43);
                   --color-skill-background: rgb(23, 32, 61);
-                  --image-folder: public/f1.webp;
               }`
               : `:root {
                   --color-background: rgb(232, 215, 255);
@@ -101,7 +105,6 @@ export default function RootLayout({
                   --color-card2: #0e79f328;
                   --color-footer-background: rgb(191, 159, 236);
                   --color-skill-background: #6d6fdd;
-                  --image-folder: public/f2.webp;
                 `}
           </style>
         </head>
@@ -110,10 +113,7 @@ export default function RootLayout({
         className={`${inter.variable} ${shareTechMono.variable} ${poppins.variable} 
           ${firaCode.variable} ${jost.variable} ${rubik.variable}`}
       >
-        <StyledComponentsRegistry>
-          {children}
-          <DarkMode />
-        </StyledComponentsRegistry>
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
     </html>
   );

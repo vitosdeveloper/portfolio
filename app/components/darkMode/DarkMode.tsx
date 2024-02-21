@@ -1,15 +1,19 @@
-import { pegarCookie } from '@/app/utils/cookies';
 import DarkModeForm from './DarkModeForm';
+import { getCookie } from 'cookies-next';
 
 type Props = {};
 
-export const isDark = (): boolean => {
-  const themeCookie = pegarCookie('theme');
+export const isDarkClientside = () => {
+  const themeCookie = getCookie('theme')?.replaceAll('"', '');
   return !themeCookie || themeCookie == 'dark';
 };
 
 const DarkMode = (props: Props) => {
-  return <DarkModeForm isDark={isDark()} />;
+  return (
+    typeof window !== 'undefined' && (
+      <DarkModeForm isDark={isDarkClientside()} />
+    )
+  );
 };
 
 export default DarkMode;
