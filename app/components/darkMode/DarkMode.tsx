@@ -4,16 +4,16 @@ import { getCookie } from 'cookies-next';
 type Props = {};
 
 export const isDarkClientside = () => {
-  const themeCookie = getCookie('theme')?.replaceAll('"', '');
-  return !themeCookie || themeCookie == 'dark';
+  const themeCookie = getCookie('theme')?.replaceAll('%22', '');
+  console.log(themeCookie);
+
+  return (!themeCookie || themeCookie) == 'dark';
 };
 
 const DarkMode = (props: Props) => {
-  return (
-    typeof window !== 'undefined' && (
-      <DarkModeForm isDark={isDarkClientside()} />
-    )
-  );
+  console.log(isDarkClientside());
+
+  return <DarkModeForm isDark={isDarkClientside()} />;
 };
 
 export default DarkMode;
