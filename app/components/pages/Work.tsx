@@ -6,7 +6,6 @@ import {
   StyledCenterDiv,
 } from './Skills';
 import Reveal from '../containers/Reveal';
-import { StyledAboutTitle } from './About';
 import { memo, useState } from 'react';
 import SwiperCore from 'swiper';
 import { Autoplay } from 'swiper/modules';
@@ -25,12 +24,11 @@ import lepar from '@/public/works/lepar.webp';
 import storm from '@/public/works/storm.webp';
 import denys2 from '@/public/works/denys2.webp';
 import optimizer from '@/public/works/optimizer.webp';
+import { StyledAboutTitle } from '../contents/about/AboutContent';
 
 SwiperCore.use([Autoplay]);
 
-type Props = { headerHeight: number };
-
-const Work = ({ headerHeight }: Props) => {
+const Work = () => {
   const [swipers, setSwipers] = useState<{
     first: SwiperCore | null;
     sec: SwiperCore | null;
@@ -176,7 +174,7 @@ Logins at: "/api/showLogins", every pass is "asd"`,
   ];
 
   return (
-    <SkillsSection id='#work' $headerHeight={headerHeight}>
+    <SkillsSection id='#work'>
       <StyledCenterDiv>
         <SkillsTextContainer>
           <Reveal x={75}>

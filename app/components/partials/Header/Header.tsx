@@ -13,11 +13,6 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import heart from '@/public/heart.gif';
 
-type Props = {
-  headerHeight: number;
-  setHeaderHeight: Dispatch<SetStateAction<number>>;
-};
-
 export const links: { href: ISection; content: string }[] = [
   { href: '#home', content: 'HOME' },
   { href: '#about', content: 'ABOUT' },
@@ -27,25 +22,24 @@ export const links: { href: ISection; content: string }[] = [
   { href: '#contact', content: 'CONTACT' },
 ];
 
-const Header = ({ headerHeight, setHeaderHeight }: Props) => {
+const Header = () => {
   const [big, setBig] = useState<boolean>(false);
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const [fire, setFiire] = useState<boolean>(false);
   const heartRef = useRef<HTMLDivElement>(null);
+
+  const headerHeight = 87;
 
   useEffect(() => {
     const handleResize = () => {
       const windowSize = window.innerWidth;
       setBig(!(windowSize <= 999));
       setShowMenu(!(windowSize <= 999));
-      setHeaderHeight(
-        document.querySelector('#header')?.getBoundingClientRect().height || 0
-      );
     };
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [setHeaderHeight]);
+  }, []);
 
   useEffect(() => {
     if (

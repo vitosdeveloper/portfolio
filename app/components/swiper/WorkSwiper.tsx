@@ -33,7 +33,7 @@ const WorkSwiper = ({ works, reverse, setSwipers, name }: Props) => {
     breakpoints: { ss: 0, sm: 400, md: 768, bg: 1024 },
     debounceDelay: 300,
   });
-  const size = { ss: 260, sm: 350, md: 300, bg: 500 };
+  const size = { ss: 260, sm: 300, md: 300, bg: 350 };
 
   return (
     <NoSsrWrapper>
@@ -49,7 +49,7 @@ const WorkSwiper = ({ works, reverse, setSwipers, name }: Props) => {
         }}
         // modules={[Autoplay]}
         slidesPerView='auto'
-        spaceBetween={15}
+        spaceBetween={0}
         loop={true}
         className='mySwiper'
         // centeredSlides
@@ -107,27 +107,33 @@ const WorkSwiper = ({ works, reverse, setSwipers, name }: Props) => {
 
 export default WorkSwiper;
 
-const StyledSlideContainer = styled.div``;
+const StyledSlideContainer = styled.div`
+  padding: 15px;
+  &:hover {
+    transition: 0s ease-in-out;
+    scale: 1.02;
+  }
+`;
 
 const StyledWorkSwiper = styled(StyledSwiperContainer)``;
 
 const WorkSwiperSlide = styled.div`
   align-items: center;
   background: var(--color-card2);
-  border: 1px solid rgba(146, 146, 165, 0.1);
   border-radius: 10px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1rem;
   justify-content: start;
   align-items: start;
-  height: 500px;
-  padding: 2rem 2rem 4rem 2rem;
+  height: 450px;
+  padding-bottom: 4rem;
+  box-shadow: -3px 1px 8px var(--color-skill-background);
 `;
 
 const WorkImageContainer = styled.div`
+  min-height: 180px;
   max-height: 180px;
   width: 100%;
   margin-bottom: 2rem;
@@ -146,9 +152,14 @@ const WorkImage = styled(Image)`
 
 const WorkTitle = styled.h2`
   color: var(--color-button-hover);
+  padding: 0rem 1rem 0.5rem;
+  @media (max-width: 1000px) {
+    padding: 1rem 1rem 0.5rem;
+  }
 `;
 
 const WorkDescription = styled.p`
+  padding: 0 1rem;
   color: var(--color-info-light);
   line-height: 1.5;
   font-weight: 300;
@@ -164,6 +175,9 @@ const WorkDescription = styled.p`
   }
   &::-webkit-scrollbar-track {
     background-color: var(--color-card2);
+  }
+  @media (max-width: 1000px) {
+    padding: 0rem 1rem;
   }
 `;
 

@@ -1,10 +1,6 @@
+'use client';
 import Section from '../containers/Section';
 import SkillsSwiper from '../swiper/SkillsSwiper';
-import {
-  AboutTextContainer,
-  StyledAboutSubText,
-  StyledAboutTitle,
-} from './About';
 import { memo, useState } from 'react';
 import SwiperCore from 'swiper';
 import Reveal from '../containers/Reveal';
@@ -32,10 +28,13 @@ import styledI from '@/public/skills/styled.svg';
 import material from '@/public/skills/material.svg';
 import html from '@/public/skills/html.svg';
 import cs from '@/public/skills/cs.svg';
+import {
+  AboutTextContainer,
+  StyledAboutSubText,
+  StyledAboutTitle,
+} from '../contents/about/AboutContent';
 
-type Props = { headerHeight: number };
-
-const Skills = ({ headerHeight }: Props) => {
+const Skills = () => {
   const [swipers, setSwipers] = useState<{
     first: SwiperCore | null;
     sec: SwiperCore | null;
@@ -84,7 +83,7 @@ const Skills = ({ headerHeight }: Props) => {
   const half = Math.floor(skills.length / 2);
 
   return (
-    <SkillsSection id='#skills' $headerHeight={headerHeight}>
+    <SkillsSection id='#skills'>
       <StyledCenterDiv>
         <Reveal x={-75}>
           <SkillsTextContainer>

@@ -1,11 +1,11 @@
 import { BsFillPlayFill, BsGithub, BsLinkedin } from 'react-icons/bs';
 import EuImage from '@/public/eu.webp';
-import { StyledP } from '../../pages/About';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { ImageContainer, StyledHomeTitle, StyledImage } from '../../pages/Home';
 import { memo } from 'react';
 import Reveal from '../../containers/Reveal';
+import { StyledP } from '../about/AboutContent';
 
 type Props = {};
 

@@ -3,18 +3,13 @@ import HomeContainer from '../containers/HomeContainer';
 import styled from 'styled-components';
 import BackgroundOverlay from '../containers/BackgroundOverlay';
 import Image, { StaticImageData } from 'next/image';
-
 import HomeContent from '../contents/home/HomeContent';
 
-type Props = {
-  headerHeight: number;
-};
-
-const Home = ({ headerHeight }: Props) => {
+const Home = () => {
   return (
     <BackgroundOverlay id='#home'>
-      <HomeContainer $headerHeight={headerHeight}>
-        <Section $headerHeight={headerHeight}>
+      <HomeContainer>
+        <Section>
           <HomeContent />
         </Section>
       </HomeContainer>
@@ -51,8 +46,6 @@ export const StyledImage = ({
       }}
       src={src}
       alt={alt}
-      // width={400}
-      // height={400}
       loading='eager'
       priority
     />

@@ -1,19 +1,16 @@
-import React, { memo } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { ImageContainer, StyledImage } from '../../pages/Home';
-import {
-  AboutTextContainer,
-  StyledAboutSubText,
-  StyledAboutTitle,
-  StyledP,
-} from '../../pages/About';
 import AboutForm from '../../form/AboutForm';
-import F11Image from '@/public/f1.webp';
 import Reveal from '../../containers/Reveal';
+import { StaticImageData } from 'next/image';
+import { getCookie } from 'cookies-next';
+import ImageF1 from '@/public/f1.webp';
+import ImageF2 from '@/public/f2.webp';
 
-type Props = {};
+const AboutContent = () => {
+  const [image, setImage] = useState<StaticImageData | null>(null);
 
-const AboutContent = (props: Props) => {
   function adivinharIdade(dataNascimento: string) {
     const hoje = new Date();
     const anoNascimento = new Date(dataNascimento).getFullYear();
@@ -27,12 +24,32 @@ const AboutContent = (props: Props) => {
     }
     return idade;
   }
+
+  const cookieTheme = getCookie('theme')?.replaceAll('"', '');
+
+  const isDark = useCallback(() => {
+    if (cookieTheme) {
+      setImage(cookieTheme === 'dark' ? ImageF1 : ImageF2);
+      return cookieTheme;
+    }
+  }, [cookieTheme]);
+
+  useEffect(() => {
+    console.log(isDark());
+  }, [cookieTheme, isDark]);
+
   return (
     <AboutMeContainer>
       <ImageContainer>
-        <Reveal once x={-75}>
-          <StyledImage $left src={F11Image} alt='home-picture' />
-        </Reveal>
+        {image ? (
+          <Reveal once x={-75}>
+            <StyledImage $left src={image} alt='home-picture' />
+          </Reveal>
+        ) : (
+          <Reveal once x={-75}>
+            {/* <StyledImage $left src={image} alt='home-picture' /> */}
+          </Reveal>
+        )}
       </ImageContainer>
       <AboutTextContainer>
         <Reveal x={75}>
@@ -57,11 +74,47 @@ const AboutContent = (props: Props) => {
   );
 };
 
-export default memo(AboutContent);
+export default AboutContent;
 
 const AboutMeContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
+`;
+
+export const AboutTextContainer = styled.div`
+  text-align: start;
+  flex: 1;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const StyledAboutTitle = styled.h4`
+  color: var(--color-button-hover);
+  font-size: 15px;
+  letter-spacing: 3px;
+  font-weight: 500;
+  line-height: 1.2;
+  font-family: var(--font-poppins), sans-serif;
+`;
+
+export const StyledAboutSubText = styled.h4`
+  color: var(--color-info-light);
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 40px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  max-width: 490px;
+`;
+
+export const StyledP = styled.p`
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.9rem;
+  color: var(--color-info-light);
+  font-family: var(--font-poppins), sans-serif;
+  line-height: 2;
 `;

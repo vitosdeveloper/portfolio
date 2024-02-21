@@ -1,16 +1,11 @@
-import React from 'react';
 import Section from '../containers/Section';
-import { StyledAboutTitle } from './About';
 import styled from 'styled-components';
 import ServicesContent from '../contents/services/ServicesContent';
+import { StyledAboutTitle } from '../contents/about/AboutContent';
 
-type Props = {
-  headerHeight: number;
-};
-
-const Services = ({ headerHeight }: Props) => {
+const Services = () => {
   return (
-    <Section id='#services' $headerHeight={headerHeight}>
+    <Section id='#services'>
       <ServicesContent />
     </Section>
   );

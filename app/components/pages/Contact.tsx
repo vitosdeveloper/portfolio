@@ -1,3 +1,5 @@
+'use client';
+
 import React, { memo } from 'react';
 import {
   SkillsSection,
@@ -5,17 +7,15 @@ import {
   SkillsTitle,
   StyledCenterDiv,
 } from './Skills';
-import { StyledAboutTitle } from './About';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { FaWhatsapp } from 'react-icons/fa';
 import { IoMdMail } from 'react-icons/io';
 import { CiLocationOn } from 'react-icons/ci';
 import Reveal from '../containers/Reveal';
+import { StyledAboutTitle } from '../contents/about/AboutContent';
 
-type Props = { headerHeight: number };
-
-const Contact = ({ headerHeight }: Props) => {
+const Contact = () => {
   const socials = [
     {
       name: 'Call Me:',
@@ -44,7 +44,7 @@ const Contact = ({ headerHeight }: Props) => {
   ];
 
   return (
-    <SkillsSection id='#contact' $headerHeight={headerHeight}>
+    <SkillsSection id='#contact'>
       <StyledCenterDiv style={{ padding: '0 1rem' }}>
         <Reveal x={75}>
           <SkillsTextContainer>

@@ -80,12 +80,17 @@ export const StyledSwiperSlideContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1rem;
   height: 183px;
+  margin-bottom: 5px;
+  box-shadow: -3px 3px 8px var(--color-skill-background);
+  &:hover {
+    transition: 0s ease-in-out;
+    scale: 1.02;
+  }
 `;
 
 export const IconContainer = styled.div`
-  background: rgb(23, 32, 61);
+  background: var(--color-skill-background);
   border-radius: 50%;
   height: 70px;
   width: 70px;
