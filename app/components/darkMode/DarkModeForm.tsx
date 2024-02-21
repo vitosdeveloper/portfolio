@@ -1,12 +1,10 @@
 'use client';
 import { themeAction } from '@/app/server-actions/themeAction';
-import React, { useEffect } from 'react';
 import { PiCloudSunBold } from 'react-icons/pi';
 import { PiCloudMoonBold } from 'react-icons/pi';
 import styled from 'styled-components';
 
 type Props = { isDark: boolean };
-//ao passar mouse, "dark mode" ou "light mode"
 
 const DarkModeForm = ({ isDark }: Props) => {
   return (

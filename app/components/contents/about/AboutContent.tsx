@@ -1,17 +1,12 @@
-'use client';
-import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { ImageContainer, StyledImage } from '../../pages/Home';
 import AboutForm from '../../form/AboutForm';
 import Reveal from '../../containers/Reveal';
-import { StaticImageData } from 'next/image';
-import { getCookie } from 'cookies-next';
 import ImageF1 from '@/public/f1.webp';
 import ImageF2 from '@/public/f2.webp';
+import Image from 'next/image';
 
-const AboutContent = ({ renderAgain }: { renderAgain: boolean }) => {
-  const [image, setImage] = useState<StaticImageData | null>(null);
-
+const AboutContent = () => {
   function adivinharIdade(dataNascimento: string) {
     const hoje = new Date();
     const anoNascimento = new Date(dataNascimento).getFullYear();
@@ -26,21 +21,27 @@ const AboutContent = ({ renderAgain }: { renderAgain: boolean }) => {
     return idade;
   }
 
-  useEffect(() => {
-    const cookieTheme = getCookie('theme')?.replaceAll('"', '');
-    if (cookieTheme) {
-      setImage(cookieTheme === 'dark' ? ImageF1 : ImageF2);
-    }
-  }, [renderAgain]);
+  // console.log('var(--teste)');
 
   return (
     <AboutMeContainer>
       <ImageContainer>
-        {image && (
-          <Reveal once x={-75}>
-            <StyledImage $left src={image} alt='home-picture' />
-          </Reveal>
-        )}
+        <Reveal once x={-75}>
+          <Image
+            style={{
+              borderRadius: '8px',
+              maxWidth: '744px',
+              width: '100%',
+              height: 'auto',
+              flex: 1,
+              float: 'inline-start',
+            }}
+            src={ImageF1}
+            alt='frog-picture'
+            loading='eager'
+            priority
+          />
+        </Reveal>
       </ImageContainer>
       <AboutTextContainer>
         <Reveal x={75}>

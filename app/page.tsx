@@ -1,7 +1,7 @@
 'use client';
-import Header from './components/partials/Header/Header';
-import Home from './components/pages/Home';
 import About from './components/pages/About';
+import Home from './components/pages/Home';
+import Header from './components/partials/Header/Header';
 import Services from './components/pages/Services';
 import Skills from './components/pages/Skills';
 import Work from './components/pages/Work';
