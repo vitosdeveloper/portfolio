@@ -26,11 +26,10 @@ const DarkModeForm = async ({ children }: PropsWithChildren) => {
 
   return (
     <form action={themeAction}>
-      {children}(
+      {children}
       <ThemeButton className='theme-button' type='submit'>
         {isDark ? <PiCloudSunBold size={50} /> : <PiCloudMoonBold size={50} />}
       </ThemeButton>
-      )
     </form>
   );
 };

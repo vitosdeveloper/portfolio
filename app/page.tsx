@@ -8,7 +8,6 @@ import Work from './components/pages/Work';
 import Contact from './components/pages/Contact';
 import Footer from './components/pages/Footer';
 import ProgressBar from './components/progress-bar/ProgressBar';
-// import DarkModeForm from './components/darkMode/DarkModeForm';
 import dynamic from 'next/dynamic';
 const DarkModeForm = dynamic(
   () => import('./components/darkMode/DarkModeForm'),
@@ -34,7 +33,5 @@ function App(props: any) {
     </>
   );
 }
-
-// export const dynamic = 'force-static';
 
 export default App;
