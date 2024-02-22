@@ -1,3 +1,17 @@
+:root {
+  --color-background: #0d012c;
+  --color-white: #fff;
+  --color-dark: #161818;
+  --link-hover: #0056b3;
+  --color-special-color: #eff30e;
+  --color-info-light: #c7cbd8;
+  --color-button: linear-gradient(to left, #17c0e9, #c96ddd, #f45162);
+  --color-button-hover: #59c378;
+  --color-card2: #14143a;
+  --color-footer-background: rgb(20, 4, 43);
+  --color-skill-background: rgb(23, 32, 61);
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -13,7 +27,7 @@ body {
   user-select: none;
   font-size: 0.88rem;
   overflow-x: hidden !important;
-  transition: 0.5s background ease;
+  /* transition: 0.5s background ease; */
 }
 
 a {

@@ -27,17 +27,16 @@ export const StyledDiCode = styled(DiCode)`
   }
 `;
 
-const StyledContainer = styled.div<{ $big: boolean }>`
+const StyledContainer = styled.div`
   display: flex;
   align-items: center;
-  align-self: ${({ $big }) => ($big ? 'start' : 'inital')};
   gap: 0.25rem;
   white-space: nowrap;
 `;
 
-const HeaderLogo = ({ big }: { big: boolean }) => {
+const HeaderLogo = () => {
   return (
-    <StyledContainer $big={big}>
+    <StyledContainer>
       <StyledDiCode size='66px' />
       <Reveal x={-75}>
         <LogoH1>Vitos Developer</LogoH1>

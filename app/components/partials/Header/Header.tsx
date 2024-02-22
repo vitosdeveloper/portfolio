@@ -12,6 +12,7 @@ import GhubIco from '../../contents/header/GhubIco';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import heart from '@/public/heart.gif';
+import styled from 'styled-components';
 
 export const links: { href: ISection; content: string }[] = [
   { href: '#home', content: 'HOME' },
@@ -23,38 +24,13 @@ export const links: { href: ISection; content: string }[] = [
 ];
 
 const Header = () => {
-  const [big, setBig] = useState<boolean>(false);
   const [showMenu, setShowMenu] = useState<boolean>(false);
-  const [fire, setFiire] = useState<boolean>(false);
   const heartRef = useRef<HTMLDivElement>(null);
-
   const headerHeight = 87;
 
-  useEffect(() => {
-    const handleResize = () => {
-      const windowSize = window.innerWidth;
-      setBig(!(windowSize <= 999));
-      setShowMenu(!(windowSize <= 999));
-    };
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  useEffect(() => {
-    if (
-      fire &&
-      heartRef.current &&
-      heartRef.current instanceof HTMLDivElement
-    ) {
-      heartRef.current.style.opacity = '1';
-      heartRef.current.style.bottom = '18';
-    }
-  }, [fire]);
-
   return (
-    <StyledHeader id='header' $big={big}>
-      <HeaderLogo big={big} />
+    <StyledHeader id='header'>
+      <HeaderLogo />
       <div
         style={{
           marginTop: '.5rem',
@@ -64,7 +40,7 @@ const Header = () => {
           gap: '.5rem',
         }}
       >
-        {!big && (
+        <StyledMobileMenuButton>
           <motion.div
             whileHover={{ scale: 1.2, rotate: 180 }}
             whileTap={{
@@ -80,37 +56,35 @@ const Header = () => {
               size={20}
             />
           </motion.div>
-        )}
-        <StyledNav $big={big} $showMenu={showMenu}>
-          <StyledUl $big={big}>
+        </StyledMobileMenuButton>
+
+        <StyledNav $showMenu={showMenu}>
+          <StyledUl>
             {links.map(({ href, content }) => {
               return (
                 <StyledHeaderLi key={href}>
-                  <Link
+                  <StyledHeaderLink
                     smooth={true}
                     duration={300}
                     to={href}
                     offset={-headerHeight}
                     spy={true}
-                    style={{
-                      fontSize: big ? 'initial' : '22px',
-                      padding: '0 .5rem',
-                    }}
                     activeStyle={{
                       color: 'var(--color-button-hover)',
-                      fontWeight: '700 !important',
                     }}
                     onSetActive={(e) => {
                       if (e !== '#contact') return;
-                      setFiire(true);
-                    }}
-                    onSetInactive={(e) => {
-                      if (e !== '#contact') return;
-                      setFiire(false);
+                      if (
+                        heartRef &&
+                        heartRef.current instanceof HTMLDivElement
+                      ) {
+                        heartRef.current.style.opacity = '1';
+                        heartRef.current.style.bottom = '18';
+                      }
                     }}
                   >
                     {content}
-                  </Link>
+                  </StyledHeaderLink>
                 </StyledHeaderLi>
               );
             })}
@@ -155,3 +129,24 @@ const Header = () => {
 };
 
 export default Header;
+
+const StyledMobileMenuButton = styled.div`
+  @media (min-width: 1000px) {
+    display: none;
+  }
+`;
+
+const StyledBigViewMenuButton = styled.div`
+  @media (min-width: 1000px) {
+    display: none;
+  }
+`;
+
+const StyledHeaderLink = styled(Link)`
+  font-size: initial;
+  padding: 0 0.5rem;
+  cursor: pointer;
+  @media (max-width: 1000px) {
+    font-size: 22px;
+  }
+`;

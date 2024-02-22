@@ -4,17 +4,16 @@ import { PiCloudSunBold } from 'react-icons/pi';
 import { PiCloudMoonBold } from 'react-icons/pi';
 import styled from 'styled-components';
 
-type Props = { isDark: boolean };
-
-const DarkModeForm = ({ isDark }: Props) => {
+const DarkModeForm = () => {
   return (
-    <form action={() => themeAction(isDark)}>
+    <form action={themeAction}>
       <ThemeButton className='theme-button' type='submit'>
-        {isDark ? (
+        {/* {isDark ? (
           <PiCloudSunBold size={50} color='var(--color-info-light)' />
         ) : (
           <PiCloudMoonBold size={50} color='var(--color-info-light)' />
-        )}
+        )} */}
+        oi
       </ThemeButton>
     </form>
   );

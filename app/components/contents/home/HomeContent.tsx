@@ -106,7 +106,7 @@ const StyledHireMeButton = styled.button`
   letter-spacing: 3px;
   border: none;
   color: var(--color-white);
-  font-weight: 500;
+  font-weight: 400;
   transition: all 0.1s ease;
   width: 180px;
   background: var(--color-button);

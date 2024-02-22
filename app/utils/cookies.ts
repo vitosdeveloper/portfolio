@@ -1,8 +1,8 @@
 'use server';
 import { cookies } from 'next/headers';
 
-export const adicionarCookie = (campo: string, valor: unknown) => {
-  cookies().set(campo, JSON.stringify(valor), {
+export const adicionarCookie = (campo: string, valor: string) => {
+  cookies().set(campo, valor, {
     sameSite: 'none',
     secure: true,
   });
@@ -17,7 +17,7 @@ export const pegarCookie = (campo: string) => {
     typeof cookie.value !== 'string'
   )
     return null;
-  return cookie.value.trim() ? JSON.parse(cookie.value) : cookie.value;
+  return cookie.value;
 };
 
 export const removerCookie = (campo: string) => {

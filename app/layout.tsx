@@ -12,7 +12,8 @@ import 'swiper/css';
 import StyledComponentsRegistry from './lib/registry';
 // import { getCookie } from 'cookies-next';
 // import { isDarkClientside } from './components/darkMode/DarkMode';
-// import { pegarCookie } from './utils/cookies';
+import { adicionarCookie, pegarCookie } from './utils/cookies';
+import styled from 'styled-components';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const shareTechMono = Share_Tech_Mono({
@@ -71,28 +72,36 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const dark = true;
+  // const cookie = pegarCookie('theme');
+  // let isDark;
+  // if (!cookie) {
+  //   adicionarCookie('theme', 'dark');
+  //   isDark = true;
+  // } else {
+  //   isDark = cookie == 'dark';
+  // }
+  const isDark = true;
+
   return (
     <html lang='pt-BR'>
-      {
-        <head>
-          <style>
-            {dark
-              ? `:root {
-                  --color-background: #0d012c;
-                  --color-white: #fff;
-                  --color-dark: #161818;
-                  --link-hover: #0056b3;
-                  --color-special-color: #eff30e;
-                  --color-info-light: #c7cbd8;
-                  --color-button: linear-gradient(to left, #17c0e9, #c96ddd, #f45162);
-                  --color-button-hover: #59c378;
-                  --color-card2: #14143a;
-                  --color-footer-background: rgb(20, 4, 43);
-                  --color-skill-background: rgb(23, 32, 61);
-              }`
-              : `:root {
-                  --color-background: rgb(232, 215, 255);
+      <head>
+        <style>
+          {isDark
+            ? `:root {
+              --color-background: #0d012c;
+              --color-white: #fff;
+              --color-dark: #161818;
+              --link-hover: #0056b3;
+              --color-special-color: #eff30e;
+              --color-info-light: #c7cbd8;
+              --color-button: linear-gradient(to left, #17c0e9, #c96ddd, #f45162);
+              --color-button-hover: #59c378;
+              --color-card2: #14143a;
+              --color-footer-background: rgb(20, 4, 43);
+              --color-skill-background: rgb(23, 32, 61);
+            }`
+            : `:root {
+              --color-background: rgb(232, 215, 255);
                   --color-white: #494a4d;
                   --color-dark: #d2d5df;
                   --link-hover: #b300b3;
@@ -103,16 +112,17 @@ export default function RootLayout({
                   --color-card2: #0e79f328;
                   --color-footer-background: rgb(191, 159, 236);
                   --color-skill-background: #6d6fdd;
-                `}
-          </style>
-        </head>
-      }
+                  `}
+        </style>
+      </head>
       <body
         className={`${inter.variable} ${shareTechMono.variable} ${poppins.variable} 
-          ${firaCode.variable} ${jost.variable} ${rubik.variable}`}
+        ${firaCode.variable} ${jost.variable} ${rubik.variable}`}
       >
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <>{children}</>
       </body>
     </html>
   );
 }
+
+// export const dynamic = 'force-static';

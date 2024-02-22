@@ -86,7 +86,7 @@ export const StyledAboutTitle = styled.h4`
   color: var(--color-button-hover);
   font-size: 15px;
   letter-spacing: 3px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.2;
   font-family: var(--font-poppins), sans-serif;
 `;
@@ -94,7 +94,7 @@ export const StyledAboutTitle = styled.h4`
 export const StyledAboutSubText = styled.h4`
   color: var(--color-info-light);
   font-size: 2rem;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 40px;
   margin-bottom: 10px;
   text-transform: uppercase;

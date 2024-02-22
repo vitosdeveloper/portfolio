@@ -1,4 +1,3 @@
-'use client';
 import React from 'react';
 import StyledHeaderButton from '../partials/Header/StyledHeaderButton';
 import styled from 'styled-components';
@@ -6,11 +5,6 @@ import { BsDownload } from 'react-icons/bs';
 import { motion } from 'framer-motion';
 
 const AboutForm = () => {
-  const downloadCV = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    await fetch('/api/getCV');
-  };
-
   return (
     <a
       href='/Resume-Vitor-Fernandes-Goncalves-EN.pdf'

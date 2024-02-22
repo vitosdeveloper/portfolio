@@ -1,15 +1,13 @@
 'use client';
 import styled from 'styled-components';
 
-const StyledHeader = styled.header<{ $big: boolean }>`
+const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: var(--color-background);
   border-bottom: 0.1px solid var(--color-background);
   box-shadow: 0 0 10px -10px #000a18;
-  padding: ${({ $big }) =>
-    $big ? '10px 2rem 10px 1rem' : '10px 1rem 10px 1rem'};
   transition: all 0.5s ease !important;
   position: fixed;
   top: 0;
@@ -24,6 +22,10 @@ const StyledHeader = styled.header<{ $big: boolean }>`
   }
   @media (max-width: 500px) {
     padding: 10px 1rem 10px 1rem;
+  }
+  padding: 10px 1rem 10px 1rem;
+  @media (max-width: 1000px) {
+    padding: 10px 2rem 10px 1rem;
   }
 `;
 

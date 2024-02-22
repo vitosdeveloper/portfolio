@@ -162,7 +162,7 @@ const WorkDescription = styled.p`
   padding: 0 1rem;
   color: var(--color-info-light);
   line-height: 1.5;
-  font-weight: 300;
+  font-weight: 400;
   white-space: break-spaces;
   overflow-y: auto;
   width: 100%;
