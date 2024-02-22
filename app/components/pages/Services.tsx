@@ -2,6 +2,7 @@ import Section from '../containers/Section';
 import styled from 'styled-components';
 import ServicesContent from '../contents/services/ServicesContent';
 import { StyledAboutTitle } from '../contents/about/AboutContent';
+import { memo } from 'react';
 
 const Services = () => {
   return (
@@ -11,7 +12,7 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default memo(Services);
 
 export const FlexYContainer = styled.div`
   display: flex;

@@ -1,5 +1,5 @@
 'use client';
-import React, { PropsWithChildren, useEffect, useRef } from 'react';
+import React, { PropsWithChildren, memo, useEffect, useRef } from 'react';
 import { useInView, useAnimation, motion } from 'framer-motion';
 
 const Reveal = ({
@@ -38,4 +38,4 @@ const Reveal = ({
   );
 };
 
-export default Reveal;
+export default memo(Reveal);

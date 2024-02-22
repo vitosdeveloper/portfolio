@@ -1,6 +1,9 @@
+import dynamic from 'next/dynamic';
 import Section from '../containers/Section';
-import AboutContent from '../contents/about/AboutContent';
-
+import { memo } from 'react';
+const AboutContent = dynamic(() => import('../contents/about/AboutContent'), {
+  ssr: false,
+});
 const About = () => {
   return (
     <Section id='#about'>
@@ -9,4 +12,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default memo(About);

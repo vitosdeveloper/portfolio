@@ -8,7 +8,7 @@ const StyledHeader = styled.header`
   background: var(--color-background);
   border-bottom: 0.1px solid var(--color-background);
   box-shadow: 0 0 10px -10px #000a18;
-  transition: all 0.5s ease !important;
+  /* transition: all 0.5s ease !important; */
   position: fixed;
   top: 0;
   /* width: 100%; */

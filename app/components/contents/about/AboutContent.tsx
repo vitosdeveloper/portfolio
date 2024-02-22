@@ -1,67 +1,37 @@
 import styled from 'styled-components';
-import { ImageContainer, StyledImage } from '../../pages/Home';
+import { ImageContainer } from '../../pages/Home';
 import AboutForm from '../../form/AboutForm';
 import Reveal from '../../containers/Reveal';
 import ImageF1 from '@/public/f1.webp';
-// import ImageF2 from '@/public/f2.webp';
+import ImageF2 from '@/public/f2.webp';
 import Image from 'next/image';
-import { memo } from 'react';
+import { memo, useEffect, useState } from 'react';
+import { getCookie } from 'cookies-next';
+import { useFormStatus } from 'react-dom';
+import Section from '../../containers/Section';
+import AboutTextComponent from './AboutTextComponent';
+import ImageComponent from './ImageComponent';
 
 const AboutContent = () => {
-  function adivinharIdade(dataNascimento: string) {
-    const hoje = new Date();
-    const anoNascimento = new Date(dataNascimento).getFullYear();
-    const idade = hoje.getFullYear() - anoNascimento;
-    if (
-      hoje.getMonth() < new Date(dataNascimento).getMonth() ||
-      (hoje.getMonth() === new Date(dataNascimento).getMonth() &&
-        hoje.getDate() < new Date(dataNascimento).getDate())
-    ) {
-      return idade - 1;
-    }
-    return idade;
+  const { pending } = useFormStatus();
+  const cookie = getCookie('theme');
+  let isDark = true;
+  if (cookie) {
+    isDark = cookie == 'dark';
   }
+  const [dark, setIsDark] = useState<boolean>(isDark);
+
+  useEffect(() => {
+    if (pending) setIsDark((p) => !p);
+  }, [pending]);
 
   return (
-    <AboutMeContainer>
-      <ImageContainer>
-        <Reveal once x={-75}>
-          <Image
-            style={{
-              borderRadius: '8px',
-              maxWidth: '744px',
-              width: '100%',
-              height: 'auto',
-              flex: 1,
-              float: 'inline-start',
-            }}
-            src={ImageF1}
-            alt='frog-picture'
-            loading='eager'
-            priority
-          />
-        </Reveal>
-      </ImageContainer>
-      <AboutTextContainer>
-        <Reveal x={75}>
-          <AboutTextContainer>
-            <StyledAboutTitle>ABOUT ME</StyledAboutTitle>
-            <StyledAboutSubText>
-              Why should you hire me for your next or current project?
-            </StyledAboutSubText>
-            <StyledP>
-              I&apos;m a {adivinharIdade('1994-08-11')}-year-old developer, with
-              a strong focus on web development. I am fully dedicated to
-              continuous learning, and I specialize in building, maintaining,
-              and enhancing interfaces and systems to meet the unique needs of
-              your business. My passion for technology drives me to stay open to
-              new challenges and constantly pursue knowledge and growth.
-            </StyledP>
-            <AboutForm />
-          </AboutTextContainer>
-        </Reveal>
-      </AboutTextContainer>
-    </AboutMeContainer>
+    <Section id='#about'>
+      <AboutMeContainer>
+        <ImageComponent />
+        <AboutTextComponent />
+      </AboutMeContainer>
+    </Section>
   );
 };
 

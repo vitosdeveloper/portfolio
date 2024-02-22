@@ -10,10 +10,7 @@ import {
 import './globals.css';
 import 'swiper/css';
 import StyledComponentsRegistry from './lib/registry';
-// import { getCookie } from 'cookies-next';
-// import { isDarkClientside } from './components/darkMode/DarkMode';
-import { adicionarCookie, pegarCookie } from './utils/cookies';
-import styled from 'styled-components';
+import { pegarCookie } from './utils/cookies';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const shareTechMono = Share_Tech_Mono({
@@ -73,14 +70,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const cookie = pegarCookie('theme');
-  let isDark;
-  if (!cookie) {
-    adicionarCookie('theme', 'dark');
-    isDark = true;
-  } else {
+  let isDark = true;
+  if (cookie) {
     isDark = cookie == 'dark';
   }
-  // const isDark = true;
 
   return (
     <html lang='pt-BR'>
@@ -88,31 +81,31 @@ export default function RootLayout({
         <style>
           {isDark
             ? `:root {
-              --color-background: #0d012c;
-              --color-white: #fff;
-              --color-dark: #161818;
-              --link-hover: #0056b3;
-              --color-special-color: #eff30e;
-              --color-info-light: #c7cbd8;
-              --color-button: linear-gradient(to left, #17c0e9, #c96ddd, #f45162);
-              --color-button-hover: #59c378;
-              --color-card2: #14143a;
-              --color-footer-background: rgb(20, 4, 43);
-              --color-skill-background: rgb(23, 32, 61);
+                --color-background: #0d012c;
+                --color-white: #fff;
+                --color-dark: #161818;
+                --link-hover: #0056b3;
+                --color-special-color: #eff30e;
+                --color-info-light: #c7cbd8;
+                --color-button: linear-gradient(to left, #17c0e9, #c96ddd, #f45162);
+                --color-button-hover: #59c378;
+                --color-card2: #14143a;
+                --color-footer-background: rgb(20, 4, 43);
+                --color-skill-background: rgb(23, 32, 61);
             }`
             : `:root {
-              --color-background: rgb(232, 215, 255);
-                  --color-white: #494a4d;
-                  --color-dark: #d2d5df;
-                  --link-hover: #b300b3;
-                  --color-special-color: #0e79f3;
-                  --color-info-light: #434857;
-                  --color-button: linear-gradient(to left, #9d51f4, #6d6fdd, #f45182);
-                  --color-button-hover: #0f65c985;
-                  --color-card2: #0e79f328;
-                  --color-footer-background: rgb(191, 159, 236);
-                  --color-skill-background: #6d6fdd;
-                  `}
+                --color-background: rgb(232, 215, 255);
+                --color-white: #494a4d;
+                --color-dark: #d2d5df;
+                --link-hover: #b300b3;
+                --color-special-color: #0e79f3;
+                --color-info-light: #434857;
+                --color-button: linear-gradient(to left, #fdb599, #e29bbc, #ff5e6e);
+                --color-button-hover: #0f65c985;
+                --color-card2: #0e79f328;
+                --color-footer-background: rgb(191, 159, 236);
+                --color-skill-background: #6d6fdd;
+            `}
         </style>
       </head>
       <body

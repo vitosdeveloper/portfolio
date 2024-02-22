@@ -8,21 +8,29 @@ import Work from './components/pages/Work';
 import Contact from './components/pages/Contact';
 import Footer from './components/pages/Footer';
 import ProgressBar from './components/progress-bar/ProgressBar';
-import DarkMode from './components/darkMode/DarkMode';
+// import DarkModeForm from './components/darkMode/DarkModeForm';
+import dynamic from 'next/dynamic';
+const DarkModeForm = dynamic(
+  () => import('./components/darkMode/DarkModeForm'),
+  {
+    ssr: false,
+  }
+);
 
 function App(props: any) {
   return (
     <>
       <Header />
       <Home />
-      <About />
+      <DarkModeForm>
+        <About />
+      </DarkModeForm>
       <Services />
       <Skills />
       <Work />
       <Contact />
       <Footer />
       <ProgressBar />
-      <DarkMode />
     </>
   );
 }
