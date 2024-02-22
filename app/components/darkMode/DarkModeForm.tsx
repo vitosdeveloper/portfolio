@@ -1,19 +1,36 @@
 'use client';
 import { themeAction } from '@/app/server-actions/themeAction';
-import { PiCloudSunBold } from 'react-icons/pi';
-import { PiCloudMoonBold } from 'react-icons/pi';
+// import { pegarCookie } from '@/app/utils/cookies';
+import { getCookie } from 'cookies-next';
+import dynamic from 'next/dynamic';
+// import { PiCloudSunBold } from 'react-icons/pi';
+// import { PiCloudMoonBold } from 'react-icons/pi';
 import styled from 'styled-components';
+const PiCloudSunBold = dynamic(
+  () => import('react-icons/pi').then((module) => module.PiCloudSunBold),
+  {
+    ssr: false,
+  }
+);
+
+const PiCloudMoonBold = dynamic(
+  () => import('react-icons/pi').then((module) => module.PiCloudMoonBold),
+  {
+    ssr: false,
+  }
+);
 
 const DarkModeForm = () => {
+  const isDark = getCookie('theme') == 'dark';
+
   return (
     <form action={themeAction}>
       <ThemeButton className='theme-button' type='submit'>
-        {/* {isDark ? (
+        {isDark ? (
           <PiCloudSunBold size={50} color='var(--color-info-light)' />
         ) : (
           <PiCloudMoonBold size={50} color='var(--color-info-light)' />
-        )} */}
-        oi
+        )}
       </ThemeButton>
     </form>
   );

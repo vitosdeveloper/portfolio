@@ -72,15 +72,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // const cookie = pegarCookie('theme');
-  // let isDark;
-  // if (!cookie) {
-  //   adicionarCookie('theme', 'dark');
-  //   isDark = true;
-  // } else {
-  //   isDark = cookie == 'dark';
-  // }
-  const isDark = true;
+  const cookie = pegarCookie('theme');
+  let isDark;
+  if (!cookie) {
+    adicionarCookie('theme', 'dark');
+    isDark = true;
+  } else {
+    isDark = cookie == 'dark';
+  }
+  // const isDark = true;
 
   return (
     <html lang='pt-BR'>
@@ -119,7 +119,7 @@ export default function RootLayout({
         className={`${inter.variable} ${shareTechMono.variable} ${poppins.variable} 
         ${firaCode.variable} ${jost.variable} ${rubik.variable}`}
       >
-        <>{children}</>
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
     </html>
   );

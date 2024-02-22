@@ -13,7 +13,6 @@ type Props = {};
 
 const DarkMode = (props: Props) => {
   // console.log(isDarkClientside());
-
   return <DarkModeForm />;
 };
 

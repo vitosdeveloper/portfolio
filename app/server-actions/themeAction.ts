@@ -1,4 +1,5 @@
 'use server';
+// import { revalidatePath } from 'next/cache';
 import { adicionarCookie, pegarCookie } from '../utils/cookies';
 
 export const themeAction = () => {
@@ -11,4 +12,5 @@ export const themeAction = () => {
     isDark = cookie == 'dark';
   }
   adicionarCookie('theme', isDark ? 'light' : 'dark');
+  // revalidatePath('/', 'layout');
 };
