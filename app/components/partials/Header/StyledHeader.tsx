@@ -25,7 +25,10 @@ const StyledHeader = styled.header`
   }
   padding: 10px 1rem 10px 1rem;
   @media (max-width: 1000px) {
-    padding: 10px 2rem 10px 1rem;
+    padding: 10px 0.5rem 10px 1rem;
+  }
+  @media (max-width: 1200px) {
+    height: 87px;
   }
 `;
 

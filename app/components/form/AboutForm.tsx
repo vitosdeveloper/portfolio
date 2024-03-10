@@ -5,10 +5,11 @@ import { BsDownload } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
 
 const AboutForm = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
   return (
     <a
-      href='/Resume-Vitor-Fernandes-Goncalves-EN.pdf'
+      href={i18n.language == 'br' ? '/resume-br.pdf' : 'resume-eng.pdf'}
       target='_blank'
       rel='noopener noreferrer'
       style={{ display: 'contents' }}

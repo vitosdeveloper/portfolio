@@ -21,7 +21,7 @@ const LogoH1 = styled.h1`
 
 export const StyledDiCode = styled(DiCode)`
   color: rgba(89, 195, 120, 1);
-  @media (max-width: 500px) {
+  @media (max-width: 1200px) {
     display: none;
   }
 `;
@@ -36,7 +36,7 @@ const StyledContainer = styled.div`
 
 const HeaderLogo = () => {
   return (
-    <StyledContainer>
+    <StyledContainer style={{ flexWrap: 'nowrap' }}>
       <StyledDiCode size='66px' />
       <Reveal x={-75}>
         <LogoH1>Vitos Developer</LogoH1>

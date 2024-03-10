@@ -27,7 +27,7 @@ const StyledNav = styled.nav<{ $showMenu: boolean }>`
   border-right: ${({ $showMenu }) =>
     $showMenu ? '2px solid #8482ff' : 'none'};
 
-  @media (min-width: 1000px) {
+  @media (min-width: 1200px) {
     display: flex;
     border: none;
     position: initial;

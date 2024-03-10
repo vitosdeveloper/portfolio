@@ -17,7 +17,7 @@ const HomeContent = (props: Props) => {
     <StyledHomeContainer>
       <ContentContainer>
         <Reveal x={-75}>
-          <ContentContainer>
+          <ContentContainer style={{ marginTop: '.5rem' }}>
             <StyledHomeRole>{t('FULL-STACK DEVELOPER')}</StyledHomeRole>
             <StyledHomeTitle>{t('Hey! I am')}</StyledHomeTitle>
             <StyledHomeTitle $gradientprop>

@@ -18,40 +18,35 @@ const Header = () => {
   return (
     <StyledHeader id='header'>
       <HeaderLogo />
-      <FlexXContainer
-        style={{ margin: '0', display: 'flex', alignItems: 'center' }}
+      <div
+        style={{
+          // marginTop: '.5rem',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'end',
+          gap: '.5rem',
+        }}
       >
-        <Langs />
-        <div
-          style={{
-            // marginTop: '.5rem',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'end',
-            gap: '.5rem',
+        <StyledMobileMenuButton
+          whileHover={{ scale: 1.2, rotate: 180 }}
+          whileTap={{
+            scale: 0.8,
+            rotate: -180,
+            borderRadius: '100%',
           }}
         >
-          <StyledMobileMenuButton
-            whileHover={{ scale: 1.2, rotate: 180 }}
-            whileTap={{
-              scale: 0.8,
-              rotate: -180,
-              borderRadius: '100%',
-            }}
-          >
-            <Hamburger
-              color='var(--color-white)'
-              toggled={showMenu}
-              toggle={setShowMenu}
-              size={20}
-            />
-          </StyledMobileMenuButton>
-          <StyledNav $showMenu={showMenu}>
-            <HeaderUl />
-            <GhubIco />
-          </StyledNav>
-        </div>
-      </FlexXContainer>
+          <Hamburger
+            color='var(--color-white)'
+            toggled={showMenu}
+            toggle={setShowMenu}
+            size={20}
+          />
+        </StyledMobileMenuButton>
+        <StyledNav $showMenu={showMenu}>
+          <HeaderUl />
+          <GhubIco />
+        </StyledNav>
+      </div>
     </StyledHeader>
   );
 };
@@ -59,7 +54,7 @@ const Header = () => {
 export default memo(Header);
 
 const StyledMobileMenuButton = styled(motion.div)`
-  @media (min-width: 1000px) {
+  @media (min-width: 1200px) {
     display: none;
   }
 `;

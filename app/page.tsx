@@ -19,6 +19,7 @@ const I18nextProvider = dynamic(
   { ssr: false }
 );
 import i18n from '@/i18n';
+import Langs from './components/partials/Header/Langs';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
       <Contact />
       <Footer />
       <ProgressBar />
+      <Langs />
     </I18nextProvider>
   );
 }
