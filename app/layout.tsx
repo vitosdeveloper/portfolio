@@ -1,18 +1,10 @@
 import type { Metadata } from 'next';
-import {
-  Inter,
-  Share_Tech_Mono,
-  Poppins,
-  Fira_Code,
-  Jost,
-  Rubik,
-} from 'next/font/google';
+import { Share_Tech_Mono, Poppins, Jost } from 'next/font/google';
 import './globals.css';
 import 'swiper/css';
 import StyledComponentsRegistry from './lib/registry';
-import { pegarCookie } from './utils/cookies';
+import { isDark } from './utils/isDark';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const shareTechMono = Share_Tech_Mono({
   weight: ['400'],
   subsets: ['latin'],
@@ -23,17 +15,9 @@ const poppins = Poppins({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   variable: '--font-poppins',
 });
-const firaCode = Fira_Code({
-  subsets: ['latin'],
-  variable: '--font-fira-code',
-});
 const jost = Jost({
   subsets: ['latin'],
   variable: '--font-jost',
-});
-const rubik = Rubik({
-  subsets: ['latin'],
-  variable: '--font-rubik',
 });
 
 export const metadata: Metadata = {
@@ -69,17 +53,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const cookie = pegarCookie('theme');
-  let isDark = true;
-  if (cookie) {
-    isDark = cookie == 'dark';
-  }
-
   return (
     <html lang='pt-BR'>
       <head>
         <style>
-          {isDark
+          {isDark()
             ? `:root {
                 --color-background: #0d012c;
                 --color-white: #fff;
@@ -109,8 +87,7 @@ export default function RootLayout({
         </style>
       </head>
       <body
-        className={`${inter.variable} ${shareTechMono.variable} ${poppins.variable} 
-        ${firaCode.variable} ${jost.variable} ${rubik.variable}`}
+        className={` ${shareTechMono.variable} ${poppins.variable} ${jost.variable}`}
       >
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>

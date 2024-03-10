@@ -1,30 +1,10 @@
 import styled from 'styled-components';
-import { ImageContainer } from '../../pages/Home';
-import AboutForm from '../../form/AboutForm';
-import Reveal from '../../containers/Reveal';
-import ImageF1 from '@/public/f1.webp';
-import ImageF2 from '@/public/f2.webp';
-import Image from 'next/image';
-import { memo, useEffect, useState } from 'react';
-import { getCookie } from 'cookies-next';
-import { useFormStatus } from 'react-dom';
+import { memo } from 'react';
 import Section from '../../containers/Section';
 import AboutTextComponent from './AboutTextComponent';
 import ImageComponent from './ImageComponent';
 
 const AboutContent = () => {
-  const { pending } = useFormStatus();
-  const cookie = getCookie('theme');
-  let isDark = true;
-  if (cookie) {
-    isDark = cookie == 'dark';
-  }
-  const [dark, setIsDark] = useState<boolean>(isDark);
-
-  useEffect(() => {
-    if (pending) setIsDark((p) => !p);
-  }, [pending]);
-
   return (
     <Section id='#about'>
       <AboutMeContainer>

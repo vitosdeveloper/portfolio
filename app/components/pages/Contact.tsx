@@ -14,11 +14,13 @@ import { IoMdMail } from 'react-icons/io';
 import { CiLocationOn } from 'react-icons/ci';
 import Reveal from '../containers/Reveal';
 import { StyledAboutTitle } from '../contents/about/AboutContent';
+import { useTranslation } from 'react-i18next';
 
 const Contact = () => {
+  const { t } = useTranslation();
   const socials = [
     {
-      name: 'Call Me:',
+      name: t('Call Me:'),
       value: '+55 61 98338-2294',
       Icon: FaWhatsapp,
       color: 'var(--color-button-hover)',
@@ -26,7 +28,7 @@ const Contact = () => {
       link: 'https://api.whatsapp.com/send?phone=+5561983382294&text=Ol%C3%A1,%20vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20contrat%C3%A1-lo.',
     },
     {
-      name: 'Email Me:',
+      name: t('Email Me:'),
       value: 'vitosdeveloper@gmail.com',
       Icon: IoMdMail,
       color: '',
@@ -34,7 +36,7 @@ const Contact = () => {
       link: 'mailto:vitosdeveloper@gmail.com',
     },
     {
-      name: 'Location',
+      name: t('Location'),
       value: 'Águas Claras, Distrito Federal',
       Icon: CiLocationOn,
       color: 'rgb(139, 113, 233)',
@@ -48,8 +50,8 @@ const Contact = () => {
       <StyledCenterDiv style={{ padding: '0 1rem' }}>
         <Reveal x={75}>
           <SkillsTextContainer>
-            <StyledAboutTitle>I want to hear from you</StyledAboutTitle>
-            <SkillsTitle>Contact Me</SkillsTitle>
+            <StyledAboutTitle>{t('I want to hear from you')}</StyledAboutTitle>
+            <SkillsTitle>{t('Contact Me')}</SkillsTitle>
           </SkillsTextContainer>
         </Reveal>
         <Reveal x={-75}>

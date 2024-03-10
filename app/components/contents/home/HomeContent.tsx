@@ -6,30 +6,36 @@ import { ImageContainer, StyledHomeTitle, StyledImage } from '../../pages/Home';
 import { memo } from 'react';
 import Reveal from '../../containers/Reveal';
 import { StyledP } from '../about/AboutContent';
+import { useTranslation } from 'react-i18next';
 
 type Props = {};
 
 const HomeContent = (props: Props) => {
+  const { t } = useTranslation();
+
   return (
     <StyledHomeContainer>
       <ContentContainer>
         <Reveal x={-75}>
           <ContentContainer>
-            <StyledHomeRole>FULL-STACK DEVELOPER</StyledHomeRole>
-            <StyledHomeTitle>Hey! I am</StyledHomeTitle>
-            <StyledHomeTitle $gradientprop>Vitor Fernandes</StyledHomeTitle>
+            <StyledHomeRole>{t('FULL-STACK DEVELOPER')}</StyledHomeRole>
+            <StyledHomeTitle>{t('Hey! I am')}</StyledHomeTitle>
+            <StyledHomeTitle $gradientprop>
+              {t('Vitor Fernandes')}
+            </StyledHomeTitle>
             <StyledP>
-              I am a Developer, currently focused on the Web, completely
-              dedicated to the studies and work I do.
+              {t(
+                'I am a Developer, currently focused on the Web, completely dedicated to the studies and work I do.'
+              )}
             </StyledP>
             <StyledButtonLink href='mailto:vitosdeveloper@gmail.com'>
               <StyledHireMeButton>
-                HIRE ME
+                {t('HIRE ME')}
                 <BsFillPlayFill />
               </StyledHireMeButton>
             </StyledButtonLink>
             <StyledSocialContainer>
-              <StyledP>Follow Me:</StyledP>
+              <StyledP>{t('Follow Me:')}</StyledP>
               <Link href='https://github.com/vitosnatios' target='_blank'>
                 <BsGithub />
               </Link>
@@ -86,7 +92,6 @@ const StyledHomeRole = styled.h3`
   -webkit-background-clip: text;
   background-clip: text;
   color: var(--white);
-  font-family: var(--font-fira-code), Roboto Mono, monospace;
   font-weight: 800;
   letter-spacing: 1px;
   text-transform: uppercase;

@@ -1,16 +1,26 @@
 import React, { memo, useRef } from 'react';
 import StyledUl from '../../elements/StyledUl';
-import { links } from './Header';
 import StyledHeaderLi from './StyledHeaderLi';
 import styled from 'styled-components';
 import { Link } from 'react-scroll';
-import Heart from './Heart';
+import { ISection } from '@/app/types/Section';
+import { useTranslation } from 'react-i18next';
 
 type Props = {};
 
 const HeaderUl = (props: Props) => {
   const heartRef = useRef<HTMLDivElement>(null);
   const headerHeight = 87;
+  const { t } = useTranslation();
+
+  const links: { href: ISection; content: string }[] = [
+    { href: '#home', content: t('HOME') },
+    { href: '#about', content: t('ABOUT') },
+    { href: '#services', content: t('SERVICES') },
+    { href: '#skills', content: t('SKILLS') },
+    { href: '#work', content: t('MY WORK') },
+    { href: '#contact', content: t('CONTACT') },
+  ];
 
   return (
     <>
@@ -41,18 +51,12 @@ const HeaderUl = (props: Props) => {
           );
         })}
       </StyledUl>
-      <Heart heartRef={heartRef} />
+      {/* <Heart heartRef={heartRef} /> */}
     </>
   );
 };
 
 export default memo(HeaderUl);
-
-const StyledBigViewMenuButton = styled.div`
-  @media (min-width: 1000px) {
-    display: none;
-  }
-`;
 
 const StyledHeaderLink = styled(Link)`
   font-size: initial;

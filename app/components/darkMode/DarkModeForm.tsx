@@ -1,23 +1,19 @@
 import { themeAction } from '@/app/server-actions/themeAction';
 import { getCookie } from 'cookies-next';
 import dynamic from 'next/dynamic';
-import { PropsWithChildren, memo } from 'react';
+import { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 const PiCloudSunBold = dynamic(
   () => import('react-icons/pi').then((module) => module.PiCloudSunBold),
-  {
-    ssr: false,
-  }
+  { ssr: false }
 );
 
 const PiCloudMoonBold = dynamic(
   () => import('react-icons/pi').then((module) => module.PiCloudMoonBold),
-  {
-    ssr: false,
-  }
+  { ssr: false }
 );
 
-const DarkModeForm = async ({ children }: PropsWithChildren) => {
+const DarkModeForm = ({ children }: PropsWithChildren) => {
   const cookie = getCookie('theme');
   let isDark = true;
   if (cookie) {

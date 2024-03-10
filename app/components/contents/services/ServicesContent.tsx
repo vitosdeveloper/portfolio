@@ -4,35 +4,38 @@ import styled from 'styled-components';
 import { ImageContainer, StyledHomeTitle, StyledImage } from '../../pages/Home';
 import { FlexYContainer, StyledServicesTitle } from '../../pages/Services';
 import Reveal from '../../containers/Reveal';
+import { useTranslation } from 'react-i18next';
 
 type Props = {};
 
 const ServicesContent = (props: Props) => {
+  const { t } = useTranslation();
   return (
     <FlexYContainer style={{ textAlign: 'center' }}>
       <Reveal y={-75}>
-        <StyledHomeTitle>Services</StyledHomeTitle>
-        <StyledServicesTitle>What services do i offer</StyledServicesTitle>
+        <StyledHomeTitle>{t('Services')}</StyledHomeTitle>
+        <StyledServicesTitle>
+          {t('What services do i offer')}
+        </StyledServicesTitle>
       </Reveal>
 
       <ServicesContainer style={{ marginTop: '3rem' }}>
         <ServicesTextContainer className='service_text_one'>
           <Reveal x={-75}>
             <ServiceTextContainer>
-              <ServicesTitle>Web Development</ServicesTitle>
+              <ServicesTitle>{t('Web Development')}</ServicesTitle>
               <ServicesText>
-                I can build your new system, e-commerce, landing page, or
-                whatever you need. Whether it&apos;s solving bugs, creating new
-                solutions, or contributing to existing projects, I&apos;m here
-                to help.
+                {t(
+                  "I can build your new system, e-commerce, landing page, or whatever you need. Whether it's solving bugs, creating new solutions, or contributing to existing projects, I'm here to help."
+                )}
               </ServicesText>
             </ServiceTextContainer>
             <ServiceTextContainer>
-              <ServicesTitle>Creative Solutions</ServicesTitle>
+              <ServicesTitle>{t('Creative Solutions')}</ServicesTitle>
               <ServicesText>
-                Recognized potential in my dedication and need something out of
-                the box? I&apos;m always open to new business possibilities
-                involving technology. Let&apos;s have a conversation!
+                {t(
+                  "Recognized potential in my dedication and need something out of the box? I'm always open to new business possibilities involving technology. Let's have a conversation!"
+                )}
               </ServicesText>
             </ServiceTextContainer>
           </Reveal>
@@ -48,20 +51,19 @@ const ServicesContent = (props: Props) => {
         <ServicesTextContainer className='service_text_two'>
           <Reveal x={75}>
             <ServiceTextContainer>
-              <ServicesTitle>Revitalization</ServicesTitle>
+              <ServicesTitle>{t('Revitalization')}</ServicesTitle>
               <ServicesText>
-                If you have any legacy code and are interested in modernizing it
-                for improved performance, a better user experience, and
-                potentially cost savings through optimizations, I&apos;m willing
-                to learn any language or framework to solve your problem.
+                {t(
+                  "If you have any legacy code and are interested in modernizing it for improved performance, a better user experience, and potentially cost savings through optimizations, I'm willing to learn any language or framework to solve your problem."
+                )}
               </ServicesText>
             </ServiceTextContainer>
             <ServiceTextContainer>
               <ServicesTitle>Legacy</ServicesTitle>
               <ServicesText>
-                Satisfied with your legacy project as it is but need a
-                professional for general modifications? Invest in my time and
-                expertise, and I&apos;ll gradually turn your ideas into reality.
+                {t(
+                  "Satisfied with your legacy project as it is but need a professional for general modifications? Invest in my time and expertise, and I'll gradually turn your ideas into reality."
+                )}
               </ServicesText>
             </ServiceTextContainer>
           </Reveal>

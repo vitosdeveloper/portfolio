@@ -25,10 +25,12 @@ import storm from '@/public/works/storm.webp';
 import denys2 from '@/public/works/denys2.webp';
 import optimizer from '@/public/works/optimizer.webp';
 import { StyledAboutTitle } from '../contents/about/AboutContent';
+import { useTranslation } from 'react-i18next';
 
 SwiperCore.use([Autoplay]);
 
 const Work = () => {
+  const { t } = useTranslation();
   const [swipers, setSwipers] = useState<{
     first: SwiperCore | null;
     sec: SwiperCore | null;
@@ -52,8 +54,9 @@ const Work = () => {
   const works = [
     {
       name: 'Denys Tips - Blackjack',
-      description: `Freelance
-Landing page for tutorial videos and contact presentation.`,
+      description: t(
+        'Freelance \nLanding page for tutorial videos an)d contact presentation.'
+      ),
       img: denys2,
       live: '',
       repo: '',
@@ -61,8 +64,7 @@ Landing page for tutorial videos and contact presentation.`,
     },
     {
       name: 'Storm Store',
-      description: `Freelance
-Ragnarok Zeny and Items E-commerce.`,
+      description: t('Freelance\nRagnarok Zeny and Items E-commerce.'),
       img: storm,
       live: '',
       repo: '',
@@ -70,8 +72,9 @@ Ragnarok Zeny and Items E-commerce.`,
     },
     {
       name: 'Le Parfum',
-      description: `Freelance
-I studied two versions of the Bling API (ERP) as the client aimed to develop a fully customized e-commerce platform, integrating and updating information through the Bling API. However, while already in development, after a certain evaluation of the APIs, the latest version proved to be incompatible with our requirements. On the other hand, the previous version, although meeting our requirements, was scheduled to cease operation in the middle of the year. Faced with this, we opted for the most viable solution, which involved using pre-built templates offered by NumveShop, a Bling partner. From this template, I made some specific adjustments through CSS.`,
+      description: t(
+        `Freelance\nI studied two versions of the Bling API (ERP) as the client aimed to develop a fully customized e-commerce platform, integrating and updating information through the Bling API. However, while already in development, after a certain evaluation of the APIs, the latest version proved to be incompatible with our requirements. On the other hand, the previous version, although meeting our requirements, was scheduled to cease operation in the middle of the year. Faced with this, we opted for the most viable solution, which involved using pre-built templates offered by NumveShop, a Bling partner. From this template, I made some specific adjustments through CSS.`
+      ),
       img: lepar,
       live: 'https://www.leparfumdf.com.br/',
       repo: '',
@@ -79,8 +82,9 @@ I studied two versions of the Bling API (ERP) as the client aimed to develop a f
     },
     {
       name: 'Denys Tips',
-      description: `Freelance
-I developed a landing page with a focus on responsiveness, designing according to client preferences, also creating thumbnails and editing videos.`,
+      description: t(
+        `Freelance\nI developed a landing page with a focus on responsiveness, designing according to client preferences, also creating thumbnails and editing videos.`
+      ),
       img: bet,
       live: '',
       repo: '',
@@ -88,8 +92,9 @@ I developed a landing page with a focus on responsiveness, designing according t
     },
     {
       name: 'wtpsapp - Aplicativos Mobile',
-      description: `Freelance
-Development and customization of features on demand in mobile apps built with React Native, within an ecosystem that includes a translation system, shipping functionality, notifications, sales, barcode scanning and recording, use of a currency conversion API, product registration, services, real estate, and various others. The project utilizes React Native with TypeScript, Styled-Components, and the backend is built with PHP.`,
+      description: t(
+        `Freelance\nDevelopment and customization of features on demand in mobile apps built with React Native, within an ecosystem that includes a translation system, shipping functionality, notifications, sales, barcode scanning and recording, use of a currency conversion API, product registration, services, real estate, and various others. The project utilizes React Native with TypeScript, Styled-Components, and the backend is built with PHP.`
+      ),
       img: wtp,
       live: '',
       repo: '',
@@ -97,8 +102,9 @@ Development and customization of features on demand in mobile apps built with Re
     },
     {
       name: 'Arte e Brilho Artesanato',
-      description: `Freelance
-Development and maintenance of an Ecommerce platform for religious articles, including inventory and product management through an internal system that I developed. Key technologies used: NextJS (React), TypeScript (JavaScript), and TailwindCSS.`,
+      description: t(
+        `Freelance\nDevelopment and maintenance of an Ecommerce platform for religious articles, including inventory and product management through an internal system that I developed. Key technologies used: NextJS (React), TypeScript (JavaScript), and TailwindCSS.`
+      ),
       img: artesanato,
       live: '',
       repo: '',
@@ -106,8 +112,9 @@ Development and maintenance of an Ecommerce platform for religious articles, inc
     },
     {
       name: 'devgames-app',
-      description: `Freelance
-I worked on the successful migration of two projects to cutting-edge technologies. The first project, originally built with Node.js, JavaScript, jQuery, and HTML, and the second one with Preact, were modernized with TypeScript and Next.js along with Serverless Functions, as per the client's request.`,
+      description: t(
+        `Freelance\nI worked on the successful migration of two projects to cutting-edge technologies. The first project, originally built with Node.js, JavaScript, jQuery, and HTML, and the second one with Preact, were modernized with TypeScript and Next.js along with Serverless Functions, as per the client's request.`
+      ),
       img: devgames,
       live: '',
       repo: 'https://github.com/vitosnatios/lawnmower-backup',
@@ -115,8 +122,9 @@ I worked on the successful migration of two projects to cutting-edge technologie
     },
     {
       name: 'Image Optimizer By Vitos',
-      description: `Image Optimizer.
-It does optimize your images by formating it to .webp and limiting It's max resolution to 1080px. Just paste it inside some folder and execute it, it will optimize all images that aren't .webp from this folder and its subfolders.`,
+      description: t(
+        `Image Optimizer.\nIt does optimize your images by formating it to .webp and limiting It's max resolution to 1080px. Just paste it inside some folder and execute it, it will optimize all images that aren't .webp from this folder and its subfolders.`
+      ),
       img: optimizer,
       live: '',
       repo: 'https://github.com/vitosnatios/Image-Optimizer-By-Vitos/releases',
@@ -124,7 +132,9 @@ It does optimize your images by formating it to .webp and limiting It's max reso
     },
     {
       name: 'Felino Chan',
-      description: `Imageboard that generates random cat pictures for your posts.`,
+      description: t(
+        `Imageboard that generates random cat pictures for your posts.`
+      ),
       img: felino,
       live: 'https://felinochan.vercel.app/hw/1',
       repo: 'https://github.com/vitosnatios/felino-chan-Client',
@@ -132,7 +142,7 @@ It does optimize your images by formating it to .webp and limiting It's max reso
     },
     {
       name: 'Fictional Ecommerce',
-      description: `E-commerce prototype.`,
+      description: t(`E-commerce prototype.`),
       img: fictional,
       live: 'https://vitos-e-commerce.netlify.app/',
       repo: 'https://github.com/vitosnatios/E-commerce',
@@ -140,7 +150,9 @@ It does optimize your images by formating it to .webp and limiting It's max reso
     },
     {
       name: 'CaffeineCraft',
-      description: `Discover the world's finest coffeee beans and brew your perfect cup of coffeee. Ecommerce-like website.`,
+      description: t(
+        `Discover the world's finest coffeee beans and brew your perfect cup of coffeee. Ecommerce-like website.`
+      ),
       img: coffee,
       live: 'https://caffeine-craft.vercel.app/',
       repo: 'https://github.com/vitosnatios/CaffeineCraft',
@@ -148,7 +160,7 @@ It does optimize your images by formating it to .webp and limiting It's max reso
     },
     {
       name: 'DáPãoDelivery',
-      description: `Product and Order Manager for a Bakery.`,
+      description: t(`Product and Order Manager for a Bakery.`),
       img: dapao,
       live: 'https://da-pao-delivery.vercel.app/',
       repo: 'https://github.com/vitosnatios/DaPaoDelivery-Frontend',
@@ -156,8 +168,8 @@ It does optimize your images by formating it to .webp and limiting It's max reso
     },
     {
       name: 'Portal Educador',
-      description: `Grade Manager for Teachers and Principals.
-Logins at: "/api/showLogins", every pass is "asd"`,
+      description:
+        'Grade Manager for Teachers and Principals.\nLogins at: "/api/showLogins", every pass is "asd"',
       img: educa,
       live: 'https://portal-educador.vercel.app',
       repo: 'https://github.com/vitosnatios/portal-educador',
@@ -165,7 +177,7 @@ Logins at: "/api/showLogins", every pass is "asd"`,
     },
     {
       name: 'Portfolio',
-      description: `This website, like, literally.`,
+      description: t(`This website, like, literally.`),
       img: port,
       live: 'https://vitosdeveloper.vercel.app/',
       repo: 'https://github.com/vitosnatios/portfolio',
@@ -178,8 +190,8 @@ Logins at: "/api/showLogins", every pass is "asd"`,
       <StyledCenterDiv>
         <SkillsTextContainer>
           <Reveal x={75}>
-            <StyledAboutTitle>CHECK OUT MY EXPERIENCE</StyledAboutTitle>
-            <SkillsTitle>Professional Environment</SkillsTitle>
+            <StyledAboutTitle>{t('CHECK OUT MY EXPERIENCE')}</StyledAboutTitle>
+            <SkillsTitle>{t('Professional Environment')}</SkillsTitle>
           </Reveal>
         </SkillsTextContainer>
         <div onMouseEnter={pauseSwipers} onMouseLeave={playSwipers}>
@@ -193,7 +205,7 @@ Logins at: "/api/showLogins", every pass is "asd"`,
         </div>
         <SkillsTextContainer>
           <Reveal x={-75}>
-            <SkillsTitle>Personal Projects</SkillsTitle>
+            <SkillsTitle>{t('Personal Projects')}</SkillsTitle>
           </Reveal>
         </SkillsTextContainer>
         <div onMouseEnter={pauseSwipers} onMouseLeave={playSwipers}>

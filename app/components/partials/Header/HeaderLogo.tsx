@@ -1,4 +1,3 @@
-'use client';
 import { memo } from 'react';
 import { DiCode } from 'react-icons/di';
 import styled from 'styled-components';
@@ -32,6 +31,7 @@ const StyledContainer = styled.div`
   align-items: center;
   gap: 0.25rem;
   white-space: nowrap;
+  flex-wrap: wrap;
 `;
 
 const HeaderLogo = () => {

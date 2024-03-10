@@ -2,9 +2,10 @@ import React from 'react';
 import StyledHeaderButton from '../partials/Header/StyledHeaderButton';
 import styled from 'styled-components';
 import { BsDownload } from 'react-icons/bs';
-import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const AboutForm = () => {
+  const { t } = useTranslation();
   return (
     <a
       href='/Resume-Vitor-Fernandes-Goncalves-EN.pdf'
@@ -13,7 +14,7 @@ const AboutForm = () => {
       style={{ display: 'contents' }}
     >
       <StyledAboutButton type='button'>
-        DOWNLOAD CV <BsDownload />
+        {t('DOWNLOAD CV')} <BsDownload />
       </StyledAboutButton>
     </a>
   );

@@ -11,14 +11,18 @@ import ProgressBar from './components/progress-bar/ProgressBar';
 import dynamic from 'next/dynamic';
 const DarkModeForm = dynamic(
   () => import('./components/darkMode/DarkModeForm'),
-  {
-    ssr: false,
-  }
+  { ssr: false }
 );
 
-function App(props: any) {
+const I18nextProvider = dynamic(
+  () => import('react-i18next').then((r) => r.I18nextProvider),
+  { ssr: false }
+);
+import i18n from '@/i18n';
+
+function App() {
   return (
-    <>
+    <I18nextProvider i18n={i18n}>
       <Header />
       <Home />
       <DarkModeForm>
@@ -30,7 +34,7 @@ function App(props: any) {
       <Contact />
       <Footer />
       <ProgressBar />
-    </>
+    </I18nextProvider>
   );
 }
 

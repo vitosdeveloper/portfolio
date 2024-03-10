@@ -13,7 +13,7 @@ const Heart = ({ heartRef }: Props) => {
         opacity: 0,
         position: 'fixed',
         bottom: 0,
-        right: 15,
+        // right: 15,
         color: 'white',
         cursor: 'pointer',
       }}

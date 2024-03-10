@@ -33,8 +33,10 @@ import {
   StyledAboutSubText,
   StyledAboutTitle,
 } from '../contents/about/AboutContent';
+import { useTranslation } from 'react-i18next';
 
 const Skills = () => {
+  const { t } = useTranslation();
   const [swipers, setSwipers] = useState<{
     first: SwiperCore | null;
     sec: SwiperCore | null;
@@ -87,8 +89,8 @@ const Skills = () => {
       <StyledCenterDiv>
         <Reveal x={-75}>
           <SkillsTextContainer>
-            <StyledAboutTitle>MY PROGRESS SO FAR</StyledAboutTitle>
-            <SkillsTitle>My Skills</SkillsTitle>
+            <StyledAboutTitle>{t('MY PROGRESS SO FAR')}</StyledAboutTitle>
+            <SkillsTitle>{t('My Skills')}</SkillsTitle>
           </SkillsTextContainer>
         </Reveal>
         <div onMouseEnter={pauseSwipers} onMouseLeave={playSwipers}>
