@@ -1,4 +1,3 @@
-'use client';
 import React, { PropsWithChildren, memo, useEffect, useRef } from 'react';
 import { useInView, useAnimation, motion } from 'framer-motion';
 
@@ -23,13 +22,12 @@ const Reveal = ({
   return (
     <>
       <motion.div
-        style={{ position: 'relative', width: 'initial', overflow: 'hidden' }}
         ref={ref}
         variants={{
-          hidden: { opacity: 0, y, x },
+          hidden: { opacity: 0, y },
           show: { opacity: 1, y: 0, x: 0 },
         }}
-        transition={{ duration: 0.5, delay: 0 }}
+        transition={{ duration: 0.7, delay: 0 }}
         initial='hidden'
         animate={mainControls}
       >

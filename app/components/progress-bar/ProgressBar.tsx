@@ -25,7 +25,7 @@ const ProgressBar = (props: Props) => {
         height: '10px',
         background: 'var(--color-button-hover)',
         transformOrigin: '0%',
-        zIndex: 1,
+        zIndex: 2,
       }}
     />
   );
