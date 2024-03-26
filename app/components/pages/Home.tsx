@@ -8,11 +8,9 @@ import HomeContent from '../contents/home/HomeContent';
 const Home = () => {
   return (
     <BackgroundOverlay id='#home'>
-      <HomeContainer>
-        <Section>
-          <HomeContent />
-        </Section>
-      </HomeContainer>
+      <Section style={{ marginTop: '87px' }}>
+        <HomeContent />
+      </Section>
     </BackgroundOverlay>
   );
 };

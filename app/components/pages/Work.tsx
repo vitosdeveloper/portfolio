@@ -23,6 +23,7 @@ import port from '@/public/works/port.webp';
 import lepar from '@/public/works/lepar.webp';
 import storm from '@/public/works/storm.webp';
 import denys2 from '@/public/works/denys2.webp';
+import jungle from '@/public/works/jungle.webp';
 import optimizer from '@/public/works/optimizer.webp';
 import { StyledAboutTitle } from '../contents/about/AboutContent';
 import { useTranslation } from 'react-i18next';
@@ -86,6 +87,14 @@ const Work = () => {
         `Freelance\nI developed a landing page with a focus on responsiveness, designing according to client preferences, also creating thumbnails and editing videos.`
       ),
       img: bet,
+      live: '',
+      repo: '',
+      personal: false,
+    },
+    {
+      name: 'Denys Tips - Aprenda a dominar a Jungle',
+      description: t('Freelance \nLanding page for e-book sales.'),
+      img: jungle,
       live: '',
       repo: '',
       personal: false,
