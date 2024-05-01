@@ -1,4 +1,5 @@
-import { BsFillPlayFill, BsGithub, BsLinkedin } from 'react-icons/bs';
+import { BsGithub, BsLinkedin } from 'react-icons/bs';
+import { MdOutlineMarkEmailRead } from 'react-icons/md';
 import EuImage from '@/public/eu.webp';
 import styled from 'styled-components';
 import Link from 'next/link';
@@ -7,6 +8,7 @@ import { memo } from 'react';
 import Reveal from '../../containers/Reveal';
 import { StyledP } from '../about/AboutContent';
 import { useTranslation } from 'react-i18next';
+import AboutForm from '../../form/AboutForm';
 
 type Props = {};
 
@@ -28,12 +30,19 @@ const HomeContent = (props: Props) => {
                 'I am a Developer, currently focused on the Web, completely dedicated to the studies and work I do.'
               )}
             </StyledP>
-            <StyledButtonLink href='mailto:vitosdeveloper@gmail.com'>
-              <StyledHireMeButton>
-                {t('HIRE ME')}
-                <BsFillPlayFill />
-              </StyledHireMeButton>
-            </StyledButtonLink>
+            <StyledLinksContainer>
+              <StyledButtonLink href='mailto:vitosdeveloper@gmail.com'>
+                <StyledHireMeButton>
+                  {t('HIRE ME')}
+                  <MdOutlineMarkEmailRead
+                    size={18}
+                    style={{ position: 'relative', bottom: 0.51, right: 3 }}
+                  />
+                </StyledHireMeButton>
+              </StyledButtonLink>
+              <AboutForm />
+            </StyledLinksContainer>
+
             <StyledSocialContainer>
               <StyledP>{t('Follow Me:')}</StyledP>
               <Link href='https://github.com/vitosnatios' target='_blank'>
@@ -59,6 +68,14 @@ const HomeContent = (props: Props) => {
 };
 
 export default memo(HomeContent);
+
+const StyledLinksContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin: 0.5rem 0 1rem 0;
+`;
 
 const StyledHomeContainer = styled.div`
   display: flex;
@@ -106,17 +123,16 @@ const StyledHireMeButton = styled.button`
   align-items: center;
   gap: 0.4rem;
   justify-content: center;
-  border-radius: 47px;
-  height: 60px;
-  letter-spacing: 3px;
+  border-radius: 7px;
+  height: 50px;
+  letter-spacing: 1px;
   border: none;
-  color: var(--color-white);
-  font-weight: 400;
   transition: all 0.1s ease;
-  width: 180px;
+  width: 190px;
   background: var(--color-button);
-  margin: 0.5rem 0 2rem 0;
   cursor: pointer;
+  color: var(--color-clear-background);
+  font-weight: 600;
   &:hover {
     background: var(--color-button-hover);
   }

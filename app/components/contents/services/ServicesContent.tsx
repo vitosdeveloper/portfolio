@@ -1,14 +1,14 @@
 import React, { memo } from 'react';
 import CodingIcon from '@/public/coding_icon.webp';
+import CodingIconClean from '@/public/coding_icon_clean.webp';
 import styled from 'styled-components';
 import { ImageContainer, StyledHomeTitle, StyledImage } from '../../pages/Home';
 import { FlexYContainer, StyledServicesTitle } from '../../pages/Services';
 import Reveal from '../../containers/Reveal';
 import { useTranslation } from 'react-i18next';
+import { isDark } from '@/app/utils/isDark';
 
-type Props = {};
-
-const ServicesContent = (props: Props) => {
+const ServicesContent = ({ isDark }: { isDark: boolean }) => {
   const { t } = useTranslation();
   return (
     <FlexYContainer style={{ textAlign: 'center' }}>
@@ -45,7 +45,11 @@ const ServicesContent = (props: Props) => {
           style={{ margin: '0 auto' }}
         >
           <Reveal y={175}>
-            <StyledImage $left src={CodingIcon} alt='home-picture' />
+            <StyledImage
+              $left
+              src={isDark ? CodingIcon : CodingIconClean}
+              alt='home-picture'
+            />
           </Reveal>
         </ServicesImageContainer>
         <ServicesTextContainer className='service_text_two'>

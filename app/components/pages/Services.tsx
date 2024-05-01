@@ -4,10 +4,10 @@ import ServicesContent from '../contents/services/ServicesContent';
 import { StyledAboutTitle } from '../contents/about/AboutContent';
 import { memo } from 'react';
 
-const Services = () => {
+const Services = ({ isDark }: { isDark: boolean }) => {
   return (
     <Section id='#services'>
-      <ServicesContent />
+      <ServicesContent isDark={isDark} />
     </Section>
   );
 };

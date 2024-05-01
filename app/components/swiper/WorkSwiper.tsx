@@ -33,7 +33,7 @@ const WorkSwiper = ({ works, reverse, setSwipers, name }: Props) => {
     breakpoints: { ss: 0, sm: 400, md: 768, bg: 1024 },
     debounceDelay: 300,
   });
-  const size = { ss: 260, sm: 300, md: 300, bg: 350 };
+  const size = { ss: 260, sm: 280, md: 280, bg: 300 };
 
   return (
     <NoSsrWrapper>
@@ -127,7 +127,7 @@ const WorkSwiperSlide = styled.div`
   justify-content: center;
   justify-content: start;
   align-items: start;
-  height: 450px;
+  height: 400px;
   padding-bottom: 4rem;
   box-shadow: -3px 1px 8px var(--color-skill-background);
 `;
@@ -136,7 +136,7 @@ const WorkImageContainer = styled.div`
   min-height: 180px;
   max-height: 180px;
   width: 100%;
-  margin-bottom: 2rem;
+  margin-bottom: 0.8rem;
   @media (max-width: 1000px) {
     height: 110px;
     margin-bottom: 0.5rem;
@@ -152,10 +152,7 @@ const WorkImage = styled(Image)`
 
 const WorkTitle = styled.h2`
   color: var(--color-button-hover);
-  padding: 0rem 1rem 0.5rem;
-  @media (max-width: 1000px) {
-    padding: 1rem 1rem 0.5rem;
-  }
+  padding: 0rem 1rem;
 `;
 
 const WorkDescription = styled.p`
@@ -189,7 +186,7 @@ const LinksContainer = styled.div`
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 2rem 2rem;
+  padding: 2rem;
 `;
 
 const WorkLinks = styled(Link)`

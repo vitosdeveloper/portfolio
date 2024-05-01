@@ -177,8 +177,9 @@ const Work = () => {
     },
     {
       name: 'Portal Educador',
-      description:
-        'Grade Manager for Teachers and Principals.\nLogins at: "/api/showLogins", every pass is "asd"',
+      description: t(
+        'Grade Manager for Teachers and Principals.\nLogins at: "/api/showLogins", every pass is "asd"'
+      ),
       img: educa,
       live: 'https://portal-educador.vercel.app',
       repo: 'https://github.com/vitosnatios/portal-educador',

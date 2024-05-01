@@ -4,11 +4,11 @@ import Section from '../../containers/Section';
 import AboutTextComponent from './AboutTextComponent';
 import ImageComponent from './ImageComponent';
 
-const AboutContent = () => {
+const AboutContent = ({ isDark }: { isDark: boolean }) => {
   return (
     <Section id='#about'>
       <AboutMeContainer>
-        <ImageComponent />
+        <ImageComponent isDark={isDark} />
         <AboutTextComponent />
       </AboutMeContainer>
     </Section>

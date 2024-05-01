@@ -8,9 +8,6 @@ import GhubIco from '../../contents/header/GhubIco';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import HeaderUl from './HeaderUl';
-import Heart from './Heart';
-import Langs from './Langs';
-import { FlexXContainer } from '../../pages/Services';
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
@@ -20,7 +17,6 @@ const Header = () => {
       <HeaderLogo />
       <div
         style={{
-          // marginTop: '.5rem',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'end',

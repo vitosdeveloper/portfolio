@@ -15,7 +15,8 @@ const AboutForm = () => {
       style={{ display: 'contents' }}
     >
       <StyledAboutButton type='button'>
-        {t('DOWNLOAD CV')} <BsDownload />
+        {t('DOWNLOAD CV')}{' '}
+        <BsDownload style={{ position: 'relative', top: 1, left: 2 }} />
       </StyledAboutButton>
     </a>
   );
@@ -24,7 +25,7 @@ const AboutForm = () => {
 export default AboutForm;
 
 const StyledAboutButton = styled(StyledHeaderButton)`
-  color: var(--color-background);
+  color: var(--color-clear-background);
   font-weight: 600;
   width: 190px;
   &:hover {

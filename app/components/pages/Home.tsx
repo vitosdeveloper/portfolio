@@ -8,7 +8,7 @@ import HomeContent from '../contents/home/HomeContent';
 const Home = () => {
   return (
     <BackgroundOverlay id='#home'>
-      <Section style={{ marginTop: '87px' }}>
+      <Section style={{ marginTop: '62.67px' }}>
         <HomeContent />
       </Section>
     </BackgroundOverlay>

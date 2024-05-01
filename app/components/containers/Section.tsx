@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Section = styled.section`
   /* margin-top: 87px; */
-  min-height: calc(100vh - 87px);
+  min-height: calc(100vh - 62.67px);
   padding: 2rem 4rem;
   display: flex;
   align-items: center;

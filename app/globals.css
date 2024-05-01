@@ -1,10 +1,13 @@
 :root {
+  --color-clear-background: #a1b3fc;
   --color-background: #0d012c;
   --color-white: #fff;
   --color-dark: #161818;
   --link-hover: #0056b3;
   --color-special-color: #eff30e;
   --color-info-light: #c7cbd8;
+  --color-blue: #17c0e9;
+  --color-orange: #f45162;
   --color-button: linear-gradient(to left, #17c0e9, #c96ddd, #f45162);
   --color-button-hover: #59c378;
   --color-card2: #14143a;

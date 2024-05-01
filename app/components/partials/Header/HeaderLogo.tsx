@@ -1,14 +1,15 @@
 import { memo } from 'react';
-import { DiCode } from 'react-icons/di';
 import styled from 'styled-components';
 import Reveal from '../../containers/Reveal';
+import Image from 'next/image';
+import Logo from '@/public/coding_icon_clean.webp';
 
 const LogoH1 = styled.h1`
   background: linear-gradient(
     90deg,
-    rgba(89, 195, 120, 1) 0%,
-    rgba(28, 171, 217, 1) 50%,
-    rgba(221, 76, 99, 1) 100%
+    var(--color-button-hover) 0%,
+    var(--color-blue) 50%,
+    var(--color-orange) 100%
   );
   background-clip: text;
   -webkit-background-clip: text;
@@ -19,9 +20,8 @@ const LogoH1 = styled.h1`
   }
 `;
 
-export const StyledDiCode = styled(DiCode)`
-  color: rgba(89, 195, 120, 1);
-  @media (max-width: 1200px) {
+export const StyledLogo = styled(Image)`
+  @media (max-width: 333px) {
     display: none;
   }
 `;
@@ -37,7 +37,12 @@ const StyledContainer = styled.div`
 const HeaderLogo = () => {
   return (
     <StyledContainer style={{ flexWrap: 'nowrap' }}>
-      <StyledDiCode size='66px' />
+      {/* <StyledDiCode size='66px' /> */}
+      <StyledLogo
+        src={Logo}
+        alt='logo'
+        style={{ width: 'auto', height: 33.3 }}
+      />
       <Reveal x={-75}>
         <LogoH1>Vitos Developer</LogoH1>
       </Reveal>

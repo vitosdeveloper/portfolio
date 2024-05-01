@@ -59,6 +59,7 @@ export default function RootLayout({
         <style>
           {isDark()
             ? `:root {
+                --color-clear-background: #0d012c;
                 --color-background: #0d012c;
                 --color-white: #fff;
                 --color-dark: #161818;
@@ -70,19 +71,24 @@ export default function RootLayout({
                 --color-card2: #14143a;
                 --color-footer-background: rgb(20, 4, 43);
                 --color-skill-background: rgb(23, 32, 61);
+                --color-blue: #17c0e9;
+                --color-orange: #f45162;
             }`
             : `:root {
-                --color-background: rgb(232, 215, 255);
+                --color-clear-background: #a1b3fc;
+                --color-background: linear-gradient(to left, rgb(200, 222, 255), #a89be2, #a1b3fc);
                 --color-white: #494a4d;
                 --color-dark: #d2d5df;
                 --link-hover: #b300b3;
                 --color-special-color: #0e79f3;
                 --color-info-light: #434857;
-                --color-button: linear-gradient(to left, #fdb599, #e29bbc, #ff5e6e);
-                --color-button-hover: #0f65c985;
-                --color-card2: #0e79f328;
+                --color-button: linear-gradient(to left, #42179962, #7868f0, #765eff);
+                --color-button-hover: #2b0fc985;
+                --color-card2: #1a50ff28;
                 --color-footer-background: rgb(191, 159, 236);
                 --color-skill-background: #6d6fdd;
+                --color-blue: #765eff;
+                --color-orange: #765eff;
             `}
         </style>
       </head>

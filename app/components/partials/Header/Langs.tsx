@@ -56,7 +56,7 @@ const LanguageButton = styled.button`
   transition: 0.3s ease-in-out;
   font-size: 10px;
   background: var(--color-card2);
-  border: 1px solid var(--color-white);
+  /* border: 1px solid var(--color-white); */
 
   &:hover {
     background: var(--color-button);

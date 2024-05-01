@@ -20,11 +20,11 @@ const Reveal = ({
   }, [inView, mainControls]);
 
   return (
-    <>
+    <div style={{ overflow: 'hidden' }}>
       <motion.div
         ref={ref}
         variants={{
-          hidden: { opacity: 0, y },
+          hidden: { opacity: 0, y, x },
           show: { opacity: 1, y: 0, x: 0 },
         }}
         transition={{ duration: 0.7, delay: 0 }}
@@ -33,7 +33,7 @@ const Reveal = ({
       >
         {children}
       </motion.div>
-    </>
+    </div>
   );
 };
 

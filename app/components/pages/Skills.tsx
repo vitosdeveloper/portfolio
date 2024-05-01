@@ -28,6 +28,10 @@ import styledI from '@/public/skills/styled.svg';
 import material from '@/public/skills/material.svg';
 import html from '@/public/skills/html.svg';
 import cs from '@/public/skills/cs.svg';
+import vite from '@/public/skills/vite.svg';
+import vitest from '@/public/skills/vitest.svg';
+import jest from '@/public/skills/jest.svg';
+
 import {
   AboutTextContainer,
   StyledAboutSubText,
@@ -80,6 +84,9 @@ const Skills = () => {
     { name: 'TailwindCSS', img: tailwind },
     { name: 'Styled Comp', img: styledI },
     { name: 'Material UI', img: material },
+    { name: 'VITE', img: vite },
+    { name: 'VITEST', img: vitest },
+    { name: 'JEST', img: jest },
   ];
 
   const half = Math.floor(skills.length / 2);

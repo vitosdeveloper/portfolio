@@ -4,10 +4,10 @@ import { memo } from 'react';
 const AboutContent = dynamic(() => import('../contents/about/AboutContent'), {
   ssr: false,
 });
-const About = () => {
+const About = ({ isDark }: { isDark: boolean }) => {
   return (
     <Section id='#about'>
-      <AboutContent />
+      <AboutContent isDark={isDark} />
     </Section>
   );
 };

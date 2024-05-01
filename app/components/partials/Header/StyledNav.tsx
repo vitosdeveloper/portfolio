@@ -2,7 +2,6 @@
 import styled from 'styled-components';
 
 const StyledNav = styled.nav<{ $showMenu: boolean }>`
-  background: var(--color-background);
   border-radius: 5px;
   animation: MoveRightLeft 0.2s linear;
   @keyframes MoveRightLeft {
