@@ -2,7 +2,8 @@ import { memo } from 'react';
 import styled from 'styled-components';
 import Reveal from '../../containers/Reveal';
 import Image from 'next/image';
-import Logo from '@/public/coding_icon_clean.webp';
+import Logo from '@/public/coding_icon.webp';
+import LogoClean from '@/public/coding_icon_clean.webp';
 
 const LogoH1 = styled.h1`
   background: linear-gradient(
@@ -34,12 +35,11 @@ const StyledContainer = styled.div`
   flex-wrap: wrap;
 `;
 
-const HeaderLogo = () => {
+const HeaderLogo = ({ isDark }: { isDark: boolean }) => {
   return (
     <StyledContainer style={{ flexWrap: 'nowrap' }}>
-      {/* <StyledDiCode size='66px' /> */}
       <StyledLogo
-        src={Logo}
+        src={isDark ? Logo : LogoClean}
         alt='logo'
         style={{ width: 'auto', height: 33.3 }}
       />

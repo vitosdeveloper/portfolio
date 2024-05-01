@@ -9,12 +9,12 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import HeaderUl from './HeaderUl';
 
-const Header = () => {
+const Header = ({ isDark }: { isDark: boolean }) => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
   return (
     <StyledHeader id='header'>
-      <HeaderLogo />
+      <HeaderLogo isDark={isDark} />
       <div
         style={{
           display: 'flex',

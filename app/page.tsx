@@ -1,5 +1,4 @@
 'use client';
-import About from './components/pages/About';
 import Home from './components/pages/Home';
 import Header from './components/partials/Header/Header';
 import Skills from './components/pages/Skills';
@@ -8,8 +7,8 @@ import Contact from './components/pages/Contact';
 import Footer from './components/pages/Footer';
 import ProgressBar from './components/progress-bar/ProgressBar';
 import dynamic from 'next/dynamic';
-const DarkModeFormAboutAndServies = dynamic(
-  () => import('./components/darkMode/DarkModeFormAboutAndServies'),
+const HeaderHomeDarkModeFormAboutAndServies = dynamic(
+  () => import('./components/darkMode/HeaderHomeDarkModeFormAboutAndServies'),
   { ssr: false }
 );
 
@@ -23,9 +22,7 @@ import Langs from './components/partials/Header/Langs';
 function App() {
   return (
     <I18nextProvider i18n={i18n}>
-      <Header />
-      <Home />
-      <DarkModeFormAboutAndServies />
+      <HeaderHomeDarkModeFormAboutAndServies />
       <Skills />
       <Work />
       <Contact />

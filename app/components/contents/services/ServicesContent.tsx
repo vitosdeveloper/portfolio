@@ -6,7 +6,6 @@ import { ImageContainer, StyledHomeTitle, StyledImage } from '../../pages/Home';
 import { FlexYContainer, StyledServicesTitle } from '../../pages/Services';
 import Reveal from '../../containers/Reveal';
 import { useTranslation } from 'react-i18next';
-import { isDark } from '@/app/utils/isDark';
 
 const ServicesContent = ({ isDark }: { isDark: boolean }) => {
   const { t } = useTranslation();
