@@ -5,9 +5,8 @@ import HeaderLogo from './HeaderLogo';
 import { useState, memo } from 'react';
 import Hamburger from 'hamburger-react';
 import GhubIco from '../../contents/header/GhubIco';
-import { motion } from 'framer-motion';
-import styled from 'styled-components';
 import HeaderUl from './HeaderUl';
+import StyledMobileMenuButton from './StyledMobileMenuButton';
 
 const Header = ({ isDark }: { isDark: boolean }) => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
@@ -15,22 +14,8 @@ const Header = ({ isDark }: { isDark: boolean }) => {
   return (
     <StyledHeader id='header'>
       <HeaderLogo isDark={isDark} />
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'end',
-          gap: '.5rem',
-        }}
-      >
-        <StyledMobileMenuButton
-          whileHover={{ scale: 1.2, rotate: 180 }}
-          whileTap={{
-            scale: 0.8,
-            rotate: -180,
-            borderRadius: '100%',
-          }}
-        >
+      <div className='flex flex-col items-end gap-2'>
+        <StyledMobileMenuButton>
           <Hamburger
             color='var(--color-white)'
             toggled={showMenu}
@@ -38,7 +23,7 @@ const Header = ({ isDark }: { isDark: boolean }) => {
             size={20}
           />
         </StyledMobileMenuButton>
-        <StyledNav $showMenu={showMenu}>
+        <StyledNav showMenu={showMenu}>
           <HeaderUl />
           <GhubIco />
         </StyledNav>
@@ -48,9 +33,3 @@ const Header = ({ isDark }: { isDark: boolean }) => {
 };
 
 export default memo(Header);
-
-const StyledMobileMenuButton = styled(motion.div)`
-  @media (min-width: 1200px) {
-    display: none;
-  }
-`;

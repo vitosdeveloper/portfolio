@@ -39,3 +39,18 @@ a {
   color: var(--color-white);
   text-decoration: none !important;
 }
+
+.btn-hover:hover {
+  background: var(--color-button);
+}
+
+/* animations */
+
+@keyframes MoveRightLeft {
+  0% {
+    transform: translatex(235px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

@@ -1,6 +1,4 @@
-import React from 'react';
-import StyledHeaderButton from '../partials/Header/StyledHeaderButton';
-import styled from 'styled-components';
+import React, { HTMLProps } from 'react';
 import { BsDownload } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
 
@@ -15,8 +13,7 @@ const AboutForm = () => {
       style={{ display: 'contents' }}
     >
       <StyledAboutButton type='button'>
-        {t('DOWNLOAD CV')}{' '}
-        <BsDownload style={{ position: 'relative', top: 1, left: 2 }} />
+        {t('DOWNLOAD CV')} <BsDownload />
       </StyledAboutButton>
     </a>
   );
@@ -24,11 +21,18 @@ const AboutForm = () => {
 
 export default AboutForm;
 
-const StyledAboutButton = styled(StyledHeaderButton)`
-  color: var(--color-clear-background);
-  font-weight: 600;
-  width: 190px;
-  &:hover {
-    background: var(--color-button);
-  }
-`;
+const StyledAboutButton = ({
+  children,
+  ...props
+}: HTMLProps<HTMLButtonElement> & any) => {
+  return (
+    <button
+      className='bg-color-button-hover flex items-center justify-center gap-1 font-poppins border-none 
+      h-12 w-48 rounded-md cursor-pointer text-color-clear-background
+      font-semibold btn-hover'
+      {...props}
+    >
+      {children}
+    </button>
+  );
+};
