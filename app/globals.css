@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --color-clear-background: #a1b3fc;
   --color-background: #0d012c;
