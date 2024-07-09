@@ -1,6 +1,6 @@
 'use client';
 
-import React, { memo } from 'react';
+import React, { HTMLProps, memo } from 'react';
 import { SkillsTextContainer, SkillsTitle, StyledCenterDiv } from './Skills';
 import styled from 'styled-components';
 import Link from 'next/link';
@@ -55,7 +55,7 @@ const Contact = () => {
             {socials.map(({ name, value, Icon, color, link, background }) => (
               <IconContainer
                 href={link ? link : ''}
-                onClick={(e) => {
+                onClick={(e: any) => {
                   !link && e.preventDefault();
                 }}
                 key={name}
@@ -79,64 +79,78 @@ const Contact = () => {
 
 export default memo(Contact);
 
-const IconsContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin-top: 2rem;
-  justify-content: center;
-  @media (max-width: 1277px) {
-    flex-direction: column;
-    align-items: center;
-  }
-`;
+const IconsContainer = ({ children, ...props }: HTMLProps<HTMLDivElement>) => {
+  return (
+    <div
+      className='
+        flex flex-col flex-wrap justify-center gap-8 mt-8
+        s3:flex-row
+      '
+      {...props}
+    >
+      {children}
+    </div>
+  );
+};
 
-const IconContainer = styled(Link)`
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-  width: 360px;
-  @media (max-width: 400px) {
-    width: 280px;
-  }
-  @media (max-width: 350px) {
-    text-align: center;
-    margin: 0 auto;
-    width: 210px;
-    flex-direction: column;
-  }
-`;
+const IconContainer = (props: any) => {
+  return (
+    <Link
+      className='
+        flex gap-6 items-center w-90
+        md:w-70
+        sm:w-52 sm:text-center sm:m-auto sm:flex-col
+      '
+      {...props}
+    />
+  );
+};
 
-const IconBg = styled.div`
-  width: 80px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-`;
+const IconBg = ({ children, ...props }: HTMLProps<HTMLDivElement>) => {
+  return (
+    <div
+      className='
+        w-20 h-20 flex items-center justify-center
+        rounded-full
+      '
+      {...props}
+    >
+      {children}
+    </div>
+  );
+};
 
-const IconTextContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+const IconTextContainer = ({
+  children,
+  ...props
+}: HTMLProps<HTMLDivElement>) => {
+  return (
+    <div className='flex flex-col' {...props}>
+      {children}
+    </div>
+  );
+};
 
-const IconTitle = styled(SkillsTitle)`
-  font-size: 22px;
-  margin: 0;
-`;
+const IconTitle = ({ children, ...props }: HTMLProps<HTMLHeadingElement>) => {
+  return (
+    <h2 className='text-xl m-0' {...props}>
+      {children}
+    </h2>
+  );
+};
 
-const IconValue = styled.p`
-  font-size: 14px;
-  color: var(--color-info-light);
-  &:hover {
-    color: var(--color-button-hover);
-  }
-  @media (max-width: 400px) {
-    line-break: anywhere;
-    max-width: 160px;
-  }
-  @media (max-width: 320px) {
-    max-width: 140px;
-  }
-`;
+const IconValue = ({ children, ...props }: HTMLProps<HTMLParagraphElement>) => {
+  return (
+    <p
+      className='
+        text-sm text-color-info-light
+        hover:text-color-button-hover
+        md:break-all md:max-w-[160px]
+        sm:max-w-[140px]
+      '
+      {...props}
+    >
+      {children}
+    </p>
+  );
+};
