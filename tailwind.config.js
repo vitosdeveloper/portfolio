@@ -25,6 +25,7 @@ module.exports = {
         'color-card2': 'var(--color-card2)',
         'color-footer-background': 'var(--color-footer-background)',
         'color-skill-background': 'var(--color-skill-background)',
+        'color-pink': 'var(--color-pink)',
       },
       backgroundColor: {
         'color-clear-background': 'var(--color-clear-background)',
@@ -42,6 +43,11 @@ module.exports = {
         'color-footer-background': 'var(--color-footer-background)',
         'color-skill-background': 'var(--color-skill-background)',
         '#1cabd9': '#1cabd9',
+        'custom-purple': '#8482ff',
+        'color-pink': 'var(--color-pink)',
+      },
+      backgroundImage: {
+        image1: "url('/background.webp')",
       },
       textColor: {
         'color-clear-background': 'var(--color-clear-background)',
@@ -59,19 +65,23 @@ module.exports = {
         'color-footer-background': 'var(--color-footer-background)',
         'color-skill-background': 'var(--color-skill-background)',
         '#1cabd9': '#1cabd9',
+        'color-pink': 'var(--color-pink)',
       },
       fontFamily: {
         poppins: 'var(--font-poppins), sans-serif',
+        jost: 'var(--font-jost)',
       },
       spacing: {
+        'section-height': 'calc(100vh - 62.67px)',
+        '10px': '10px',
         '72px': '72px',
+        '87px': '87px',
+        '240px': '240px',
+        '744px': '744px',
         initial: 'initial',
       },
       animation: {
         MoveRightLeft: 'MoveRightLeft 0.2s linear',
-      },
-      colors: {
-        'custom-purple': '#8482ff',
       },
       screens: {
         s2: '501px',

@@ -8,15 +8,8 @@ const LogoH1 = ({ children, ...props }: HTMLProps<HTMLHeadingElement>) => {
   return (
     <h1
       {...props}
-      style={{
-        background:
-          'linear-gradient(90deg,var(--color-button-hover) 0%,var(--color-blue) 50%,var(--color-orange) 100%)',
-        backgroundClip: 'text',
-        WebkitBackgroundClip: 'text',
-        WebkitTextFillColor: 'transparent',
-        whiteSpace: 'nowrap',
-      }}
-      className='text-2xl'
+      className='text-2xl bg-gradient-to-l bg-clip-text text-transparent 
+      from-color-button-hover via-color-blue to-color-orange'
     >
       {children}
     </h1>

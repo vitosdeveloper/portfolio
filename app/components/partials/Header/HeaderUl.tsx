@@ -10,7 +10,7 @@ type Props = {};
 
 const HeaderUl = (props: Props) => {
   const heartRef = useRef<HTMLDivElement>(null);
-  const headerHeight = 62.67;
+  const headerHeight = 64;
   const { t } = useTranslation();
 
   const links: { href: ISection; content: string }[] = [

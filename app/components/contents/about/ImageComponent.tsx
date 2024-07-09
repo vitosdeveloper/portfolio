@@ -1,10 +1,10 @@
 'use client';
 import React, { memo, useEffect, useState } from 'react';
-import { ImageContainer } from '../../pages/Home';
 import Reveal from '../../containers/Reveal';
 import Image from 'next/image';
 import ImageF1 from '@/public/f1.webp';
 import ImageF2 from '@/public/f2.webp';
+import ImageContainer from '../../containers/ImageContainer';
 
 const ImageComponent = ({ isDark }: { isDark: boolean }) => {
   return (

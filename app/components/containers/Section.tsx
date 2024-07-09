@@ -1,19 +1,15 @@
-import { memo } from 'react';
-import styled from 'styled-components';
+import { HTMLProps, memo } from 'react';
 
-const Section = styled.section`
-  /* margin-top: 87px; */
-  min-height: calc(100vh - 62.67px);
-  padding: 2rem 4rem;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  @media (max-width: 1200px) {
-    padding: 2rem;
-  }
-  @media (max-width: 500px) {
-    padding: 10px 1rem 10px 1rem;
-  }
-`;
+const Section = ({ children, ...props }: HTMLProps<HTMLDivElement>) => {
+  return (
+    <section
+      className='flex items-center w-full min-h-section-height
+      mt-87px px-8 py-16 s5:p-8 s2:py-10px s2:px-4'
+      {...props}
+    >
+      {children}
+    </section>
+  );
+};
 
 export default memo(Section);

@@ -6,7 +6,7 @@ const AboutContent = dynamic(() => import('../contents/about/AboutContent'), {
 });
 const About = ({ isDark }: { isDark: boolean }) => {
   return (
-    <Section id='#about'>
+    <Section>
       <AboutContent isDark={isDark} />
     </Section>
   );

@@ -3,15 +3,13 @@ import {
   AboutTextContainer,
   StyledAboutSubText,
   StyledAboutTitle,
-  StyledP,
 } from './AboutContent';
 import Reveal from '../../containers/Reveal';
 import AboutForm from '../../form/AboutForm';
 import { useTranslation } from 'react-i18next';
+import StyledP from './StyledP';
 
-type Props = {};
-
-const AboutTextComponent = (props: Props) => {
+const AboutTextComponent = () => {
   const { t } = useTranslation();
   const adivinharIdade = useCallback(function (dataNascimento: string): string {
     const hoje = new Date();

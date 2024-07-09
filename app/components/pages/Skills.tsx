@@ -92,7 +92,7 @@ const Skills = () => {
   const half = Math.floor(skills.length / 2);
 
   return (
-    <SkillsSection id='#skills'>
+    <Section id='#skills'>
       <StyledCenterDiv>
         <Reveal x={-75}>
           <SkillsTextContainer>
@@ -120,7 +120,7 @@ const Skills = () => {
           </Reveal>
         </div>
       </StyledCenterDiv>
-    </SkillsSection>
+    </Section>
   );
 };
 

@@ -12,7 +12,13 @@
   --color-info-light: #c7cbd8;
   --color-blue: #17c0e9;
   --color-orange: #f45162;
-  --color-button: linear-gradient(to left, #17c0e9, #c96ddd, #f45162);
+  --color-pink: #c96ddd;
+  --color-button: linear-gradient(
+    to left,
+    var(--color-blue),
+    var(--color-pink),
+    var(--color-orange)
+  );
   --color-button-hover: #59c378;
   --color-card2: #14143a;
   --color-footer-background: rgb(20, 4, 43);

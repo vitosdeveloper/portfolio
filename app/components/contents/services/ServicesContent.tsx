@@ -2,10 +2,12 @@ import React, { memo } from 'react';
 import CodingIcon from '@/public/coding_icon.webp';
 import CodingIconClean from '@/public/coding_icon_clean.webp';
 import styled from 'styled-components';
-import { ImageContainer, StyledHomeTitle, StyledImage } from '../../pages/Home';
 import { FlexYContainer, StyledServicesTitle } from '../../pages/Services';
 import Reveal from '../../containers/Reveal';
 import { useTranslation } from 'react-i18next';
+import ImageContainer from '../../containers/ImageContainer';
+import StyledHomeTitle from '../../text/StyledHomeTitle';
+import StyledImage from '../home/StyledImage';
 
 const ServicesContent = ({ isDark }: { isDark: boolean }) => {
   const { t } = useTranslation();

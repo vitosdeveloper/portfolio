@@ -15,6 +15,7 @@ import { CiLocationOn } from 'react-icons/ci';
 import Reveal from '../containers/Reveal';
 import { StyledAboutTitle } from '../contents/about/AboutContent';
 import { useTranslation } from 'react-i18next';
+import Section from '../containers/Section';
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -46,7 +47,7 @@ const Contact = () => {
   ];
 
   return (
-    <SkillsSection id='#contact'>
+    <Section id='#contact'>
       <StyledCenterDiv style={{ padding: '0 1rem' }}>
         <Reveal x={75}>
           <SkillsTextContainer>
@@ -77,7 +78,7 @@ const Contact = () => {
           </IconsContainer>
         </Reveal>
       </StyledCenterDiv>
-    </SkillsSection>
+    </Section>
   );
 };
 

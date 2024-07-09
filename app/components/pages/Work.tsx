@@ -27,6 +27,7 @@ import jungle from '@/public/works/jungle.webp';
 import optimizer from '@/public/works/optimizer.webp';
 import { StyledAboutTitle } from '../contents/about/AboutContent';
 import { useTranslation } from 'react-i18next';
+import Section from '../containers/Section';
 
 SwiperCore.use([Autoplay]);
 
@@ -196,7 +197,7 @@ const Work = () => {
   ];
 
   return (
-    <SkillsSection id='#work'>
+    <Section id='#work'>
       <StyledCenterDiv>
         <SkillsTextContainer>
           <Reveal x={75}>
@@ -229,7 +230,7 @@ const Work = () => {
           </Reveal>
         </div>
       </StyledCenterDiv>
-    </SkillsSection>
+    </Section>
   );
 };
 

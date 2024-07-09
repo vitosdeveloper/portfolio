@@ -6,6 +6,7 @@ import Home from '../pages/Home';
 import Header from '../partials/Header/Header';
 import { PiCloudMoonBold, PiCloudSunBold } from 'react-icons/pi';
 import ThemeButton from './ThemeButton';
+import { memo } from 'react';
 
 const HeaderHomeDarkModeFormAboutAndServies = () => {
   const cookie = getCookie('theme');
@@ -33,4 +34,4 @@ const HeaderHomeDarkModeFormAboutAndServies = () => {
   );
 };
 
-export default HeaderHomeDarkModeFormAboutAndServies;
+export default memo(HeaderHomeDarkModeFormAboutAndServies);

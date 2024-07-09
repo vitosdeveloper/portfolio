@@ -7,22 +7,15 @@ import ImageComponent from './ImageComponent';
 const AboutContent = ({ isDark }: { isDark: boolean }) => {
   return (
     <Section id='#about'>
-      <AboutMeContainer>
+      <div className='flex flex-wrap items-center gap-4'>
         <ImageComponent isDark={isDark} />
         <AboutTextComponent />
-      </AboutMeContainer>
+      </div>
     </Section>
   );
 };
 
 export default memo(AboutContent);
-
-const AboutMeContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1rem;
-`;
 
 export const AboutTextContainer = styled.div`
   text-align: start;
@@ -49,13 +42,4 @@ export const StyledAboutSubText = styled.h4`
   margin-bottom: 10px;
   text-transform: uppercase;
   max-width: 490px;
-`;
-
-export const StyledP = styled.p`
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.9rem;
-  color: var(--color-info-light);
-  font-family: var(--font-poppins), sans-serif;
-  line-height: 2;
 `;
