@@ -1,12 +1,10 @@
-'use client';
-import styled from 'styled-components';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useMediaQuery } from '@react-hooks-hub/use-media-query';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import NoSsrWrapper from '../NoSsrWrapper/NoSsrWrapper';
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, HTMLProps, memo, SetStateAction } from 'react';
 import SwiperCore from 'swiper';
 
 type Props = {
@@ -104,96 +102,115 @@ const WorkSwiper = ({ works, reverse, setSwipers, name }: Props) => {
   );
 };
 
-export default WorkSwiper;
+export default memo(WorkSwiper);
 
-const StyledSlideContainer = styled.div`
-  padding: 15px;
-  &:hover {
-    transition: 0s ease-in-out;
-    scale: 1.02;
-  }
-`;
+const StyledSlideContainer = ({
+  children,
+  ...props
+}: HTMLProps<HTMLDivElement>) => {
+  return (
+    <div
+      className='p-4 transition-transform transform hover:scale-105'
+      {...props}
+    >
+      {children}
+    </div>
+  );
+};
 
-const WorkSwiperSlide = styled.div`
-  align-items: center;
-  background: var(--color-card2);
-  border-radius: 10px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  justify-content: start;
-  align-items: start;
-  height: 400px;
-  padding-bottom: 4rem;
-  box-shadow: -3px 1px 8px var(--color-skill-background);
-`;
+const WorkSwiperSlide = ({ children, ...props }: HTMLProps<HTMLDivElement>) => {
+  return (
+    <div
+      className='
+        flex flex-col items-start justify-start
+        bg-color-card2 rounded-lg cursor-pointer
+        h-[400px] pb-16
+        shadow-lg
+      '
+      style={{ boxShadow: '-3px 1px 8px var(--color-skill-background)' }}
+      {...props}
+    >
+      {children}
+    </div>
+  );
+};
 
-const WorkImageContainer = styled.div`
-  min-height: 180px;
-  max-height: 180px;
-  width: 100%;
-  margin-bottom: 0.8rem;
-  @media (max-width: 1000px) {
-    height: 110px;
-    margin-bottom: 0.5rem;
-  }
-`;
+const WorkImageContainer = ({
+  children,
+  ...props
+}: HTMLProps<HTMLDivElement>) => {
+  return (
+    <div
+      className='
+        w-full mb-2
+        min-h-[180px] max-h-[180px]
+        md:min-h-[180px] md:max-h-[180px]
+        sm:min-h-[110px] sm:max-h-[110px] sm:mb-2
+      '
+      {...props}
+    >
+      {children}
+    </div>
+  );
+};
 
-const WorkImage = styled(Image)`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-`;
+const WorkImage = (props: any) => {
+  return <Image className='w-full h-full object-cover rounded-lg' {...props} />;
+};
 
-const WorkTitle = styled.h2`
-  color: var(--color-button-hover);
-  padding: 0rem 1rem;
-`;
+const WorkTitle = ({ children, ...props }: HTMLProps<HTMLHeadingElement>) => {
+  return (
+    <h2 className='text-color-button-hover px-4' {...props}>
+      {children}
+    </h2>
+  );
+};
 
-const WorkDescription = styled.p`
-  padding: 0 1rem;
-  color: var(--color-info-light);
-  line-height: 1.5;
-  font-weight: 400;
-  white-space: break-spaces;
-  overflow-y: auto;
-  width: 100%;
-  &::-webkit-scrollbar {
-    width: 6px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: var(--color-info-light);
-    border-radius: 6px;
-  }
-  &::-webkit-scrollbar-track {
-    background-color: var(--color-card2);
-  }
-  @media (max-width: 1000px) {
-    padding: 0rem 1rem;
-  }
-`;
+const WorkDescription = ({
+  children,
+  ...props
+}: HTMLProps<HTMLParagraphElement>) => {
+  return (
+    <p
+      className='
+        px-4 text-color-info-light
+        leading-relaxed font-normal
+        whitespace-pre-wrap overflow-y-auto w-full
+        md:px-4
+      '
+      {...props}
+    >
+      {children}
+    </p>
+  );
+};
 
-const LinksContainer = styled.div`
-  display: inline-flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 2rem;
-`;
+const LinksContainer = ({ children, ...props }: HTMLProps<HTMLDivElement>) => {
+  return (
+    <div
+      className='
+        inline-flex items-end justify-between
+        absolute bottom-0 left-0 w-full
+        p-8
+      '
+      {...props}
+    >
+      {children}
+    </div>
+  );
+};
 
-const WorkLinks = styled(Link)`
-  color: rgb(144, 159, 175);
-  font-size: 11px;
-  letter-spacing: 1px;
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  &:hover {
-    color: forestgreen;
-  }
-`;
+const WorkLinks = ({ children, ...props }: any) => {
+  return (
+    <Link
+      className='
+        text-gray-500 text-xs tracking-wide
+        flex items-center gap-1
+        hover:text-forestgreen
+      '
+      {...props}
+    >
+      {children}
+    </Link>
+  );
+};
