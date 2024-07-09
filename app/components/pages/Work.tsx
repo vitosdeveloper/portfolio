@@ -127,7 +127,7 @@ const Work = () => {
       ),
       img: devgames,
       live: '',
-      repo: 'https://github.com/vitosnatios/lawnmower-backup',
+      repo: 'https://github.com//lawnmower-backup',
       personal: false,
     },
     {
@@ -137,7 +137,7 @@ const Work = () => {
       ),
       img: optimizer,
       live: '',
-      repo: 'https://github.com/vitosnatios/Image-Optimizer-By-Vitos/releases',
+      repo: 'https://github.com/vitosdeveloper/Image-Optimizer-By-Vitos/releases',
       personal: true,
     },
     {
@@ -147,7 +147,7 @@ const Work = () => {
       ),
       img: felino,
       live: 'https://felinochan.vercel.app/hw/1',
-      repo: 'https://github.com/vitosnatios/felino-chan-Client',
+      repo: 'https://github.com/vitosdeveloper/felino-chan-Client',
       personal: true,
     },
     {
@@ -155,7 +155,7 @@ const Work = () => {
       description: t(`E-commerce prototype.`),
       img: fictional,
       live: 'https://vitos-e-commerce.netlify.app/',
-      repo: 'https://github.com/vitosnatios/E-commerce',
+      repo: 'https://github.com/vitosdeveloper/E-commerce',
       personal: true,
     },
     {
@@ -165,7 +165,7 @@ const Work = () => {
       ),
       img: coffee,
       live: 'https://caffeine-craft.vercel.app/',
-      repo: 'https://github.com/vitosnatios/CaffeineCraft',
+      repo: 'https://github.com/vitosdeveloper/CaffeineCraft',
       personal: true,
     },
     {
@@ -173,7 +173,7 @@ const Work = () => {
       description: t(`Product and Order Manager for a Bakery.`),
       img: dapao,
       live: 'https://da-pao-delivery.vercel.app/',
-      repo: 'https://github.com/vitosnatios/DaPaoDelivery-Frontend',
+      repo: 'https://github.com/vitosdeveloper/DaPaoDelivery-Frontend',
       personal: true,
     },
     {
@@ -183,7 +183,7 @@ const Work = () => {
       ),
       img: educa,
       live: 'https://portal-educador.vercel.app',
-      repo: 'https://github.com/vitosnatios/portal-educador',
+      repo: 'https://github.com/vitosdeveloper/portal-educador',
       personal: true,
     },
     {
@@ -191,7 +191,7 @@ const Work = () => {
       description: t(`This website, like, literally.`),
       img: port,
       live: 'https://vitosdeveloper.vercel.app/',
-      repo: 'https://github.com/vitosnatios/portfolio',
+      repo: 'https://github.com/vitosdeveloper/portfolio',
       personal: true,
     },
   ];

@@ -6,7 +6,7 @@ type Props = {};
 
 const GhubIco = (props: Props) => {
   return (
-    <NextLink href='https://github.com/vitosdveloper' target='_blank'>
+    <NextLink href='https://github.com/vitosdeveloper' target='_blank'>
       <DiGithubBadge className='text-color-white text-2xl' />
     </NextLink>
   );

@@ -1,7 +1,11 @@
-import styled from 'styled-components';
+import { HTMLProps } from 'react';
 
-const Title = styled.h1`
-  color: var(--color-info-light);
-`;
+const Title = ({ children, ...props }: HTMLProps<HTMLHeadingElement>) => {
+  return (
+    <h1 className='text-color-info-light' {...props}>
+      {children}
+    </h1>
+  );
+};
 
 export default Title;

@@ -1,15 +1,18 @@
-'use client';
-import styled from 'styled-components';
+import { HTMLProps } from 'react';
 
-const StyledHeaderLi = styled.li`
-  list-style: none;
-  white-space: nowrap;
-  font-family: var(--font-share_tech_mono);
-  font-size: 14px !important;
-  a:hover {
-    color: var(--link-hover);
-    cursor: pointer;
-  }
-`;
+const StyledHeaderLi = ({
+  children,
+  ...props
+}: HTMLProps<HTMLUListElement>) => {
+  return (
+    <ul
+      className='list-none whitespace-nowrap font-share-tech-mono text-sm
+      hover:text-link-hover hover:cursor-pointer'
+      {...props}
+    >
+      {children}
+    </ul>
+  );
+};
 
 export default StyledHeaderLi;

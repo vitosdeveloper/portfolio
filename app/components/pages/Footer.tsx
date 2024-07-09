@@ -5,9 +5,7 @@ import {
 } from '../partials/Footer/FooterStyledComponents';
 import { useTranslation } from 'react-i18next';
 
-type Props = {};
-
-const Footer = (props: Props) => {
+const Footer = () => {
   const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
   return (

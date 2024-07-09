@@ -2,9 +2,7 @@
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { useRef } from 'react';
 
-type Props = {};
-
-const ProgressBar = (props: Props) => {
+const ProgressBar = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {

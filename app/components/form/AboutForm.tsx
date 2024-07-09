@@ -7,7 +7,7 @@ const AboutForm = () => {
 
   return (
     <a
-      href={i18n.language == 'br' ? '/resume-br.pdf' : 'resume-eng.pdf'}
+      href={i18n.language == 'br' ? 'resume-br.pdf' : 'resume-eng.pdf'}
       target='_blank'
       rel='noopener noreferrer'
       style={{ display: 'contents' }}

@@ -4,7 +4,6 @@ import SkillsSwiper from '../swiper/SkillsSwiper';
 import { HTMLProps, memo, useState } from 'react';
 import SwiperCore from 'swiper';
 import Reveal from '../containers/Reveal';
-import styled from 'styled-components';
 import Js from '@/public/skills/js.svg';
 import Ts from '@/public/skills/ts.svg';
 import Node from '@/public/skills/node.svg';

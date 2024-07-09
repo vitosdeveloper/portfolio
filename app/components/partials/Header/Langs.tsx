@@ -1,16 +1,14 @@
 import { setCookie } from 'cookies-next';
-import React from 'react';
+import React, { ButtonHTMLAttributes, HTMLProps } from 'react';
 import { useTranslation } from 'react-i18next';
 
-type Props = {};
-
-const Langs = (props: Props) => {
+const Langs = () => {
   const { i18n } = useTranslation();
 
   return (
     <LanguageSwitcher>
       <LanguageButton
-        className={i18n.language === 'br' ? 'active' : ''}
+        langConditionalClass={i18n.language === 'br' ? 'active' : ''}
         onClick={() => {
           i18n.changeLanguage('br');
           setCookie('lang', 'br', { sameSite: 'strict' });
@@ -19,7 +17,7 @@ const Langs = (props: Props) => {
         PT-BR
       </LanguageButton>
       <LanguageButton
-        className={i18n.language === 'en' ? 'active' : ''}
+        langConditionalClass={i18n.language === 'en' ? 'active' : ''}
         onClick={() => {
           i18n.changeLanguage('en');
           setCookie('lang', 'en', { sameSite: 'strict' });
@@ -33,32 +31,43 @@ const Langs = (props: Props) => {
 
 export default Langs;
 
-import styled from 'styled-components';
+const LanguageSwitcher = ({
+  children,
+  ...props
+}: HTMLProps<HTMLDivElement>) => {
+  return (
+    <div
+      className='
+        flex fixed bottom-[4%] right-[1%] z-10
+        gap-1
+      '
+      {...props}
+    >
+      {children}
+    </div>
+  );
+};
 
-const LanguageSwitcher = styled.div`
-  display: flex;
-  position: fixed;
-  bottom: 4%;
-  right: 1%;
-  gap: 0rem;
-  z-index: 2;
-  gap: 0.25rem;
-`;
-
-const LanguageButton = styled.button`
-  background-color: var(--color-background);
-  color: var(--color-white);
-  border: none;
-  border-radius: 10px;
-  padding: 0.5rem 0.5rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-  font-size: 10px;
-  background: var(--color-card2);
-  /* border: 1px solid var(--color-white); */
-
-  &:hover {
-    background: var(--color-button);
-  }
-`;
+const LanguageButton = ({
+  children,
+  langConditionalClass,
+  ...props
+}: ButtonHTMLAttributes<HTMLButtonElement> & {
+  langConditionalClass: string;
+}) => {
+  return (
+    <button
+      className={`
+        bg-color-card2 text-color-white
+        border-none rounded-md
+        p-2 font-bold cursor-pointer
+        transition duration-300 ease-in-out
+        text-xs hover:bg-color-button
+        ${langConditionalClass}
+        `}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+};

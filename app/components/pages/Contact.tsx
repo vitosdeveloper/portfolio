@@ -1,8 +1,5 @@
-'use client';
-
 import React, { HTMLProps, memo } from 'react';
 import { SkillsTextContainer, SkillsTitle, StyledCenterDiv } from './Skills';
-import styled from 'styled-components';
 import Link from 'next/link';
 import { FaWhatsapp } from 'react-icons/fa';
 import { IoMdMail } from 'react-icons/io';
@@ -97,7 +94,7 @@ const IconContainer = (props: any) => {
   return (
     <Link
       className='
-        flex gap-6 items-center w-90
+        flex flex-col 360px:flex-row gap-6 items-center w-90
         md:w-70
         sm:w-52 sm:text-center sm:m-auto sm:flex-col
       '
@@ -144,8 +141,8 @@ const IconValue = ({ children, ...props }: HTMLProps<HTMLParagraphElement>) => {
     <p
       className='
         text-sm text-color-info-light
-        hover:text-color-button-hover
-        md:break-all md:max-w-[160px]
+        hover:text-color-button-hover]
+        w-auto
         sm:max-w-[140px]
       '
       {...props}

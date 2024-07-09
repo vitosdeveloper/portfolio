@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { Share_Tech_Mono, Poppins, Jost } from 'next/font/google';
 import './globals.css';
 import 'swiper/css';
-import StyledComponentsRegistry from './lib/registry';
 import { isDark } from './utils/isDark';
 
 const shareTechMono = Share_Tech_Mono({
@@ -29,11 +28,9 @@ export const metadata: Metadata = {
     'vitos developer',
     'VitosDeveloper',
     'vitosdeveloper',
-    'vitosnatios',
     'vitos',
     'portfolio',
     'vitos portfolio',
-    'vitosnatios portfolio',
     'vitos developer portfolio',
     'Vitor Fernandes',
     'Vitor Fernandes Gonçalves',
@@ -76,7 +73,7 @@ export default function RootLayout({
             }`
             : `:root {
                 --color-clear-background: #a1b3fc;
-                --color-background: linear-gradient(to left, rgb(200, 222, 255), #a89be2, #a1b3fc);
+                --color-background: #a1b3fc;
                 --color-white: #494a4d;
                 --color-dark: #d2d5df;
                 --link-hover: #b300b3;
@@ -95,7 +92,7 @@ export default function RootLayout({
       <body
         className={` ${shareTechMono.variable} ${poppins.variable} ${jost.variable}`}
       >
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        {children}
       </body>
     </html>
   );

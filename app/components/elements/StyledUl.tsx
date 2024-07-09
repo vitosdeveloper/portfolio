@@ -1,15 +1,14 @@
-'use client';
-import styled from 'styled-components';
+import { HTMLProps } from 'react';
 
-const StyledUl = styled.ul`
-  display: flex;
-  flex-direction: row;
-  align-items: end;
-  gap: 1.25rem;
-  @media (max-width: 1000px) {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-`;
+const StyledUl = ({ children, ...props }: HTMLProps<HTMLUListElement>) => {
+  return (
+    <ul
+      className='flex flex-col items-end gap-5 s4:flex-row s4:gap-2'
+      {...props}
+    >
+      {children}
+    </ul>
+  );
+};
 
 export default StyledUl;

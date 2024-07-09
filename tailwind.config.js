@@ -33,6 +33,7 @@ module.exports = {
       fontFamily: {
         poppins: 'var(--font-poppins), sans-serif',
         jost: 'var(--font-jost)',
+        'share-tech-mono': 'var(--font-share_tech_mono)',
       },
       spacing: {
         'section-height': 'calc(100vh - 62.67px)',
@@ -53,6 +54,7 @@ module.exports = {
         MoveRightLeft: 'MoveRightLeft 0.2s linear',
       },
       screens: {
+        '360px': '360px',
         s2: '501px',
         'custom-s1': '333px',
         '400px': '400px',

@@ -44,11 +44,11 @@ const HomeContent = () => {
 
             <StyledSocialContainer>
               <StyledP>{t('Follow Me:')}</StyledP>
-              <Link href='https://github.com/vitosnatios' target='_blank'>
+              <Link href='https://github.com/vitosdeveloper' target='_blank'>
                 <BsGithub />
               </Link>
               <Link
-                href='https://www.linkedin.com/in/vitosnatios/'
+                href='https://www.linkedin.com/in/vitosdeveloper/'
                 target='_blank'
               >
                 <BsLinkedin />
@@ -89,7 +89,7 @@ const StyledHomeContainer = ({
   return (
     <div
       {...props}
-      className='flex flex-warp items-center content-between w-full gap-8
+      className='flex flex-col s3:flex-row flex-warp items-center content-between w-full gap-8
     s5:content-center'
     >
       {children}

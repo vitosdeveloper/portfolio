@@ -1,12 +1,23 @@
-import styled from 'styled-components';
-import Title from '../../text/Title';
+import { HTMLProps } from 'react';
 
-export const FooterTitle = styled(Title)`
-  text-align: center;
-  font-size: 14px;
-`;
+export const FooterTitle = ({
+  children,
+  ...props
+}: HTMLProps<HTMLHeadingElement>) => {
+  return (
+    <h1 className='text-color-info-light text-center text-sm' {...props}>
+      {children}
+    </h1>
+  );
+};
 
-export const StyledFooter = styled.footer`
-  background: var(--color-footer-background);
-  padding: 2rem 2rem;
-`;
+export const StyledFooter = ({
+  children,
+  ...props
+}: HTMLProps<HTMLDivElement>) => {
+  return (
+    <footer className='p-8 pb-12 bg-color-footer-background' {...props}>
+      {children}
+    </footer>
+  );
+};

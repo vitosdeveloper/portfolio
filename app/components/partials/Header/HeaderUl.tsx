@@ -1,7 +1,6 @@
 import React, { memo, useRef } from 'react';
 import StyledUl from '../../elements/StyledUl';
 import StyledHeaderLi from './StyledHeaderLi';
-import styled from 'styled-components';
 import { Link } from 'react-scroll';
 import { ISection } from '@/app/types/Section';
 import { useTranslation } from 'react-i18next';
@@ -28,7 +27,8 @@ const HeaderUl = (props: Props) => {
         {links.map(({ href, content }) => {
           return (
             <StyledHeaderLi key={href}>
-              <StyledHeaderLink
+              <Link
+                className='py-2 cursor-pointer s4:text-base text-2xl'
                 smooth={true}
                 duration={300}
                 to={href}
@@ -37,7 +37,7 @@ const HeaderUl = (props: Props) => {
                 activeStyle={{
                   color: 'var(--color-button-hover)',
                 }}
-                onSetActive={(e) => {
+                onSetActive={(e: any) => {
                   if (e !== '#contact') return;
                   if (heartRef && heartRef.current instanceof HTMLDivElement) {
                     heartRef.current.style.opacity = '1';
@@ -46,23 +46,13 @@ const HeaderUl = (props: Props) => {
                 }}
               >
                 {content}
-              </StyledHeaderLink>
+              </Link>
             </StyledHeaderLi>
           );
         })}
       </StyledUl>
-      {/* <Heart heartRef={heartRef} /> */}
     </>
   );
 };
 
 export default memo(HeaderUl);
-
-const StyledHeaderLink = styled(Link)`
-  font-size: initial;
-  padding: 0 0.5rem;
-  cursor: pointer;
-  @media (max-width: 1000px) {
-    font-size: 22px;
-  }
-`;

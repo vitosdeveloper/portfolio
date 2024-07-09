@@ -11,10 +11,6 @@ const I18nextProvider = dynamic(
 );
 import i18n from '@/i18n';
 import Langs from './components/partials/Header/Langs';
-// const HeaderHomeDarkModeFormAboutAndServies = dynamic(
-//   () => import('./components/darkMode/HeaderHomeDarkModeFormAboutAndServies'),
-//   { ssr: false }
-// );
 import HeaderHomeDarkModeFormAboutAndServies from './components/darkMode/HeaderHomeDarkModeFormAboutAndServies';
 
 function App() {
