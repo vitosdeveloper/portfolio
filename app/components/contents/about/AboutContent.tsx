@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-import { memo } from 'react';
+import { HTMLProps, memo } from 'react';
 import Section from '../../containers/Section';
 import AboutTextComponent from './AboutTextComponent';
 import ImageComponent from './ImageComponent';
@@ -17,29 +16,43 @@ const AboutContent = ({ isDark }: { isDark: boolean }) => {
 
 export default memo(AboutContent);
 
-export const AboutTextContainer = styled.div`
-  text-align: start;
-  flex: 1;
-  gap: 1rem;
-  display: flex;
-  flex-direction: column;
-`;
+export const AboutTextContainer = ({
+  children,
+  ...props
+}: HTMLProps<HTMLDivElement>) => {
+  return (
+    <div className='flex flex-col text-start flex-1 gap-4' {...props}>
+      {children}
+    </div>
+  );
+};
 
-export const StyledAboutTitle = styled.h4`
-  color: var(--color-button-hover);
-  font-size: 15px;
-  letter-spacing: 3px;
-  font-weight: 400;
-  line-height: 1.2;
-  font-family: var(--font-poppins), sans-serif;
-`;
+export const StyledAboutTitle = ({
+  children,
+  ...props
+}: HTMLProps<HTMLHeadingElement>) => {
+  return (
+    <h4
+      className='text-color-button-hover text-base tracking-widest font-normal
+      leading-5 font-poppins'
+      {...props}
+    >
+      {children}
+    </h4>
+  );
+};
 
-export const StyledAboutSubText = styled.h4`
-  color: var(--color-info-light);
-  font-size: 2rem;
-  font-weight: 400;
-  line-height: 40px;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  max-width: 490px;
-`;
+export const StyledAboutSubText = ({
+  children,
+  ...props
+}: HTMLProps<HTMLHeadingElement>) => {
+  return (
+    <h4
+      className='text-color-info-light text-4xl font-normal leading-10 mb-10px uppercase
+      max-w-490px'
+      {...props}
+    >
+      {children}
+    </h4>
+  );
+};
