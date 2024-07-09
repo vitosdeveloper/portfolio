@@ -1,9 +1,7 @@
-'use client';
 import Image from 'next/image';
-import styled from 'styled-components';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, EffectCoverflow } from 'swiper/modules';
-import { memo } from 'react';
+import { Autoplay } from 'swiper/modules';
+import { HTMLProps, memo } from 'react';
 import NoSsrWrapper from '../NoSsrWrapper/NoSsrWrapper';
 import { Dispatch, SetStateAction } from 'react';
 import SwiperCore from 'swiper';
@@ -39,7 +37,7 @@ const SkillsSwiper = ({ skills, reverse = false, setSwipers, name }: Props) => {
         spaceBetween={15}
         loop
       >
-        <StyledSwiperContainer>
+        <div>
           {skills.concat(skills).map(({ name, img }, i) => (
             <SwiperSlide style={{ maxWidth: '200px' }} key={i}>
               <StyledSwiperSlideContainer key={i}>
@@ -53,11 +51,11 @@ const SkillsSwiper = ({ skills, reverse = false, setSwipers, name }: Props) => {
                     priority
                   />
                 </IconContainer>
-                <SkillName>{name}</SkillName>
+                <h1 className='text-color-info-light'>{name}</h1>
               </StyledSwiperSlideContainer>
             </SwiperSlide>
           ))}
-        </StyledSwiperContainer>
+        </div>
       </Swiper>
     </NoSsrWrapper>
   );
@@ -65,36 +63,34 @@ const SkillsSwiper = ({ skills, reverse = false, setSwipers, name }: Props) => {
 
 export default memo(SkillsSwiper);
 
-const SkillName = styled.h1`
-  color: var(--color-info-light);
-`;
+const StyledSwiperSlideContainer = ({
+  children,
+  ...props
+}: HTMLProps<HTMLDivElement>) => {
+  return (
+    <div
+      className='
+        flex flex-col items-center justify-center bg-color-card2 
+        rounded-lg cursor-pointer h-44 mb-1.5
+        shadow-lg transition-transform transform hover:scale-105
+      '
+      style={{ boxShadow: '-3px 3px 8px var(--color-skill-background)' }}
+      {...props}
+    >
+      {children}
+    </div>
+  );
+};
 
-export const StyledSwiperContainer = styled.div``;
-
-export const StyledSwiperSlideContainer = styled.div`
-  align-items: center;
-  background: var(--color-card2);
-  border: 1px solid rgba(146, 146, 165, 0.1);
-  border-radius: 10px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 183px;
-  margin-bottom: 5px;
-  box-shadow: -3px 3px 8px var(--color-skill-background);
-  &:hover {
-    transition: 0s ease-in-out;
-    scale: 1.02;
-  }
-`;
-
-export const IconContainer = styled.div`
-  background: var(--color-skill-background);
-  border-radius: 50%;
-  height: 70px;
-  width: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
+const IconContainer = ({ children, ...props }: HTMLProps<HTMLDivElement>) => {
+  return (
+    <div
+      className='flex items-center justify-center bg-color-skill-background rounded-full
+        h-16 w-16
+      '
+      {...props}
+    >
+      {children}
+    </div>
+  );
+};

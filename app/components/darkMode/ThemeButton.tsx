@@ -3,7 +3,6 @@ import { memo } from 'react';
 const ThemeButton = ({ children, ...props }: any) => {
   return (
     <button
-      // className='fixed p-2 bg-color-background z-20 bottom-0 left-0'
       style={{
         position: 'fixed',
         bottom: '4%',

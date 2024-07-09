@@ -1,12 +1,7 @@
 'use client';
 
 import React, { memo } from 'react';
-import {
-  SkillsSection,
-  SkillsTextContainer,
-  SkillsTitle,
-  StyledCenterDiv,
-} from './Skills';
+import { SkillsTextContainer, SkillsTitle, StyledCenterDiv } from './Skills';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { FaWhatsapp } from 'react-icons/fa';

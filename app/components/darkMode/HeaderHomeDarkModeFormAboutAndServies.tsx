@@ -34,4 +34,4 @@ const HeaderHomeDarkModeFormAboutAndServies = () => {
   );
 };
 
-export default memo(HeaderHomeDarkModeFormAboutAndServies);
+export default HeaderHomeDarkModeFormAboutAndServies;

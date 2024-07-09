@@ -1,7 +1,6 @@
 'use client';
 import styled from 'styled-components';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { StyledSwiperContainer } from './SkillsSwiper';
 import { useMediaQuery } from '@react-hooks-hub/use-media-query';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -54,7 +53,7 @@ const WorkSwiper = ({ works, reverse, setSwipers, name }: Props) => {
         className='mySwiper'
         // centeredSlides
       >
-        <StyledWorkSwiper>
+        <div>
           {works
             .concat(works)
             .map(({ name, description, img, live, repo }, i) => (
@@ -99,7 +98,7 @@ const WorkSwiper = ({ works, reverse, setSwipers, name }: Props) => {
                 </StyledSlideContainer>
               </SwiperSlide>
             ))}
-        </StyledWorkSwiper>
+        </div>
       </Swiper>
     </NoSsrWrapper>
   );
@@ -114,8 +113,6 @@ const StyledSlideContainer = styled.div`
     scale: 1.02;
   }
 `;
-
-const StyledWorkSwiper = styled(StyledSwiperContainer)``;
 
 const WorkSwiperSlide = styled.div`
   align-items: center;

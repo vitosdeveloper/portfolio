@@ -1,7 +1,7 @@
 'use client';
 import Section from '../containers/Section';
 import SkillsSwiper from '../swiper/SkillsSwiper';
-import { memo, useState } from 'react';
+import { HTMLProps, memo, useState } from 'react';
 import SwiperCore from 'swiper';
 import Reveal from '../containers/Reveal';
 import styled from 'styled-components';
@@ -31,12 +31,7 @@ import cs from '@/public/skills/cs.svg';
 import vite from '@/public/skills/vite.svg';
 import vitest from '@/public/skills/vitest.svg';
 import jest from '@/public/skills/jest.svg';
-
-import {
-  AboutTextContainer,
-  StyledAboutSubText,
-  StyledAboutTitle,
-} from '../contents/about/AboutContent';
+import { StyledAboutTitle } from '../contents/about/AboutContent';
 import { useTranslation } from 'react-i18next';
 
 const Skills = () => {
@@ -126,34 +121,55 @@ const Skills = () => {
 
 export default memo(Skills);
 
-export const SkillsSection = styled(Section)`
-  flex-direction: column;
-  place-content: center;
-`;
+export const SkillsSection = ({
+  children,
+  ...props
+}: HTMLProps<HTMLDivElement>) => {
+  return (
+    <section
+      className='flex flex-col content-center items-center w-full min-h-section-height
+      mt-87px px-8 py-16 s5:p-8 s2:py-10px s2:px-4'
+      {...props}
+    >
+      {children}
+    </section>
+  );
+};
 
-export const StyledCenterDiv = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-`;
+export const StyledCenterDiv = ({
+  children,
+  ...props
+}: HTMLProps<HTMLDivElement>) => {
+  return (
+    <div className='flex flex-col gap-8 w-full' {...props}>
+      {children}
+    </div>
+  );
+};
 
-export const IconContainer = styled.div`
-  background: rgb(23, 32, 61);
-  border-radius: 50%;
-  height: 70px;
-  width: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
+export const SkillsTextContainer = ({
+  children,
+  ...props
+}: HTMLProps<HTMLDivElement>) => {
+  return (
+    <div className='flex flex-col flex-none text-center gap-4' {...props}>
+      {children}
+    </div>
+  );
+};
 
-export const SkillsTextContainer = styled(AboutTextContainer)`
-  text-align: center;
-  flex: 0;
-`;
-
-export const SkillsTitle = styled(StyledAboutSubText)`
-  margin: 0 auto;
-  text-transform: none;
-`;
+export const SkillsTitle = ({
+  children,
+  ...props
+}: HTMLProps<HTMLHeadingElement>) => {
+  return (
+    <h4
+      className='text-color-info-light text-4xl m-auto my-0 font-normal leading-10 mb-10px uppercase
+      max-w-490px'
+      style={{ textTransform: 'none' }}
+      {...props}
+    >
+      {children}
+    </h4>
+  );
+};
