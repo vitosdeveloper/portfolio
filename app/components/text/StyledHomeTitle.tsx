@@ -7,7 +7,8 @@ const StyledHomeTitle = ({
 }: HTMLProps<HTMLHeadingElement> & { gradientprop?: boolean }) => {
   return (
     <h3
-      className={`self-start font-jost text-5xl bg-gradient-to-l bg-clip-text text-transparent
+      className={`font-jost text-5xl bg-gradient-to-l bg-clip-text text-transparent
+      font-bold
        ${
          gradientprop
            ? ' from-color-blue via-color-pink to-color-orange '

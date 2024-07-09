@@ -50,6 +50,33 @@ a {
   background: var(--color-button);
 }
 
+.services-container {
+  .service_text_one {
+    grid-area: text1;
+  }
+  .service_text_two {
+    grid-area: text2;
+  }
+  .service_image {
+    grid-area: img;
+  }
+  display: grid;
+  gap: 1rem;
+  text-align: left;
+  grid-template-areas:
+    'text1 img text2'
+    'text1 img text2';
+  grid-template-columns: 1fr 1fr 1fr;
+  @media (max-width: 1000px) {
+    grid-template-areas:
+      'img img'
+      'text1 text1'
+      'text2 text2';
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
 /* animations */
 
 @keyframes MoveRightLeft {

@@ -1,11 +1,9 @@
-import React, { memo } from 'react';
+import React, { HTMLProps, memo } from 'react';
 import CodingIcon from '@/public/coding_icon.webp';
 import CodingIconClean from '@/public/coding_icon_clean.webp';
-import styled from 'styled-components';
 import { FlexYContainer, StyledServicesTitle } from '../../pages/Services';
 import Reveal from '../../containers/Reveal';
 import { useTranslation } from 'react-i18next';
-import ImageContainer from '../../containers/ImageContainer';
 import StyledHomeTitle from '../../text/StyledHomeTitle';
 import StyledImage from '../home/StyledImage';
 
@@ -14,7 +12,9 @@ const ServicesContent = ({ isDark }: { isDark: boolean }) => {
   return (
     <FlexYContainer style={{ textAlign: 'center' }}>
       <Reveal y={-75}>
-        <StyledHomeTitle>{t('Services')}</StyledHomeTitle>
+        <StyledHomeTitle style={{ marginBottom: '1rem' }}>
+          {t('Services')}
+        </StyledHomeTitle>
         <StyledServicesTitle>
           {t('What services do i offer')}
         </StyledServicesTitle>
@@ -80,76 +80,88 @@ const ServicesContent = ({ isDark }: { isDark: boolean }) => {
 
 export default memo(ServicesContent);
 
-const ServicesContainer = styled.div`
-  .service_text_one {
-    grid-area: text1;
-  }
-  .service_text_two {
-    grid-area: text2;
-  }
-  .service_image {
-    grid-area: img;
-  }
-  display: grid;
-  gap: 1rem;
-  text-align: left;
-  grid-template-areas:
-    'text1 img text2'
-    'text1 img text2';
-  grid-template-columns: 1fr 1fr 1fr;
-  @media (max-width: 1000px) {
-    grid-template-areas:
-      'img img'
-      'text1 text1'
-      'text2 text2';
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
-`;
+const ServicesContainer = ({
+  children,
+  ...props
+}: HTMLProps<HTMLDivElement>) => {
+  return (
+    <div className='services-container' {...props}>
+      {children}
+    </div>
+  );
+};
 
-const ServiceTextContainer = styled.div`
-  @media (min-width: 1001px) {
-    height: 343px;
-  }
-  @media (min-width: 1300px) {
-    height: 300px;
-  }
-  @media (min-width: 1400px) {
-    height: 250px;
-  }
-  @media (min-width: 1600px) {
-    height: 200px;
-  }
-  @media (min-width: 2000px) {
-    max-height: 180px;
-  }
-`;
+const ServiceTextContainer = ({
+  children,
+  ...props
+}: HTMLProps<HTMLDivElement>) => {
+  return (
+    <div className='s4:h-343px 1300px:h-300px 1400px:h-250px' {...props}>
+      {children}
+    </div>
+  );
+};
 
-const ServicesImageContainer = styled(ImageContainer)`
-  align-self: center;
-`;
+const ServicesImageContainer = ({
+  children,
+  ...props
+}: HTMLProps<HTMLDivElement>) => {
+  return (
+    <div className='max-h-744px flex-1 min-w-240px self-center' {...props}>
+      {children}
+    </div>
+  );
+};
 
-const ServicesTextContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  align-self: center;
-  @media (max-width: 1000px) {
-    gap: 2rem;
-  }
-`;
+const ServicesTextContainer = ({
+  children,
+  ...props
+}: HTMLProps<HTMLDivElement>) => {
+  return (
+    <div className='flex flex-col gap-12 s4:gap-8 self-center' {...props}>
+      {children}
+    </div>
+  );
+};
 
-const ServicesTitle = styled(StyledHomeTitle)`
-  display: block;
-  text-align: center;
-  @media (max-width: 400px) {
-    font-size: 24px;
-  }
-`;
+const ServicesTitle = ({
+  gradientprop,
+  children,
+  ...props
+}: HTMLProps<HTMLHeadingElement> & { gradientprop?: boolean }) => {
+  return (
+    <h3
+      className={`font-jost 400px:text-5xl text-2xl bg-gradient-to-l bg-clip-text text-transparent
+      font-bold block text-center mb-4
+       ${
+         gradientprop
+           ? ' from-color-blue via-color-pink to-color-orange '
+           : ' bg-color-info-light '
+       }`}
+      {...props}
+    >
+      {children}
+    </h3>
+  );
+};
 
-const ServicesText = styled(StyledHomeTitle)`
-  font-size: 20px;
-  @media (max-width: 400px) {
-    font-size: 16px;
-  }
-`;
+const ServicesText = ({
+  gradientprop,
+  children,
+  ...props
+}: HTMLProps<HTMLHeadingElement> & { gradientprop?: boolean }) => {
+  return (
+    <h3
+      className={`font-jost 400px:text-xl text-base bg-gradient-to-l bg-clip-text text-transparent
+      font-bold 
+       ${
+         gradientprop
+           ? ' from-color-blue via-color-pink to-color-orange '
+           : ' bg-color-info-light '
+       }`}
+      {...props}
+    >
+      {children}
+    </h3>
+  );
+};

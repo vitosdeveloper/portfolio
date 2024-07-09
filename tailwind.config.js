@@ -39,7 +39,12 @@ module.exports = {
         '10px': '10px',
         '72px': '72px',
         '87px': '87px',
+        '180px': '180px',
+        '200px': '200px',
         '240px': '240px',
+        '250px': '250px',
+        '300px': '300px',
+        '343px': '343px',
         '490px': '490px',
         '744px': '744px',
         initial: 'initial',
@@ -49,12 +54,35 @@ module.exports = {
       },
       screens: {
         s2: '501px',
+        'custom-s1': '333px',
+        '400px': '400px',
         s3: '701px',
         s4: '1001px',
         s5: '1201px',
-        'custom-s1': '333px',
+        '1300px': '1300px',
+        '1400px': '1400px',
+        '1600px': '1600px',
+        '2000px': '2000px',
       },
     },
   },
   plugins: [],
 };
+
+// const ServiceTextContainer = styled.div`
+//   @media (min-width: 1001px) {
+//     height: 343px;
+//   }
+//   @media (min-width: 1300px) {
+//     height: 300px;
+//   }
+//   @media (min-width: 1400px) {
+//     height: 250px;
+//   }
+//   @media (min-width: 1600px) {
+//     height: 200px;
+//   }
+//   @media (min-width: 2000px) {
+//     max-height: 180px;
+//   }
+// `;

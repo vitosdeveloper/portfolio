@@ -1,8 +1,6 @@
 import Section from '../containers/Section';
-import styled from 'styled-components';
 import ServicesContent from '../contents/services/ServicesContent';
-import { StyledAboutTitle } from '../contents/about/AboutContent';
-import { memo } from 'react';
+import { HTMLProps, memo } from 'react';
 
 const Services = ({ isDark }: { isDark: boolean }) => {
   return (
@@ -14,16 +12,39 @@ const Services = ({ isDark }: { isDark: boolean }) => {
 
 export default memo(Services);
 
-export const FlexYContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-`;
+export const FlexYContainer = ({
+  children,
+  ...props
+}: HTMLProps<HTMLDivElement>) => {
+  return (
+    <div {...props} className='flex flex-col mx-auto mt-0'>
+      {children}
+    </div>
+  );
+};
 
-export const FlexXContainer = styled(FlexYContainer)`
-  flex-direction: row;
-`;
+export const FlexXContainer = ({
+  children,
+  ...props
+}: HTMLProps<HTMLDivElement>) => {
+  return (
+    <div {...props} className='flex flex-row mx-auto mt-0'>
+      {children}
+    </div>
+  );
+};
 
-export const StyledServicesTitle = styled(StyledAboutTitle)`
-  font-size: 1.5rem;
-`;
+export const StyledServicesTitle = ({
+  children,
+  ...props
+}: HTMLProps<HTMLHeadingElement>) => {
+  return (
+    <h4
+      className='text-color-button-hover tracking-widest font-normal
+      leading-5 font-poppins text-2xl'
+      {...props}
+    >
+      {children}
+    </h4>
+  );
+};

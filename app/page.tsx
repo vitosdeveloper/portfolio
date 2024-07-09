@@ -1,6 +1,4 @@
 'use client';
-import Home from './components/pages/Home';
-import Header from './components/partials/Header/Header';
 import Skills from './components/pages/Skills';
 import Work from './components/pages/Work';
 import Contact from './components/pages/Contact';
