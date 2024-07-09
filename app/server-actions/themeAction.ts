@@ -1,9 +1,9 @@
 'use server';
-import { revalidatePath } from 'next/cache';
 import { adicionarCookie, pegarCookie } from '../utils/cookies';
 
-export const themeAction = (formData: FormData) => {
-  const cookie = pegarCookie('theme');
+export const themeAction = async (formData: FormData) => {
+  const cookie = await pegarCookie('theme');
+
   let isDark;
   if (!cookie) {
     adicionarCookie('theme', 'dark');
@@ -11,5 +11,6 @@ export const themeAction = (formData: FormData) => {
   } else {
     isDark = cookie == 'dark';
   }
+
   adicionarCookie('theme', isDark ? 'light' : 'dark');
 };

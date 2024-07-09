@@ -1,16 +1,10 @@
 'use client';
-import {
-  SkillsSection,
-  SkillsTextContainer,
-  SkillsTitle,
-  StyledCenterDiv,
-} from './Skills';
+import { SkillsTextContainer, SkillsTitle, StyledCenterDiv } from './Skills';
 import Reveal from '../containers/Reveal';
 import { memo, useState } from 'react';
 import SwiperCore from 'swiper';
 import { Autoplay } from 'swiper/modules';
 import WorkSwiper from '../swiper/WorkSwiper';
-import felino from '@/public/works/felino.webp';
 import fictional from '@/public/works/fictional.webp';
 import coffee from '@/public/works/coffee.webp';
 import dapao from '@/public/works/dapao.webp';
@@ -138,16 +132,6 @@ const Work = () => {
       img: optimizer,
       live: '',
       repo: 'https://github.com/vitosdeveloper/Image-Optimizer-By-Vitos/releases',
-      personal: true,
-    },
-    {
-      name: 'Felino Chan',
-      description: t(
-        `Imageboard that generates random cat pictures for your posts.`
-      ),
-      img: felino,
-      live: 'https://felinochan.vercel.app/hw/1',
-      repo: 'https://github.com/vitosdeveloper/felino-chan-Client',
       personal: true,
     },
     {

@@ -28,7 +28,7 @@ const StyledAboutButton = ({
   return (
     <button
       className='bg-color-button-hover flex items-center justify-center gap-1 font-poppins border-none 
-      h-12 w-48 rounded-md cursor-pointer text-color-clear-background
+      h-12 w-48 rounded-md cursor-pointer text-color-background
       font-semibold btn-hover'
       {...props}
     >

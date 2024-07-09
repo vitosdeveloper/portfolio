@@ -1,13 +1,15 @@
 import dynamic from 'next/dynamic';
 import Section from '../containers/Section';
 import { memo } from 'react';
-const AboutContent = dynamic(() => import('../contents/about/AboutContent'), {
-  ssr: false,
-});
-const About = ({ isDark }: { isDark: boolean }) => {
+import AboutContent from '../contents/about/AboutContent';
+// const AboutContent = dynamic(() => import('../contents/about/AboutContent'), {
+//   ssr: false,
+// });
+
+const About = () => {
   return (
     <Section>
-      <AboutContent isDark={isDark} />
+      <AboutContent />
     </Section>
   );
 };

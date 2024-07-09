@@ -8,6 +8,7 @@ module.exports = {
     // Or if using `src` directory:
     './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -26,6 +27,8 @@ module.exports = {
         'color-footer-background': 'var(--color-footer-background)',
         'color-skill-background': 'var(--color-skill-background)',
         'color-pink': 'var(--color-pink)',
+        'color-custom-purple': 'var(--color-custom-purple)',
+        'color-custom-light-purple': 'var(--color-custom-light-purple)',
       },
       backgroundImage: {
         image1: "url('/background.webp')",

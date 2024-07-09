@@ -1,7 +1,4 @@
-import Image, { StaticImageData } from 'next/image';
 import React, { memo } from 'react';
-
-type Props = {};
 
 const StyledImage = ({
   $left = false,
@@ -9,11 +6,11 @@ const StyledImage = ({
   alt,
 }: {
   $left?: boolean;
-  src: StaticImageData;
+  src: string;
   alt: string;
 }) => {
   return (
-    <Image
+    <img
       style={{
         borderRadius: '8px',
         maxWidth: '744px',
@@ -22,10 +19,9 @@ const StyledImage = ({
         flex: 1,
         float: $left ? 'inline-start' : 'inline-end',
       }}
-      src={src}
+      src={'/' + src}
       alt={alt}
       loading='eager'
-      priority
     />
   );
 };

@@ -1,14 +1,20 @@
 import React, { HTMLProps, memo } from 'react';
-import CodingIcon from '@/public/coding_icon.webp';
-import CodingIconClean from '@/public/coding_icon_clean.webp';
 import { FlexYContainer, StyledServicesTitle } from '../../pages/Services';
 import Reveal from '../../containers/Reveal';
 import { useTranslation } from 'react-i18next';
 import StyledHomeTitle from '../../text/StyledHomeTitle';
 import StyledImage from '../home/StyledImage';
+import { getCookie } from 'cookies-next';
 
-const ServicesContent = ({ isDark }: { isDark: boolean }) => {
+const ServicesContent = () => {
   const { t } = useTranslation();
+
+  const cookie = getCookie('theme');
+  let isDark = true;
+  if (cookie) {
+    isDark = cookie == 'dark';
+  }
+
   return (
     <FlexYContainer style={{ textAlign: 'center' }}>
       <Reveal y={-75}>
@@ -48,8 +54,8 @@ const ServicesContent = ({ isDark }: { isDark: boolean }) => {
           <Reveal y={175}>
             <StyledImage
               $left
-              src={isDark ? CodingIcon : CodingIconClean}
-              alt='home-picture'
+              src={isDark ? 'coding_icon_clean.webp' : 'coding_icon.webp'}
+              alt='service-picture'
             />
           </Reveal>
         </ServicesImageContainer>

@@ -2,10 +2,10 @@ import Section from '../containers/Section';
 import ServicesContent from '../contents/services/ServicesContent';
 import { HTMLProps, memo } from 'react';
 
-const Services = ({ isDark }: { isDark: boolean }) => {
+const Services = () => {
   return (
     <Section id='#services'>
-      <ServicesContent isDark={isDark} />
+      <ServicesContent />
     </Section>
   );
 };

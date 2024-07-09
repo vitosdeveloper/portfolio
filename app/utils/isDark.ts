@@ -1,7 +1,7 @@
 import { pegarCookie } from './cookies';
 
-export const isDark = () => {
-  const cookie = pegarCookie('theme');
+export const isDark = async () => {
+  const cookie = await pegarCookie('theme');
   let isDark = true;
   if (cookie) {
     isDark = cookie == 'dark';

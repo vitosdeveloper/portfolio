@@ -59,7 +59,7 @@ const HomeContent = () => {
       </ContentContainer>
       <ImageContainer>
         <Reveal once x={75}>
-          <StyledImage src={EuImage} alt='home-picture' />
+          <StyledImage src={'eu.webp'} alt='home-picture' />
         </Reveal>
       </ImageContainer>
     </StyledHomeContainer>
@@ -126,14 +126,11 @@ const StyledHomeRole = ({
   );
 };
 
-const StyledButtonLink = ({
-  children,
-  ...props
-}: HTMLProps<HTMLDivElement>) => {
+const StyledButtonLink = ({ children, ...props }: any) => {
   return (
-    <div {...props} className='contents'>
+    <Link {...props} className='contents'>
       {children}
-    </div>
+    </Link>
   );
 };
 
@@ -146,8 +143,8 @@ const StyledHireMeButton = ({
       {...props}
       className='flex items-center gap-2 justify-center rounded-lg h-12 tracking-widest border-none
      ease-linear w-48 bg-color-button font-semibold
-    bg-gradient-to-l from-color-blue via-color-pink to-color-orange text-color-clear-background
-    hover:from-color-button-hover hover:via-color-button-hover hover:to-color-button-hover'
+    bg-gradient-to-l from-color-blue via-color-pink to-color-orange text-color-background
+    contact-btn'
     >
       {children}
     </button>

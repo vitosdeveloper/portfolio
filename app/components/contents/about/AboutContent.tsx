@@ -3,11 +3,11 @@ import Section from '../../containers/Section';
 import AboutTextComponent from './AboutTextComponent';
 import ImageComponent from './ImageComponent';
 
-const AboutContent = ({ isDark }: { isDark: boolean }) => {
+const AboutContent = () => {
   return (
     <Section id='#about'>
       <div className='flex flex-wrap items-center gap-4'>
-        <ImageComponent isDark={isDark} />
+        <ImageComponent />
         <AboutTextComponent />
       </div>
     </Section>

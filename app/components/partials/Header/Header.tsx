@@ -8,12 +8,12 @@ import GhubIco from '../../contents/header/GhubIco';
 import HeaderUl from './HeaderUl';
 import StyledMobileMenuButton from './StyledMobileMenuButton';
 
-const Header = ({ isDark }: { isDark: boolean }) => {
+const Header = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
   return (
     <StyledHeader id='header'>
-      <HeaderLogo isDark={isDark} />
+      <HeaderLogo />
       <div className='flex flex-col items-end gap-2'>
         <StyledMobileMenuButton>
           <Hamburger

@@ -30,6 +30,8 @@ import cs from '@/public/skills/cs.svg';
 import vite from '@/public/skills/vite.svg';
 import vitest from '@/public/skills/vitest.svg';
 import jest from '@/public/skills/jest.svg';
+import nestjs from '@/public/skills/nestjs.svg';
+import dotnet from '@/public/skills/dotnet.svg';
 import { StyledAboutTitle } from '../contents/about/AboutContent';
 import { useTranslation } from 'react-i18next';
 
@@ -81,6 +83,8 @@ const Skills = () => {
     { name: 'VITE', img: vite },
     { name: 'VITEST', img: vitest },
     { name: 'JEST', img: jest },
+    { name: 'NestJS', img: nestjs },
+    { name: '.NET', img: dotnet },
   ];
 
   const half = Math.floor(skills.length / 2);

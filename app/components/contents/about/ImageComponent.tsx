@@ -1,16 +1,21 @@
 'use client';
-import React, { memo, useEffect, useState } from 'react';
+import React, { memo } from 'react';
 import Reveal from '../../containers/Reveal';
 import Image from 'next/image';
-import ImageF1 from '@/public/f1.webp';
-import ImageF2 from '@/public/f2.webp';
 import ImageContainer from '../../containers/ImageContainer';
+import { getCookie } from 'cookies-next';
 
-const ImageComponent = ({ isDark }: { isDark: boolean }) => {
+const ImageComponent = () => {
+  const cookie = getCookie('theme');
+  let isDark = true;
+  if (cookie) {
+    isDark = cookie == 'dark';
+  }
+
   return (
     <ImageContainer>
       <Reveal once x={-75}>
-        <Image
+        <img
           style={{
             borderRadius: '8px',
             maxWidth: '744px',
@@ -19,10 +24,10 @@ const ImageComponent = ({ isDark }: { isDark: boolean }) => {
             flex: 1,
             float: 'inline-start',
           }}
-          src={isDark ? ImageF1 : ImageF2}
+          src={isDark ? '/f2.webp' : '/f1.webp'}
           alt='frog-picture'
           loading='eager'
-          priority
+          className='about-image'
         />
       </Reveal>
     </ImageContainer>

@@ -8,7 +8,7 @@ export const adicionarCookie = (campo: string, valor: string) => {
   });
 };
 
-export const pegarCookie = (campo: string) => {
+export const pegarCookie = async (campo: string) => {
   const cookie: unknown = cookies().get(campo);
   if (
     !cookie ||

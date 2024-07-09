@@ -28,7 +28,7 @@ const HeaderUl = (props: Props) => {
           return (
             <StyledHeaderLi key={href}>
               <Link
-                className='py-2 cursor-pointer s4:text-base text-2xl'
+                className='py-2 cursor-pointer s4:text-base text-2xl header-links'
                 smooth={true}
                 duration={300}
                 to={href}

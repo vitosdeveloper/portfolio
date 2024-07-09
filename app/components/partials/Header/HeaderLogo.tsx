@@ -1,8 +1,6 @@
 import { HTMLProps, memo } from 'react';
 import Reveal from '../../containers/Reveal';
-import Image from 'next/image';
-import Logo from '@/public/coding_icon.webp';
-import LogoClean from '@/public/coding_icon_clean.webp';
+import { getCookie } from 'cookies-next';
 
 const LogoH1 = ({ children, ...props }: HTMLProps<HTMLHeadingElement>) => {
   return (
@@ -16,13 +14,19 @@ const LogoH1 = ({ children, ...props }: HTMLProps<HTMLHeadingElement>) => {
   );
 };
 
-const HeaderLogo = ({ isDark }: { isDark: boolean }) => {
+const HeaderLogo = () => {
+  const cookie = getCookie('theme');
+  let isDark = true;
+  if (cookie) {
+    isDark = cookie == 'dark';
+  }
+
   return (
     <div className='flex items-center gap-1 whitespace-nowrap flex-nowrap'>
-      <Image
+      <img
         className='hidden custom-s1:block w-auto h-8'
-        src={isDark ? Logo : LogoClean}
-        alt='logo'
+        src={isDark ? 'coding_icon_clean.webp' : 'coding_icon.webp'}
+        alt='logo-img'
       />
       <Reveal x={-75}>
         <LogoH1>Vitos Developer</LogoH1>
