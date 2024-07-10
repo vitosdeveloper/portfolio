@@ -72,7 +72,7 @@ const ServicesContent = () => {
             <Reveal y={175}>
               <StyledImage
                 $left
-                src={isDark ? 'coding_icon_clean.webp' : 'coding_icon.webp'}
+                src={!isDark ? 'coding_icon_clean.webp' : 'coding_icon.webp'}
                 alt='service-picture'
               />
             </Reveal>
