@@ -18,14 +18,16 @@ const HomeContent = () => {
     <StyledHomeContainer>
       <ContentContainer>
         <Reveal x={-75}>
-          <ContentContainer style={{ marginTop: '.5rem' }}>
+          <ContentContainer
+            style={{ marginTop: '.5rem', alignItems: 'baseline' }}
+          >
             <StyledHomeRole>{t('FULL-STACK DEVELOPER')}</StyledHomeRole>
             <StyledHomeTitle>{t('Hey! I am')}</StyledHomeTitle>
-            <StyledHomeTitle style={{ display: 'flex' }} gradientprop>
-              <ShadowReflectionWrapper big>
+            <ShadowReflectionWrapper big>
+              <StyledHomeTitle gradientprop>
                 {t('Vitor Fernandes')}
-              </ShadowReflectionWrapper>
-            </StyledHomeTitle>
+              </StyledHomeTitle>
+            </ShadowReflectionWrapper>
             <StyledP>
               {t(
                 'I am a Developer, currently focused on the Web, completely dedicated to the studies and work I do.'

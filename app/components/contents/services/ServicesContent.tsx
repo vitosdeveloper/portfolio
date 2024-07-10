@@ -18,19 +18,26 @@ const ServicesContent = () => {
 
   return (
     <FlexYContainer
-      style={{ textAlign: 'center', position: 'relative', bottom: '5rem' }}
+      style={{
+        textAlign: 'center',
+        position: 'relative',
+        bottom: '5rem',
+      }}
     >
       <Reveal y={-75}>
-        <StyledHomeTitle
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            paddingTop: '5rem',
-            marginBottom: '1rem',
-          }}
-        >
-          <ShadowReflectionWrapper>{t('Services')}</ShadowReflectionWrapper>
-        </StyledHomeTitle>
+        <ShadowReflectionWrapper big>
+          <StyledHomeTitle
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              marginTop: '2rem',
+              marginBottom: '2rem',
+              textAlign: 'center',
+            }}
+          >
+            {t('Services')}
+          </StyledHomeTitle>
+        </ShadowReflectionWrapper>
         <StyledServicesTitle>
           {t('What services do i offer')}
         </StyledServicesTitle>

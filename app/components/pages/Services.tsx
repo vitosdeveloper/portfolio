@@ -17,7 +17,7 @@ export const FlexYContainer = ({
   ...props
 }: HTMLProps<HTMLDivElement>) => {
   return (
-    <div {...props} className='flex flex-col mx-auto mt-0'>
+    <div {...props} className='flex flex-col items-center mx-auto mt-0'>
       {children}
     </div>
   );
