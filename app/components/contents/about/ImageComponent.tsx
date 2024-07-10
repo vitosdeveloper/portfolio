@@ -1,7 +1,6 @@
 'use client';
 import React, { memo } from 'react';
 import Reveal from '../../containers/Reveal';
-import Image from 'next/image';
 import ImageContainer from '../../containers/ImageContainer';
 import { getCookie } from 'cookies-next';
 
@@ -24,7 +23,7 @@ const ImageComponent = () => {
             flex: 1,
             float: 'inline-start',
           }}
-          src={isDark ? '/f2.webp' : '/f1.webp'}
+          src={isDark ? '/f1.webp' : '/f2.webp'}
           alt='frog-picture'
           loading='eager'
           className='about-image'

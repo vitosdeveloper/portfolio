@@ -31,9 +31,9 @@ const ThemeButtonComponent = () => {
       image2 instanceof HTMLImageElement &&
       image3 instanceof HTMLImageElement
     ) {
-      image.src = isDark ? 'f1.webp' : 'f2.webp';
-      image2.src = isDark ? 'coding_icon.webp' : 'coding_icon_clean.webp';
-      image3.src = isDark ? 'coding_icon.webp' : 'coding_icon_clean.webp';
+      image.src = !isDark ? 'f1.webp' : 'f2.webp';
+      image2.src = !isDark ? 'coding_icon.webp' : 'coding_icon_clean.webp';
+      image3.src = !isDark ? 'coding_icon.webp' : 'coding_icon_clean.webp';
     }
   };
 

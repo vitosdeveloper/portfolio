@@ -27,7 +27,7 @@ const HeaderLogo = () => {
       <ShadowReflectionWrapper>
         <img
           className='hidden custom-s1:block w-auto h-8'
-          src={isDark ? 'coding_icon_clean.webp' : 'coding_icon.webp'}
+          src={isDark ? 'coding_icon.webp' : 'coding_icon_clean.webp'}
           alt='logo-img'
         />
       </ShadowReflectionWrapper>
