@@ -35,11 +35,11 @@
 
 import { HTMLProps, memo } from 'react';
 
-interface ShadowReflectionProps {
+type ShadowReflectionProps = {
   children: React.ReactNode;
   big?: boolean;
   circular?: boolean;
-}
+} & HTMLProps<HTMLDivElement>;
 
 const ShadowReflectionWrapper: React.FC<ShadowReflectionProps> = ({
   children,
