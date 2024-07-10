@@ -17,57 +17,53 @@ const HomeContent = () => {
   return (
     <StyledHomeContainer>
       <ContentContainer>
-        <Reveal x={-75}>
-          <ContentContainer
-            style={{ marginTop: '.5rem', alignItems: 'baseline' }}
-          >
-            <StyledHomeRole>{t('FULL-STACK DEVELOPER')}</StyledHomeRole>
-            <StyledHomeTitle>{t('Hey! I am')}</StyledHomeTitle>
+        <ContentContainer
+          style={{ marginTop: '.5rem', alignItems: 'baseline' }}
+        >
+          <StyledHomeRole>{t('FULL-STACK DEVELOPER')}</StyledHomeRole>
+          <StyledHomeTitle>{t('Hey! I am')}</StyledHomeTitle>
+          <ShadowReflectionWrapper big>
+            <StyledHomeTitle gradientprop>
+              {t('Vitor Fernandes')}
+            </StyledHomeTitle>
+          </ShadowReflectionWrapper>
+          <StyledP>
+            {t(
+              'I am a Developer, currently focused on the Web, completely dedicated to the studies and work I do.'
+            )}
+          </StyledP>
+          <StyledLinksContainer>
             <ShadowReflectionWrapper big>
-              <StyledHomeTitle gradientprop>
-                {t('Vitor Fernandes')}
-              </StyledHomeTitle>
+              <StyledButtonLink href='mailto:vitosdeveloper@gmail.com'>
+                <StyledHireMeButton>
+                  {t('HIRE ME')}
+                  <MdOutlineMarkEmailRead
+                    size={18}
+                    style={{ position: 'relative', bottom: 0.51, right: 3 }}
+                  />
+                </StyledHireMeButton>
+              </StyledButtonLink>
             </ShadowReflectionWrapper>
-            <StyledP>
-              {t(
-                'I am a Developer, currently focused on the Web, completely dedicated to the studies and work I do.'
-              )}
-            </StyledP>
-            <StyledLinksContainer>
-              <ShadowReflectionWrapper big>
-                <StyledButtonLink href='mailto:vitosdeveloper@gmail.com'>
-                  <StyledHireMeButton>
-                    {t('HIRE ME')}
-                    <MdOutlineMarkEmailRead
-                      size={18}
-                      style={{ position: 'relative', bottom: 0.51, right: 3 }}
-                    />
-                  </StyledHireMeButton>
-                </StyledButtonLink>
-              </ShadowReflectionWrapper>
-              <AboutForm />
-            </StyledLinksContainer>
+            <AboutForm />
+          </StyledLinksContainer>
 
-            <StyledSocialContainer>
-              <StyledP>{t('Follow Me:')}</StyledP>
-              <Link href='https://github.com/vitosdeveloper' target='_blank'>
-                <BsGithub />
-              </Link>
-              <Link
-                href='https://www.linkedin.com/in/vitosdeveloper/'
-                target='_blank'
-              >
-                <BsLinkedin />
-              </Link>
-            </StyledSocialContainer>
-          </ContentContainer>
-        </Reveal>
+          <StyledSocialContainer>
+            <StyledP>{t('Follow Me:')}</StyledP>
+            <Link href='https://github.com/vitosdeveloper' target='_blank'>
+              <BsGithub />
+            </Link>
+            <Link
+              href='https://www.linkedin.com/in/vitosdeveloper/'
+              target='_blank'
+            >
+              <BsLinkedin />
+            </Link>
+          </StyledSocialContainer>
+        </ContentContainer>
       </ContentContainer>
       <ImageContainer>
         <ShadowReflectionWrapper big circular>
-          <Reveal once x={75}>
-            <StyledImage src={'eu.webp'} alt='home-picture' />
-          </Reveal>
+          <StyledImage src={'eu.webp'} alt='home-picture' />
         </ShadowReflectionWrapper>
       </ImageContainer>
     </StyledHomeContainer>

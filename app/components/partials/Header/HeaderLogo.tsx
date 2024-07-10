@@ -1,5 +1,5 @@
 import { HTMLProps, memo } from 'react';
-import Reveal from '../../containers/Reveal';
+// import Reveal from '../../containers/Reveal';
 import { getCookie } from 'cookies-next';
 import ShadowReflectionWrapper from '../../fx/ShadowReflectionWrapper';
 
@@ -8,7 +8,7 @@ const LogoH1 = ({ children, ...props }: HTMLProps<HTMLHeadingElement>) => {
     <h1
       {...props}
       className='text-2xl font-bold bg-gradient-to-r bg-clip-text text-transparent 
-      from-color-button-hover via-color-blue to-color-orange'
+    from-color-button-hover via-color-blue to-color-orange'
     >
       {children}
     </h1>
@@ -32,9 +32,9 @@ const HeaderLogo = () => {
         />
       </ShadowReflectionWrapper>
       <ShadowReflectionWrapper>
-        <Reveal x={-75}>
-          <LogoH1>Vitos Developer</LogoH1>
-        </Reveal>
+        {/* <Reveal x={-75}> */}
+        <LogoH1>Vitos Developer</LogoH1>
+        {/* </Reveal> */}
       </ShadowReflectionWrapper>
     </div>
   );
