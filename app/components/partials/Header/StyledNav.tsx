@@ -8,7 +8,7 @@ const StyledNav = ({
   return (
     <nav
       {...props}
-      className={`flex bg-color-background flex-col s4:flex-row items-end gap-3 p-4 animate absolute top-16 animate-MoveRightLeft
+      className={`flex bg-transparent flex-col s4:flex-row items-end gap-3 p-4 animate absolute top-16 animate-MoveRightLeft
         s4:top-1 s4:flex s4:items-center s5:gap-8 s4:border-none
         ${
           showMenu

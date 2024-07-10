@@ -95,7 +95,7 @@ const IconContainer = ({ children, ...props }: any) => {
   return (
     <Link
       className='
-        flex flex-col  gap-6 items-center w-90
+        flex flex-col gap-6 items-center w-90
         md:w-70 sm:w-52 sm:text-center sm:m-auto sm:flex-col
         '
       {...props}
@@ -134,7 +134,7 @@ const IconTextContainer = ({
   ...props
 }: HTMLProps<HTMLDivElement>) => {
   return (
-    <div className='flex flex-col' {...props}>
+    <div className='flex flex-col ' {...props}>
       {children}
     </div>
   );
