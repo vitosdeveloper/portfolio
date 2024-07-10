@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { Dispatch, HTMLProps, memo, SetStateAction } from 'react';
 import SwiperCore from 'swiper';
-import ShadowReflectionWrapper from '../fx/ShadowReflectionWrapper';
 
 type Props = {
   works: {
@@ -111,7 +110,7 @@ const StyledSlideContainer = ({
       className='p-4 my-4 transition-transform transform hover:scale-105'
       {...props}
     >
-      <ShadowReflectionWrapper circular>{children}</ShadowReflectionWrapper>
+      {children}
     </div>
   );
 };

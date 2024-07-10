@@ -5,7 +5,6 @@ import { HTMLProps, memo } from 'react';
 import { Dispatch, SetStateAction } from 'react';
 import SwiperCore from 'swiper';
 import 'swiper/css/effect-coverflow';
-import ShadowReflectionWrapper from '../fx/ShadowReflectionWrapper';
 
 type Props = {
   skills: { name: string; img: any }[];
@@ -64,19 +63,17 @@ const StyledSwiperSlideContainer = ({
   ...props
 }: HTMLProps<HTMLDivElement>) => {
   return (
-    <ShadowReflectionWrapper circular>
-      <div
-        className='
+    <div
+      className='
         flex flex-col items-center justify-center bg-color-card2 
         rounded-lg cursor-pointer h-44 mb-1.5
         shadow-lg transition-transform transform hover:scale-105
       '
-        style={{ boxShadow: '-3px 3px 8px var(--color-skill-background)' }}
-        {...props}
-      >
-        {children}
-      </div>
-    </ShadowReflectionWrapper>
+      style={{ boxShadow: '-3px 3px 8px var(--color-skill-background)' }}
+      {...props}
+    >
+      {children}
+    </div>
   );
 };
 
