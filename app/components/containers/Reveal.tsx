@@ -21,25 +21,20 @@ const Reveal = ({
   }, [inView, mainControls]);
 
   return (
-    <div className='overflow-hidden'>
-      <motion.div
-        ref={ref}
-        variants={{
-          hidden: { opacity: 0, y, x },
-          show: { opacity: 1, y: 0, x: 0 },
-        }}
-        transition={{ duration: 0.7, delay: 0 }}
-        initial='hidden'
-        animate={mainControls}
-      >
-        {children}
-      </motion.div>
-    </div>
+    <motion.div
+      ref={ref}
+      variants={{
+        hidden: { opacity: 0, y, x },
+        show: { opacity: 1, y: 0, x: 0 },
+      }}
+      transition={{ duration: 0.7, delay: 0 }}
+      initial='hidden'
+      animate={mainControls}
+      style={{ overflow: 'hidden' }}
+    >
+      {children}
+    </motion.div>
   );
 };
-
-// const Reveal = ({ children }: any) => {
-//   return <>{children}</>;
-// };
 
 export default memo(Reveal);

@@ -1,6 +1,4 @@
-import { HTMLProps, PropsWithChildren, memo } from 'react';
-
-type Props = { low?: boolean };
+import { HTMLProps, memo } from 'react';
 
 const ShadowReflectionWrapper = ({
   children,
