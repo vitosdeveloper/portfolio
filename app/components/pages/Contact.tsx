@@ -8,6 +8,7 @@ import Reveal from '../containers/Reveal';
 import { StyledAboutTitle } from '../contents/about/AboutContent';
 import { useTranslation } from 'react-i18next';
 import Section from '../containers/Section';
+import ShadowReflectionWrapper from '../fx/ShadowReflectionWrapper';
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -90,16 +91,27 @@ const IconsContainer = ({ children, ...props }: HTMLProps<HTMLDivElement>) => {
   );
 };
 
-const IconContainer = (props: any) => {
+const IconContainer = ({ children, ...props }: any) => {
   return (
     <Link
       className='
-        flex flex-col 360px:flex-row gap-6 items-center w-90
-        md:w-70
-        sm:w-52 sm:text-center sm:m-auto sm:flex-col
-      '
+        flex flex-col  gap-6 items-center w-90
+        md:w-70 sm:w-52 sm:text-center sm:m-auto sm:flex-col
+        '
       {...props}
-    />
+    >
+      <ShadowReflectionWrapper
+        big
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '1.5rem',
+        }}
+      >
+        {children}
+      </ShadowReflectionWrapper>
+    </Link>
   );
 };
 

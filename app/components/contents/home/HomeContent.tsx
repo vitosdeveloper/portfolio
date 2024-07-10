@@ -1,6 +1,5 @@
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import { MdOutlineMarkEmailRead } from 'react-icons/md';
-import EuImage from '@/public/eu.webp';
 import Link from 'next/link';
 import { ButtonHTMLAttributes, HTMLProps, memo } from 'react';
 import Reveal from '../../containers/Reveal';
@@ -10,6 +9,7 @@ import ImageContainer from '../../containers/ImageContainer';
 import StyledHomeTitle from '../../text/StyledHomeTitle';
 import StyledP from '../about/StyledP';
 import StyledImage from './StyledImage';
+import ShadowReflectionWrapper from '../../fx/ShadowReflectionWrapper';
 
 const HomeContent = () => {
   const { t } = useTranslation();
@@ -21,8 +21,10 @@ const HomeContent = () => {
           <ContentContainer style={{ marginTop: '.5rem' }}>
             <StyledHomeRole>{t('FULL-STACK DEVELOPER')}</StyledHomeRole>
             <StyledHomeTitle>{t('Hey! I am')}</StyledHomeTitle>
-            <StyledHomeTitle gradientprop>
-              {t('Vitor Fernandes')}
+            <StyledHomeTitle style={{ display: 'flex' }} gradientprop>
+              <ShadowReflectionWrapper big>
+                {t('Vitor Fernandes')}
+              </ShadowReflectionWrapper>
             </StyledHomeTitle>
             <StyledP>
               {t(
@@ -30,15 +32,17 @@ const HomeContent = () => {
               )}
             </StyledP>
             <StyledLinksContainer>
-              <StyledButtonLink href='mailto:vitosdeveloper@gmail.com'>
-                <StyledHireMeButton>
-                  {t('HIRE ME')}
-                  <MdOutlineMarkEmailRead
-                    size={18}
-                    style={{ position: 'relative', bottom: 0.51, right: 3 }}
-                  />
-                </StyledHireMeButton>
-              </StyledButtonLink>
+              <ShadowReflectionWrapper big>
+                <StyledButtonLink href='mailto:vitosdeveloper@gmail.com'>
+                  <StyledHireMeButton>
+                    {t('HIRE ME')}
+                    <MdOutlineMarkEmailRead
+                      size={18}
+                      style={{ position: 'relative', bottom: 0.51, right: 3 }}
+                    />
+                  </StyledHireMeButton>
+                </StyledButtonLink>
+              </ShadowReflectionWrapper>
               <AboutForm />
             </StyledLinksContainer>
 
@@ -58,9 +62,11 @@ const HomeContent = () => {
         </Reveal>
       </ContentContainer>
       <ImageContainer>
-        <Reveal once x={75}>
-          <StyledImage src={'eu.webp'} alt='home-picture' />
-        </Reveal>
+        <ShadowReflectionWrapper big circular>
+          <Reveal once x={75}>
+            <StyledImage src={'eu.webp'} alt='home-picture' />
+          </Reveal>
+        </ShadowReflectionWrapper>
       </ImageContainer>
     </StyledHomeContainer>
   );

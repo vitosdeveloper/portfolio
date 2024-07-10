@@ -22,6 +22,7 @@ import optimizer from '@/public/works/optimizer.webp';
 import { StyledAboutTitle } from '../contents/about/AboutContent';
 import { useTranslation } from 'react-i18next';
 import Section from '../containers/Section';
+import ShadowReflectionWrapper from '../fx/ShadowReflectionWrapper';
 
 SwiperCore.use([Autoplay]);
 
@@ -184,10 +185,14 @@ const Work = () => {
     <Section id='#work'>
       <StyledCenterDiv>
         <SkillsTextContainer>
-          <Reveal x={75}>
-            <StyledAboutTitle>{t('CHECK OUT MY EXPERIENCE')}</StyledAboutTitle>
-            <SkillsTitle>{t('Professional Environment')}</SkillsTitle>
-          </Reveal>
+          <ShadowReflectionWrapper big>
+            <Reveal x={75}>
+              <StyledAboutTitle>
+                {t('CHECK OUT MY EXPERIENCE')}
+              </StyledAboutTitle>
+              <SkillsTitle>{t('Professional Environment')}</SkillsTitle>
+            </Reveal>
+          </ShadowReflectionWrapper>
         </SkillsTextContainer>
         <div onMouseEnter={pauseSwipers} onMouseLeave={playSwipers}>
           <Reveal x={-75}>
@@ -199,9 +204,11 @@ const Work = () => {
           </Reveal>
         </div>
         <SkillsTextContainer>
-          <Reveal x={-75}>
-            <SkillsTitle>{t('Personal Projects')}</SkillsTitle>
-          </Reveal>
+          <ShadowReflectionWrapper big>
+            <Reveal x={-75}>
+              <SkillsTitle>{t('Personal Projects')}</SkillsTitle>
+            </Reveal>
+          </ShadowReflectionWrapper>
         </SkillsTextContainer>
         <div onMouseEnter={pauseSwipers} onMouseLeave={playSwipers}>
           <Reveal x={75}>

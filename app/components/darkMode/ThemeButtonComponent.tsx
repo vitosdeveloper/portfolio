@@ -3,6 +3,7 @@ import { getCookie, setCookie } from 'cookies-next';
 import { PiCloudMoonBold, PiCloudSunBold } from 'react-icons/pi';
 import ThemeButton from './ThemeButton';
 import { memo, useState } from 'react';
+import ShadowReflectionWrapper from '../fx/ShadowReflectionWrapper';
 
 const ThemeButtonComponent = () => {
   const cookie = getCookie('theme');
@@ -37,19 +38,19 @@ const ThemeButtonComponent = () => {
   };
 
   return (
-    <>
-      <ThemeButton
-        onClick={handleThemeButtonChange}
-        className='theme-button'
-        type='submit'
-      >
+    <ThemeButton
+      onClick={handleThemeButtonChange}
+      className='theme-button'
+      type='submit'
+    >
+      <ShadowReflectionWrapper>
         {isDarkState ? (
           <PiCloudSunBold size={33} />
         ) : (
           <PiCloudMoonBold size={33} />
         )}
-      </ThemeButton>
-    </>
+      </ShadowReflectionWrapper>
+    </ThemeButton>
   );
 };
 

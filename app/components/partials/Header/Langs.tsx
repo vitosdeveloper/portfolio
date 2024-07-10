@@ -1,30 +1,35 @@
 import { setCookie } from 'cookies-next';
 import React, { ButtonHTMLAttributes, HTMLProps } from 'react';
 import { useTranslation } from 'react-i18next';
+import ShadowReflectionWrapper from '../../fx/ShadowReflectionWrapper';
 
 const Langs = () => {
   const { i18n } = useTranslation();
 
   return (
     <LanguageSwitcher>
-      <LanguageButton
-        langConditionalClass={i18n.language === 'br' ? 'active' : ''}
-        onClick={() => {
-          i18n.changeLanguage('br');
-          setCookie('lang', 'br', { sameSite: 'strict' });
-        }}
-      >
-        PT-BR
-      </LanguageButton>
-      <LanguageButton
-        langConditionalClass={i18n.language === 'en' ? 'active' : ''}
-        onClick={() => {
-          i18n.changeLanguage('en');
-          setCookie('lang', 'en', { sameSite: 'strict' });
-        }}
-      >
-        ENG
-      </LanguageButton>
+      <ShadowReflectionWrapper>
+        <LanguageButton
+          langConditionalClass={i18n.language === 'br' ? 'active' : ''}
+          onClick={() => {
+            i18n.changeLanguage('br');
+            setCookie('lang', 'br', { sameSite: 'strict' });
+          }}
+        >
+          PT-BR
+        </LanguageButton>
+      </ShadowReflectionWrapper>
+      <ShadowReflectionWrapper>
+        <LanguageButton
+          langConditionalClass={i18n.language === 'en' ? 'active' : ''}
+          onClick={() => {
+            i18n.changeLanguage('en');
+            setCookie('lang', 'en', { sameSite: 'strict' });
+          }}
+        >
+          ENG
+        </LanguageButton>
+      </ShadowReflectionWrapper>
     </LanguageSwitcher>
   );
 };

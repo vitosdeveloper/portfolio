@@ -1,6 +1,7 @@
 import { HTMLProps, memo } from 'react';
 import Reveal from '../../containers/Reveal';
 import { getCookie } from 'cookies-next';
+import ShadowReflectionWrapper from '../../fx/ShadowReflectionWrapper';
 
 const LogoH1 = ({ children, ...props }: HTMLProps<HTMLHeadingElement>) => {
   return (
@@ -23,14 +24,18 @@ const HeaderLogo = () => {
 
   return (
     <div className='flex items-center gap-1 whitespace-nowrap flex-nowrap'>
-      <img
-        className='hidden custom-s1:block w-auto h-8'
-        src={isDark ? 'coding_icon_clean.webp' : 'coding_icon.webp'}
-        alt='logo-img'
-      />
-      <Reveal x={-75}>
-        <LogoH1>Vitos Developer</LogoH1>
-      </Reveal>
+      <ShadowReflectionWrapper>
+        <img
+          className='hidden custom-s1:block w-auto h-8'
+          src={isDark ? 'coding_icon_clean.webp' : 'coding_icon.webp'}
+          alt='logo-img'
+        />
+      </ShadowReflectionWrapper>
+      <ShadowReflectionWrapper>
+        <Reveal x={-75}>
+          <LogoH1>Vitos Developer</LogoH1>
+        </Reveal>
+      </ShadowReflectionWrapper>
     </div>
   );
 };

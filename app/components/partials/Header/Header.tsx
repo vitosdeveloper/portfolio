@@ -7,6 +7,7 @@ import Hamburger from 'hamburger-react';
 import GhubIco from '../../contents/header/GhubIco';
 import HeaderUl from './HeaderUl';
 import StyledMobileMenuButton from './StyledMobileMenuButton';
+import ShadowReflectionWrapper from '../../fx/ShadowReflectionWrapper';
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false);

@@ -34,6 +34,7 @@ import nestjs from '@/public/skills/nestjs.svg';
 import dotnet from '@/public/skills/dotnet.svg';
 import { StyledAboutTitle } from '../contents/about/AboutContent';
 import { useTranslation } from 'react-i18next';
+import ShadowReflectionWrapper from '../fx/ShadowReflectionWrapper';
 
 const Skills = () => {
   const { t } = useTranslation();
@@ -95,10 +96,25 @@ const Skills = () => {
         <Reveal x={-75}>
           <SkillsTextContainer>
             <StyledAboutTitle>{t('MY PROGRESS SO FAR')}</StyledAboutTitle>
-            <SkillsTitle>{t('My Skills')}</SkillsTitle>
+            <SkillsTitle
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                paddingBottom: '5rem',
+                marginBottom: '1rem',
+              }}
+            >
+              <ShadowReflectionWrapper big>
+                {t('My Skills')}
+              </ShadowReflectionWrapper>
+            </SkillsTitle>
           </SkillsTextContainer>
         </Reveal>
-        <div onMouseEnter={pauseSwipers} onMouseLeave={playSwipers}>
+        <div
+          style={{ position: 'relative', bottom: '5rem' }}
+          onMouseEnter={pauseSwipers}
+          onMouseLeave={playSwipers}
+        >
           <Reveal x={-75}>
             <SkillsSwiper
               setSwipers={setSwipers}
@@ -107,7 +123,11 @@ const Skills = () => {
             />
           </Reveal>
         </div>
-        <div onMouseEnter={pauseSwipers} onMouseLeave={playSwipers}>
+        <div
+          style={{ position: 'relative', bottom: '5rem' }}
+          onMouseEnter={pauseSwipers}
+          onMouseLeave={playSwipers}
+        >
           <Reveal x={75}>
             <SkillsSwiper
               setSwipers={setSwipers}
@@ -155,7 +175,10 @@ export const SkillsTextContainer = ({
   ...props
 }: HTMLProps<HTMLDivElement>) => {
   return (
-    <div className='flex flex-col flex-none text-center gap-4' {...props}>
+    <div
+      className='flex flex-col justify-center self-center flex-none text-center gap-4'
+      {...props}
+    >
       {children}
     </div>
   );

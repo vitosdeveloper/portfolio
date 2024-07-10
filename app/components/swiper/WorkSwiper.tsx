@@ -3,9 +3,9 @@ import { useMediaQuery } from '@react-hooks-hub/use-media-query';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
-import NoSsrWrapper from '../NoSsrWrapper/NoSsrWrapper';
 import { Dispatch, HTMLProps, memo, SetStateAction } from 'react';
 import SwiperCore from 'swiper';
+import ShadowReflectionWrapper from '../fx/ShadowReflectionWrapper';
 
 type Props = {
   works: {
@@ -33,72 +33,70 @@ const WorkSwiper = ({ works, reverse, setSwipers, name }: Props) => {
   const size = { ss: 260, sm: 280, md: 280, bg: 300 };
 
   return (
-    <NoSsrWrapper>
-      <Swiper
-        onSwiper={(swiperInstance) =>
-          setSwipers((prev) => ({ ...prev, [name]: swiperInstance }))
-        }
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-          reverseDirection: reverse,
-          // pauseOnMouseEnter: true,
-        }}
-        // modules={[Autoplay]}
-        slidesPerView='auto'
-        spaceBetween={0}
-        loop={true}
-        className='mySwiper'
-        // centeredSlides
-      >
-        <div>
-          {works
-            .concat(works)
-            .map(({ name, description, img, live, repo }, i) => (
-              <SwiperSlide key={i} style={{ maxWidth: size[device!] }}>
-                <StyledSlideContainer>
-                  <WorkSwiperSlide
-                    onClick={() =>
-                      (live || repo) && window.open(live || repo, '_blank')
-                    }
-                  >
-                    <WorkImageContainer>
-                      <WorkImage
-                        loading='eager'
-                        width={300}
-                        height={300}
-                        src={img}
-                        alt={name}
-                        priority
-                      />
-                    </WorkImageContainer>
-                    <WorkTitle>{name}</WorkTitle>
-                    <WorkDescription>{description}</WorkDescription>
-                  </WorkSwiperSlide>
-                  <LinksContainer>
-                    <div>
-                      {live && (
-                        <WorkLinks target='_blank' href={live}>
-                          <FaExternalLinkAlt />
-                          <span>LIVE DEMO</span>
-                        </WorkLinks>
-                      )}
-                    </div>
-                    <div>
-                      {repo && (
-                        <WorkLinks target='_blank' href={repo}>
-                          <FaGithub />
-                          <span>SOURCE CODE</span>
-                        </WorkLinks>
-                      )}
-                    </div>
-                  </LinksContainer>
-                </StyledSlideContainer>
-              </SwiperSlide>
-            ))}
-        </div>
-      </Swiper>
-    </NoSsrWrapper>
+    <Swiper
+      onSwiper={(swiperInstance) =>
+        setSwipers((prev) => ({ ...prev, [name]: swiperInstance }))
+      }
+      autoplay={{
+        delay: 2500,
+        disableOnInteraction: false,
+        reverseDirection: reverse,
+        // pauseOnMouseEnter: true,
+      }}
+      // modules={[Autoplay]}
+      slidesPerView='auto'
+      spaceBetween={0}
+      loop={true}
+      className='mySwiper'
+      // centeredSlides
+    >
+      <div>
+        {works
+          .concat(works)
+          .map(({ name, description, img, live, repo }, i) => (
+            <SwiperSlide key={i} style={{ maxWidth: size[device!] }}>
+              <StyledSlideContainer>
+                <WorkSwiperSlide
+                  onClick={() =>
+                    (live || repo) && window.open(live || repo, '_blank')
+                  }
+                >
+                  <WorkImageContainer>
+                    <WorkImage
+                      loading='eager'
+                      width={300}
+                      height={300}
+                      src={img}
+                      alt={name}
+                      priority
+                    />
+                  </WorkImageContainer>
+                  <WorkTitle>{name}</WorkTitle>
+                  <WorkDescription>{description}</WorkDescription>
+                </WorkSwiperSlide>
+                <LinksContainer>
+                  <div>
+                    {live && (
+                      <WorkLinks target='_blank' href={live}>
+                        <FaExternalLinkAlt />
+                        <span>LIVE DEMO</span>
+                      </WorkLinks>
+                    )}
+                  </div>
+                  <div>
+                    {repo && (
+                      <WorkLinks target='_blank' href={repo}>
+                        <FaGithub />
+                        <span>SOURCE CODE</span>
+                      </WorkLinks>
+                    )}
+                  </div>
+                </LinksContainer>
+              </StyledSlideContainer>
+            </SwiperSlide>
+          ))}
+      </div>
+    </Swiper>
   );
 };
 
@@ -110,10 +108,10 @@ const StyledSlideContainer = ({
 }: HTMLProps<HTMLDivElement>) => {
   return (
     <div
-      className='p-4 transition-transform transform hover:scale-105'
+      className='p-4 my-4 transition-transform transform hover:scale-105'
       {...props}
     >
-      {children}
+      <ShadowReflectionWrapper circular>{children}</ShadowReflectionWrapper>
     </div>
   );
 };

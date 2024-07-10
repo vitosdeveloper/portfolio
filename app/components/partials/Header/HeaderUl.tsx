@@ -4,6 +4,7 @@ import StyledHeaderLi from './StyledHeaderLi';
 import { Link } from 'react-scroll';
 import { ISection } from '@/app/types/Section';
 import { useTranslation } from 'react-i18next';
+import ShadowReflectionWrapper from '../../fx/ShadowReflectionWrapper';
 
 type Props = {};
 
@@ -22,11 +23,11 @@ const HeaderUl = (props: Props) => {
   ];
 
   return (
-    <>
-      <StyledUl>
-        {links.map(({ href, content }) => {
-          return (
-            <StyledHeaderLi key={href}>
+    <StyledUl>
+      {links.map(({ href, content }) => {
+        return (
+          <StyledHeaderLi key={href}>
+            <ShadowReflectionWrapper>
               <Link
                 className='py-2 cursor-pointer s4:text-base text-2xl header-links'
                 smooth={true}
@@ -47,11 +48,11 @@ const HeaderUl = (props: Props) => {
               >
                 {content}
               </Link>
-            </StyledHeaderLi>
-          );
-        })}
-      </StyledUl>
-    </>
+            </ShadowReflectionWrapper>
+          </StyledHeaderLi>
+        );
+      })}
+    </StyledUl>
   );
 };
 

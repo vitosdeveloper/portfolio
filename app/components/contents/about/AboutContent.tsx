@@ -2,15 +2,16 @@ import { HTMLProps, memo } from 'react';
 import Section from '../../containers/Section';
 import AboutTextComponent from './AboutTextComponent';
 import ImageComponent from './ImageComponent';
+import ShadowReflectionWrapper from '../../fx/ShadowReflectionWrapper';
 
 const AboutContent = () => {
   return (
-    <Section id='#about'>
-      <div className='flex flex-wrap items-center gap-4'>
+    <div className='flex flex-wrap items-center gap-4'>
+      <ShadowReflectionWrapper big circular>
         <ImageComponent />
-        <AboutTextComponent />
-      </div>
-    </Section>
+      </ShadowReflectionWrapper>
+      <AboutTextComponent />
+    </div>
   );
 };
 
@@ -21,7 +22,10 @@ export const AboutTextContainer = ({
   ...props
 }: HTMLProps<HTMLDivElement>) => {
   return (
-    <div className='flex flex-col text-start flex-1 gap-4' {...props}>
+    <div
+      className='flex flex-col items-start pb-10 text-start flex-1 gap-4'
+      {...props}
+    >
       {children}
     </div>
   );

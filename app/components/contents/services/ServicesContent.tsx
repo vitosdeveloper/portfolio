@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import StyledHomeTitle from '../../text/StyledHomeTitle';
 import StyledImage from '../home/StyledImage';
 import { getCookie } from 'cookies-next';
+import ShadowReflectionWrapper from '../../fx/ShadowReflectionWrapper';
 
 const ServicesContent = () => {
   const { t } = useTranslation();
@@ -16,10 +17,19 @@ const ServicesContent = () => {
   }
 
   return (
-    <FlexYContainer style={{ textAlign: 'center' }}>
+    <FlexYContainer
+      style={{ textAlign: 'center', position: 'relative', bottom: '5rem' }}
+    >
       <Reveal y={-75}>
-        <StyledHomeTitle style={{ marginBottom: '1rem' }}>
-          {t('Services')}
+        <StyledHomeTitle
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            paddingTop: '5rem',
+            marginBottom: '1rem',
+          }}
+        >
+          <ShadowReflectionWrapper>{t('Services')}</ShadowReflectionWrapper>
         </StyledHomeTitle>
         <StyledServicesTitle>
           {t('What services do i offer')}
@@ -51,13 +61,15 @@ const ServicesContent = () => {
           className='service_image'
           style={{ margin: '0 auto' }}
         >
-          <Reveal y={175}>
-            <StyledImage
-              $left
-              src={isDark ? 'coding_icon_clean.webp' : 'coding_icon.webp'}
-              alt='service-picture'
-            />
-          </Reveal>
+          <ShadowReflectionWrapper big circular>
+            <Reveal y={175}>
+              <StyledImage
+                $left
+                src={isDark ? 'coding_icon_clean.webp' : 'coding_icon.webp'}
+                alt='service-picture'
+              />
+            </Reveal>
+          </ShadowReflectionWrapper>
         </ServicesImageContainer>
         <ServicesTextContainer className='service_text_two'>
           <Reveal x={75}>
@@ -102,7 +114,10 @@ const ServiceTextContainer = ({
   ...props
 }: HTMLProps<HTMLDivElement>) => {
   return (
-    <div className='s4:h-343px 1300px:h-300px 1400px:h-250px' {...props}>
+    <div
+      className='s4:h-343px 1300px:h-300px 1400px:h-250px flex flex-col items-center'
+      {...props}
+    >
       {children}
     </div>
   );
@@ -138,12 +153,12 @@ const ServicesTitle = ({
   return (
     <h3
       className={`font-jost 400px:text-5xl text-2xl bg-gradient-to-l bg-clip-text text-transparent
-      font-bold block text-center mb-4
-       ${
-         gradientprop
-           ? ' from-color-blue via-color-pink to-color-orange '
-           : ' bg-color-info-light '
-       }`}
+        font-bold block text-center mb-4 mt-10
+        ${
+          gradientprop
+            ? ' from-color-blue via-color-pink to-color-orange '
+            : ' bg-color-info-light '
+        }`}
       {...props}
     >
       {children}

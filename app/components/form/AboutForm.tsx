@@ -1,6 +1,7 @@
 import React, { HTMLProps } from 'react';
 import { BsDownload } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
+import ShadowReflectionWrapper from '../fx/ShadowReflectionWrapper';
 
 const AboutForm = () => {
   const { t, i18n } = useTranslation();
@@ -10,11 +11,12 @@ const AboutForm = () => {
       href={i18n.language == 'br' ? 'resume-br.pdf' : 'resume-eng.pdf'}
       target='_blank'
       rel='noopener noreferrer'
-      style={{ display: 'contents' }}
     >
-      <StyledAboutButton type='button'>
-        {t('DOWNLOAD CV')} <BsDownload />
-      </StyledAboutButton>
+      <ShadowReflectionWrapper big>
+        <StyledAboutButton type='button'>
+          {t('DOWNLOAD CV')} <BsDownload />
+        </StyledAboutButton>
+      </ShadowReflectionWrapper>
     </a>
   );
 };
