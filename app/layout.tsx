@@ -50,7 +50,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const darkClass = (await isDark()) ? '' : 'dark';
+  const darkClass = (await isDark()) ? 'dark' : '';
   return (
     <html lang='pt-BR' className={darkClass}>
       <body
